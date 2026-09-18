@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT ekrandaki UI öğelerini tanımlar ve görselleştirir. Bu hizmet, UI katmanlarını inceleyerek kullanıcıya görünen öğeleri tespit etmeye yardımcı olur ve UI analizi ile otomasyon için kullanışlıdır.</string>
+    <string name="keyboard_name">PhoneGPT Klavye</string>
+    <string name="keyboard_on">PhoneGPT Klavye (AÇIK)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">Ayarlar</string>
+    <string name="accessibility_service_not_enabled">Erişilebilirlik Hizmeti Etkin Değil</string>
+    <string name="enable_now">Şimdi Etkinleştir</string>
+    <string name="accessibility_service">Erişilebilirlik Hizmeti</string>
+    <string name="test_fetching">Alma Testi</string>
+    <string name="notification_access_not_granted">Bildirim Erişimi Verilmedi</string>
+    <string name="enable">Etkinleştir</string>
+    <string name="notification_listener">Bildirim Dinleyicisi</string>
+    <string name="controls_header">Kontroller</string>
+    <string name="overlay_label">Kaplama</string>
+    <string name="overlay_offset_label">Kaplama Ofseti</string>
+    <string name="reset_button">Sıfırla</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">İpucu: Görüş modu kaplama kapalıyken bile çalışır</string>
+    <string name="socket_server_port_label">Soket Sunucu Portu</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">Bağlantı Detayları</string>
+    <string name="socket_status_label">Soket Durumu:</string>
+    <string name="service_not_available">Hizmet kullanılamıyor</string>
+    <string name="network_access_header">Ağ Erişimi</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">Kullanılamıyor</string>
+    <string name="token_label">"Token: "</string>
+    <string name="copy_token_content_description">Token kopyala</string>
+    <string name="adb_forward_command_header">ADB Forward Komutu</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">Uç Noktalar</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">Günlükler</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">WebSocket Ayarları</string>
+    <string name="server_configuration_header">SUNUCU YAPILANDIRMASI</string>
+    <string name="enable_ws_server_label">WS Sunucusunu Etkinleştir</string>
+    <string name="allow_external_connections_label">Harici WS bağlantılarına izin ver</string>
+    <string name="port_label">Port</string>
+    <string name="reverse_connection_header">TERS BAĞLANTI (İSTEMCİ MODU)</string>
+    <string name="connect_to_host_label">Hosta Bağlan</string>
+    <string name="initiate_outbound_connection_label">Giden bağlantı başlat</string>
+    <string name="host_url_hint">Host URL (ws://...)</string>
+    <string name="token_optional_hint">Token (İsteğe Bağlı)</string>
+    <string name="event_filters_header">OLAY FİLTRELERİ</string>
+    <string name="notifications_label">Bildirimler</string>
+    <string name="push_system_notifications_label">Sistem bildirimlerini gönder</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">PhoneGPT\'e\nHoş Geldiniz</string>
+    <string name="onboarding_welcome_subtitle">Sizin yerinize hareket eden bir AI</string>
+    <string name="onboarding_get_started">Başla</string>
+
+    <string name="onboarding_accessibility_title">Erişilebilirlik İzni</string>
+    <string name="onboarding_accessibility_body">Bu cihazın arayüzüne erişmemiz gerekiyor</string>
+    <string name="onboarding_accessibility_card_title">Veri ve cihaz kalır</string>
+    <string name="onboarding_accessibility_safe">Güvenli ve gizli</string>
+    <string name="onboarding_accessibility_no_recording">Ekran kaydı yok</string>
+    <string name="onboarding_accessibility_on_device">Cihazda</string>
+
+    <string name="onboarding_accessibility_guide_title">Erişilebilirlik İzni Ver</string>
+    <string name="onboarding_accessibility_guide_step1">Listede \"PhoneGPT\"e dokunun</string>
+    <string name="onboarding_accessibility_guide_step2">Anahtarı AÇIK konumuna getirin ve onaylayın</string>
+
+    <string name="onboarding_overlay_title">Kaplama İzni</string>
+    <string name="onboarding_overlay_body">Çalışırken kontrolleri göstermemiz gerekiyor</string>
+    <string name="onboarding_overlay_card_title">Kaplama size şunları sağlar</string>
+    <string name="onboarding_overlay_benefit1">Aracıyı kontrol etme</string>
+    <string name="onboarding_overlay_benefit2">Komut verme</string>
+    <string name="onboarding_overlay_benefit3">Neler olduğunu görme</string>
+    <string name="onboarding_overlay_learn_more_message">Kaplama, PhoneGPT\'in diğer uygulamaların üzerinde yüzen bir kontrol paneli göstermesini sağlar. Bu, uygulama değiştirmeden aracıyla etkileşim kurmanızı, komut vermenizi ve ilerlemeyi izlemenizi sağlar.</string>
+
+    <string name="onboarding_overlay_guide_title">Kaplama İzni Ver</string>
+    <string name="onboarding_overlay_guide_step1">Listede \"PhoneGPT\"i bulun</string>
+    <string name="onboarding_overlay_guide_step2">\"Diğer uygulamaların üzerinde göster\"i AÇIK yapın</string>
+
+    <string name="onboarding_recognition_title">Mikrofon İzni</string>
+    <string name="onboarding_recognition_body">Sesli komutlar için mikrofon erişimine ihtiyacımız var</string>
+    <string name="onboarding_recognition_card_title">Sesli kontrol size şunları sağlar</string>
+    <string name="onboarding_recognition_benefit1">Sesle komut verme</string>
+    <string name="onboarding_recognition_benefit2">Eller serbest kontrol</string>
+    <string name="onboarding_recognition_benefit3">Konuşarak daha hızlı çalışma</string>
+    <string name="onboarding_recognition_learn_more_message">Mikrofon izni, PhoneGPT\'in sesli komutlarınızı dinlemesini sağlar. Bu, eller serbest kontrolü etkinleştirir ve konuşma yoluyla aracıyla doğal etkileşimi kolaylaştırır.</string>
+
+    <string name="onboarding_recognition_guide_title">Mikrofon İzni Ver</string>
+    <string name="onboarding_recognition_guide_step1">İstendiğinde \"İzin Ver\"e dokunun</string>
+    <string name="onboarding_recognition_guide_step2">Sesli kontrolü etkinleştirmek için mikrofon erişimi verin</string>
+    <string name="onboarding_recognition_permission_denied">Mikrofon izni reddedildi. Daha sonra ayarlardan etkinleştirebilirsiniz.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT\'in sesli komutlarınızı anlaması için mikrofon erişimine ihtiyacı var.</string>
+    <string name="onboarding_recognition_waiting">İzin vermek için aşağıdaki düğmeye dokunun</string>
+
+    <string name="onboarding_assistant_title">Varsayılan Asistan</string>
+    <string name="onboarding_assistant_body">PhoneGPT\'i varsayılan asistanınız olarak ayarlayın</string>
+    <string name="onboarding_assistant_benefits">Faydalar</string>
+    <string name="onboarding_assistant_benefit1">Her yerden PhoneGPT\'e erişin</string>
+    <string name="onboarding_assistant_benefit2">Ana düğmeye uzun basın</string>
+    <string name="onboarding_assistant_benefit3">Hızlı sesli komutlar</string>
+    <string name="onboarding_assistant_optional">Bu adım isteğe bağlıdır</string>
+
+    <string name="onboarding_success_title">Her Şey Hazır!</string>
+    <string name="onboarding_success_message">PhoneGPT her konuda size yardım etmeye hazır</string>
+
+    <string name="onboarding_button_continue">Devam</string>
+    <string name="onboarding_button_learn_more">Daha Fazla Bilgi</string>
+    <string name="onboarding_button_open_settings">Ayarları Aç</string>
+    <string name="onboarding_button_grant_permission">İzin Ver</string>
+    <string name="onboarding_button_skip">Atla</string>
+    <string name="onboarding_button_back">Geri</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">İzin bekleniyor…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">Birey misiniz yoksa şirket mi?</string>
+    <string name="survey_user_type_individual">Birey</string>
+    <string name="survey_user_type_individual_desc">Kişisel görevler için PhoneGPT kullanıyorum</string>
+    <string name="survey_user_type_company">Şirket</string>
+    <string name="survey_user_type_company_desc">Organizasyonum için PhoneGPT kullanıyorum</string>
+
+    <string name="survey_company_size_question">Şirketinizin büyüklüğü nedir?</string>
+    <string name="survey_company_size_just_me">Sadece ben</string>
+    <string name="survey_company_size_2_10">2–10 çalışan</string>
+    <string name="survey_company_size_11_50">11–50 çalışan</string>
+    <string name="survey_company_size_51_200">51–200 çalışan</string>
+    <string name="survey_company_size_201_1000">201–1.000 çalışan</string>
+    <string name="survey_company_size_1000_plus">1.000+ çalışan</string>
+
+    <string name="survey_industry_question">Hangi sektördesiniz?</string>
+    <string name="survey_industry_technology">Teknoloji</string>
+    <string name="survey_industry_healthcare">Sağlık</string>
+    <string name="survey_industry_finance">Finans</string>
+    <string name="survey_industry_education">Eğitim</string>
+    <string name="survey_industry_retail">Perakende</string>
+    <string name="survey_industry_manufacturing">Üretim</string>
+    <string name="survey_industry_real_estate">Gayrimenkul</string>
+    <string name="survey_industry_transportation">Ulaşım</string>
+    <string name="survey_industry_marketing">Pazarlama</string>
+    <string name="survey_industry_legal">Hukuk</string>
+    <string name="survey_industry_non_profit">Kar Amacı Gütmeyen</string>
+    <string name="survey_industry_government">Devlet</string>
+    <string name="survey_industry_entertainment">Eğlence</string>
+    <string name="survey_industry_hospitality">Konaklama</string>
+    <string name="survey_industry_construction">İnşaat</string>
+    <string name="survey_industry_agriculture">Tarım</string>
+    <string name="survey_industry_other">Diğer</string>
+
+    <string name="survey_role_question_company">Rolünüz nedir?</string>
+    <string name="survey_role_question_individual">İş unvanınız nedir?</string>
+    <string name="survey_role_software_engineer">Yazılım Mühendisi</string>
+    <string name="survey_role_product_manager">Ürün Müdürü</string>
+    <string name="survey_role_designer">Tasarımcı</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">Kurucu</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">Mühendis</string>
+    <string name="survey_role_data_scientist">Veri Bilimci</string>
+    <string name="survey_role_marketing">Pazarlama</string>
+    <string name="survey_role_sales">Satış</string>
+    <string name="survey_role_customer_support">Müşteri Desteği</string>
+    <string name="survey_role_operations">Operasyonlar</string>
+    <string name="survey_role_hr">İnsan Kaynakları</string>
+    <string name="survey_role_finance">Finans</string>
+    <string name="survey_role_analyst">Analist</string>
+    <string name="survey_role_manager">Müdür</string>
+    <string name="survey_role_director">Direktör</string>
+    <string name="survey_role_vp">Başkan Yardımcısı</string>
+    <string name="survey_role_consultant">Danışman</string>
+    <string name="survey_role_freelancer">Serbest Çalışan</string>
+    <string name="survey_role_student">Öğrenci</string>
+    <string name="survey_role_researcher">Araştırmacı</string>
+    <string name="survey_role_teacher">Öğretmen</string>
+    <string name="survey_role_developer">Geliştirici</string>
+    <string name="survey_role_qa">QA/Test</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">Güvenlik</string>
+    <string name="survey_role_admin">Yönetici</string>
+    <string name="survey_role_legal">Hukuk</string>
+    <string name="survey_role_other">Diğer</string>
+    <string name="survey_role_custom_hint">Rolünüzü girin</string>
+
+    <string name="survey_use_case_question">PhoneGPT\'i ne için kullanmak istiyorsunuz?</string>
+    <string name="survey_use_case_hint">Kullanım durumunuzu anlatın…</string>
+    <string name="survey_use_case_error">Lütfen en az 10 karakter girin</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">Profiliniz analiz ediliyor…</string>
+    <string name="survey_personalizing_customizing">PhoneGPT %s için özelleştiriliyor…</string>
+    <string name="survey_personalizing_saving">Tercihleriniz senkronize ediliyor…</string>
+
+    <string name="survey_button_next">İleri</string>
+    <string name="survey_button_finish">Bitir</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">Premium\'a Yükselt</string>
+    <string name="paywall_yearly_price">₺2.799</string>
+    <string name="paywall_yearly_period">/yıl</string>
+    <string name="paywall_yearly_equivalent">₺5.450</string>
+    <string name="paywall_yearly_trial">5 gün ücretsiz deneme</string>
+    <string name="paywall_yearly_badge">EN İYİ DEĞER</string>
+    <string name="paywall_monthly_price">₺449</string>
+    <string name="paywall_monthly_period">/ay</string>
+    <string name="paywall_cta_trial">Ücretsiz Denemeyi Başlat</string>
+    <string name="paywall_cta_subscribe">Şimdi Abone Ol</string>
+    <string name="paywall_cancel_anytime">İstediğiniz zaman iptal edin</string>
+    <string name="paywall_benefit_1">En akıllı AI muhakemesi</string>
+    <string name="paywall_benefit_2">Maksimum kullanım limitleri (3M+ token)</string>
+    <string name="paywall_benefit_3">Günlük görevleri otomatikleştir</string>
+    <string name="paywall_benefit_4">Tüm uygulamalarınıza bağlanın</string>
+    <string name="paywall_benefit_5">VIP öncelikli hız</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">İptal</string>
+    <string name="stripe_upgrade_plan">Planı Yükselt</string>
+    <string name="stripe_task_count">Ücretsiz kredilerinizi kullandınız</string>
+    <string name="stripe_select_billing">Fatura Dönemini Seçin</string>
+    <string name="stripe_yearly">Yıllık</string>
+    <string name="stripe_monthly">Aylık</string>
+    <string name="stripe_yearly_price">₺2.799/yıl</string>
+    <string name="stripe_yearly_savings">Yılda ₺2.651 tasarruf</string>
+    <string name="stripe_yearly_trial">5 gün ücretsiz deneme</string>
+    <string name="stripe_monthly_price">₺449/ay</string>
+    <string name="stripe_best_value">EN İYİ DEĞER</string>
+    <string name="stripe_continue_payment">Ödemeye Devam</string>
+    <string name="stripe_check_icon_desc">Onay işareti simgesi</string>
+    <string name="loading">Yükleniyor…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">İşi gerçekten senin için yapan kişisel asistan. Artık dokunma, kaydırma veya kopyala-yapıştır yok.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">Size nasıl\nyardımcı olabilirim?</string>
+    <string name="suggested_actions_title">Önerilen Eylemler</string>
+    <string name="recent_tasks_title">Son Görevler</string>
+    <string name="action_doordash_title">Doordash sepetime bir burger ekle ve ödeme yap</string>
+    <string name="action_silent_mode_title">Telefonumu iki saat sessiz moda al</string>
+    <string name="action_uber_title">160 Broadway, San Francisco\'ya bir Uber çağır</string>
+    <string name="action_wallpaper_title">En son galeri fotoğrafımı duvar kağıdı yap</string>
+    <string name="input_hint">AI ile sohbet etmek için dokunun</string>
+    <string name="content_description_logo">PhoneGPT Logosu</string>
+    <string name="content_description_profile">Profil</string>
+    <string name="content_description_mic">Mikrofon</string>
+    <string name="content_description_send">Gönder</string>
+    <string name="content_description_settings_icon">Ayarlar</string>
+    <string name="content_description_document_icon">Belge</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">Erişilebilirlik İzni Gerekli</string>
+    <string name="accessibility_required_message">PhoneGPT\'in cihazınızda görevleri yerine getirmesi için erişilebilirlik izni gerekiyor. Lütfen Ayarlar\'da PhoneGPT erişilebilirlik hizmetini etkinleştirin.</string>
+    <string name="go_to_settings">Ayarlara Git</string>
+    <string name="cancel">İptal</string>
+</resources>

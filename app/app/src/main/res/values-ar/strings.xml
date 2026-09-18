@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">يحدد PhoneGPT عناصر واجهة المستخدم على الشاشة ويعرضها. تساعد هذه الخدمة في اكتشاف العناصر المرئية للمستخدم من خلال فحص طبقات الواجهة، وهو أمر مفيد لتحليل الواجهة والأتمتة.</string>
+    <string name="keyboard_name">لوحة مفاتيح PhoneGPT</string>
+    <string name="keyboard_on">لوحة مفاتيح PhoneGPT (مُفعّلة)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">الإعدادات</string>
+    <string name="accessibility_service_not_enabled">خدمة إمكانية الوصول غير مُفعّلة</string>
+    <string name="enable_now">تفعيل الآن</string>
+    <string name="accessibility_service">خدمة إمكانية الوصول</string>
+    <string name="test_fetching">اختبار الجلب</string>
+    <string name="notification_access_not_granted">لم يتم منح الوصول إلى الإشعارات</string>
+    <string name="enable">تفعيل</string>
+    <string name="notification_listener">مستمع الإشعارات</string>
+    <string name="controls_header">عناصر التحكم</string>
+    <string name="overlay_label">التراكب</string>
+    <string name="overlay_offset_label">إزاحة التراكب</string>
+    <string name="reset_button">إعادة تعيين</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">نصيحة: وضع الرؤية يعمل حتى مع إيقاف التراكب</string>
+    <string name="socket_server_port_label">منفذ خادم Socket</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">تفاصيل الاتصال</string>
+    <string name="socket_status_label">حالة Socket:</string>
+    <string name="service_not_available">الخدمة غير متاحة</string>
+    <string name="network_access_header">الوصول إلى الشبكة</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">غير متاح</string>
+    <string name="token_label">"الرمز: "</string>
+    <string name="copy_token_content_description">نسخ الرمز</string>
+    <string name="adb_forward_command_header">أمر ADB Forward</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">نقاط النهاية</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">السجلات</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">إعدادات WebSocket</string>
+    <string name="server_configuration_header">إعداد الخادم</string>
+    <string name="enable_ws_server_label">تفعيل خادم WS</string>
+    <string name="allow_external_connections_label">السماح بالاتصالات الخارجية WS</string>
+    <string name="port_label">المنفذ</string>
+    <string name="reverse_connection_header">الاتصال العكسي (وضع العميل)</string>
+    <string name="connect_to_host_label">الاتصال بالمضيف</string>
+    <string name="initiate_outbound_connection_label">بدء اتصال صادر</string>
+    <string name="host_url_hint">عنوان المضيف (ws://...)</string>
+    <string name="token_optional_hint">الرمز (اختياري)</string>
+    <string name="event_filters_header">فلاتر الأحداث</string>
+    <string name="notifications_label">الإشعارات</string>
+    <string name="push_system_notifications_label">إرسال إشعارات النظام</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">مرحباً بك في\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">ذكاء اصطناعي يتصرف نيابة عنك</string>
+    <string name="onboarding_get_started">ابدأ</string>
+
+    <string name="onboarding_accessibility_title">إذن إمكانية الوصول</string>
+    <string name="onboarding_accessibility_body">نحتاج إلى الوصول إلى واجهة هذا الجهاز</string>
+    <string name="onboarding_accessibility_card_title">البيانات والجهاز تبقى</string>
+    <string name="onboarding_accessibility_safe">آمنة وخاصة</string>
+    <string name="onboarding_accessibility_no_recording">لا تسجيل للشاشة</string>
+    <string name="onboarding_accessibility_on_device">على الجهاز</string>
+
+    <string name="onboarding_accessibility_guide_title">منح إذن إمكانية الوصول</string>
+    <string name="onboarding_accessibility_guide_step1">اضغط على \"PhoneGPT\" في القائمة</string>
+    <string name="onboarding_accessibility_guide_step2">فعّل المفتاح وأكّد</string>
+
+    <string name="onboarding_overlay_title">إذن التراكب</string>
+    <string name="onboarding_overlay_body">نحتاج لعرض عناصر التحكم أثناء العمل</string>
+    <string name="onboarding_overlay_card_title">التراكب يتيح لك</string>
+    <string name="onboarding_overlay_benefit1">التحكم في الوكيل</string>
+    <string name="onboarding_overlay_benefit2">إعطاء الأوامر</string>
+    <string name="onboarding_overlay_benefit3">رؤية ما يحدث</string>
+    <string name="onboarding_overlay_learn_more_message">يسمح التراكب لـ PhoneGPT بعرض لوحة تحكم عائمة فوق التطبيقات الأخرى. هذا يتيح لك التفاعل مع الوكيل وإعطاء الأوامر ومراقبة التقدم دون التبديل بين التطبيقات.</string>
+
+    <string name="onboarding_overlay_guide_title">منح إذن التراكب</string>
+    <string name="onboarding_overlay_guide_step1">ابحث عن \"PhoneGPT\" في القائمة</string>
+    <string name="onboarding_overlay_guide_step2">فعّل \"السماح بالعرض فوق التطبيقات الأخرى\"</string>
+
+    <string name="onboarding_recognition_title">إذن الميكروفون</string>
+    <string name="onboarding_recognition_body">نحتاج إلى الميكروفون للأوامر الصوتية</string>
+    <string name="onboarding_recognition_card_title">التحكم الصوتي يتيح لك</string>
+    <string name="onboarding_recognition_benefit1">إعطاء أوامر بالصوت</string>
+    <string name="onboarding_recognition_benefit2">تحكم بدون استخدام اليدين</string>
+    <string name="onboarding_recognition_benefit3">العمل بشكل أسرع بالكلام</string>
+    <string name="onboarding_recognition_learn_more_message">يسمح إذن الميكروفون لـ PhoneGPT بالاستماع إلى أوامرك الصوتية. هذا يتيح التحكم بدون استخدام اليدين ويسهل التفاعل الطبيعي مع الوكيل من خلال الكلام.</string>
+
+    <string name="onboarding_recognition_guide_title">منح إذن الميكروفون</string>
+    <string name="onboarding_recognition_guide_step1">اضغط على \"السماح\" عند الطلب</string>
+    <string name="onboarding_recognition_guide_step2">امنح الوصول إلى الميكروفون لتفعيل التحكم الصوتي</string>
+    <string name="onboarding_recognition_permission_denied">تم رفض إذن الميكروفون. يمكنك تفعيله لاحقاً في الإعدادات.</string>
+    <string name="onboarding_recognition_rationale">يحتاج PhoneGPT إلى الوصول إلى الميكروفون لفهم أوامرك الصوتية.</string>
+    <string name="onboarding_recognition_waiting">اضغط على الزر أدناه لمنح الإذن</string>
+
+    <string name="onboarding_assistant_title">المساعد الافتراضي</string>
+    <string name="onboarding_assistant_body">اجعل PhoneGPT مساعدك الافتراضي</string>
+    <string name="onboarding_assistant_benefits">المزايا</string>
+    <string name="onboarding_assistant_benefit1">الوصول إلى PhoneGPT من أي مكان</string>
+    <string name="onboarding_assistant_benefit2">اضغط مطولاً على زر الرئيسية</string>
+    <string name="onboarding_assistant_benefit3">أوامر صوتية سريعة</string>
+    <string name="onboarding_assistant_optional">هذه الخطوة اختيارية</string>
+
+    <string name="onboarding_success_title">كل شيء جاهز!</string>
+    <string name="onboarding_success_message">PhoneGPT جاهز لمساعدتك في أي شيء</string>
+
+    <string name="onboarding_button_continue">متابعة</string>
+    <string name="onboarding_button_learn_more">معرفة المزيد</string>
+    <string name="onboarding_button_open_settings">فتح الإعدادات</string>
+    <string name="onboarding_button_grant_permission">منح الإذن</string>
+    <string name="onboarding_button_skip">تخطي</string>
+    <string name="onboarding_button_back">رجوع</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">في انتظار الإذن…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">هل أنت فرد أم شركة؟</string>
+    <string name="survey_user_type_individual">فرد</string>
+    <string name="survey_user_type_individual_desc">أستخدم PhoneGPT للمهام الشخصية</string>
+    <string name="survey_user_type_company">شركة</string>
+    <string name="survey_user_type_company_desc">أستخدم PhoneGPT لمؤسستي</string>
+
+    <string name="survey_company_size_question">ما حجم شركتك؟</string>
+    <string name="survey_company_size_just_me">أنا فقط</string>
+    <string name="survey_company_size_2_10">2–10 موظفين</string>
+    <string name="survey_company_size_11_50">11–50 موظف</string>
+    <string name="survey_company_size_51_200">51–200 موظف</string>
+    <string name="survey_company_size_201_1000">201–1,000 موظف</string>
+    <string name="survey_company_size_1000_plus">+1,000 موظف</string>
+
+    <string name="survey_industry_question">في أي مجال تعمل؟</string>
+    <string name="survey_industry_technology">التكنولوجيا</string>
+    <string name="survey_industry_healthcare">الرعاية الصحية</string>
+    <string name="survey_industry_finance">المالية</string>
+    <string name="survey_industry_education">التعليم</string>
+    <string name="survey_industry_retail">التجزئة</string>
+    <string name="survey_industry_manufacturing">التصنيع</string>
+    <string name="survey_industry_real_estate">العقارات</string>
+    <string name="survey_industry_transportation">النقل</string>
+    <string name="survey_industry_marketing">التسويق</string>
+    <string name="survey_industry_legal">القانون</string>
+    <string name="survey_industry_non_profit">غير ربحي</string>
+    <string name="survey_industry_government">الحكومة</string>
+    <string name="survey_industry_entertainment">الترفيه</string>
+    <string name="survey_industry_hospitality">الضيافة</string>
+    <string name="survey_industry_construction">البناء</string>
+    <string name="survey_industry_agriculture">الزراعة</string>
+    <string name="survey_industry_other">أخرى</string>
+
+    <string name="survey_role_question_company">ما هو دورك؟</string>
+    <string name="survey_role_question_individual">ما هو مسماك الوظيفي؟</string>
+    <string name="survey_role_software_engineer">مهندس برمجيات</string>
+    <string name="survey_role_product_manager">مدير المنتج</string>
+    <string name="survey_role_designer">مصمم</string>
+    <string name="survey_role_ceo">الرئيس التنفيذي</string>
+    <string name="survey_role_founder">مؤسس</string>
+    <string name="survey_role_cto">المدير التقني</string>
+    <string name="survey_role_engineer">مهندس</string>
+    <string name="survey_role_data_scientist">عالم بيانات</string>
+    <string name="survey_role_marketing">تسويق</string>
+    <string name="survey_role_sales">مبيعات</string>
+    <string name="survey_role_customer_support">دعم العملاء</string>
+    <string name="survey_role_operations">العمليات</string>
+    <string name="survey_role_hr">الموارد البشرية</string>
+    <string name="survey_role_finance">المالية</string>
+    <string name="survey_role_analyst">محلل</string>
+    <string name="survey_role_manager">مدير</string>
+    <string name="survey_role_director">مدير تنفيذي</string>
+    <string name="survey_role_vp">نائب الرئيس</string>
+    <string name="survey_role_consultant">مستشار</string>
+    <string name="survey_role_freelancer">مستقل</string>
+    <string name="survey_role_student">طالب</string>
+    <string name="survey_role_researcher">باحث</string>
+    <string name="survey_role_teacher">معلم</string>
+    <string name="survey_role_developer">مطور</string>
+    <string name="survey_role_qa">ضمان الجودة/الاختبار</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">الأمن</string>
+    <string name="survey_role_admin">مسؤول</string>
+    <string name="survey_role_legal">قانوني</string>
+    <string name="survey_role_other">أخرى</string>
+    <string name="survey_role_custom_hint">أدخل دورك</string>
+
+    <string name="survey_use_case_question">لماذا تريد استخدام PhoneGPT؟</string>
+    <string name="survey_use_case_hint">أخبرنا عن حالة استخدامك…</string>
+    <string name="survey_use_case_error">يرجى إدخال 10 أحرف على الأقل</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">جاري تحليل ملفك الشخصي…</string>
+    <string name="survey_personalizing_customizing">جاري تخصيص PhoneGPT لـ %s…</string>
+    <string name="survey_personalizing_saving">جاري مزامنة تفضيلاتك…</string>
+
+    <string name="survey_button_next">التالي</string>
+    <string name="survey_button_finish">إنهاء</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">الترقية إلى Premium</string>
+    <string name="paywall_yearly_price">$79.99</string>
+    <string name="paywall_yearly_period">/سنة</string>
+    <string name="paywall_yearly_equivalent">$155.88</string>
+    <string name="paywall_yearly_trial">5 أيام تجربة مجانية</string>
+    <string name="paywall_yearly_badge">أفضل قيمة</string>
+    <string name="paywall_monthly_price">$12.99</string>
+    <string name="paywall_monthly_period">/شهر</string>
+    <string name="paywall_cta_trial">بدء التجربة المجانية</string>
+    <string name="paywall_cta_subscribe">اشترك الآن</string>
+    <string name="paywall_cancel_anytime">إلغاء في أي وقت</string>
+    <string name="paywall_benefit_1">أذكى استنتاج AI</string>
+    <string name="paywall_benefit_2">أقصى حدود الاستخدام (3M+ رمز)</string>
+    <string name="paywall_benefit_3">أتمتة المهام اليومية</string>
+    <string name="paywall_benefit_4">الاتصال بجميع تطبيقاتك</string>
+    <string name="paywall_benefit_5">سرعة أولوية VIP</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">إلغاء</string>
+    <string name="stripe_upgrade_plan">ترقية الخطة</string>
+    <string name="stripe_task_count">لقد استخدمت رصيدك المجاني</string>
+    <string name="stripe_select_billing">اختر فترة الفوترة</string>
+    <string name="stripe_yearly">سنوي</string>
+    <string name="stripe_monthly">شهري</string>
+    <string name="stripe_yearly_price">$79.99/سنة</string>
+    <string name="stripe_yearly_savings">وفر $75.89/سنة</string>
+    <string name="stripe_yearly_trial">5 أيام تجربة مجانية</string>
+    <string name="stripe_monthly_price">$12.99/شهر</string>
+    <string name="stripe_best_value">أفضل قيمة</string>
+    <string name="stripe_continue_payment">المتابعة للدفع</string>
+    <string name="stripe_check_icon_desc">أيقونة علامة صح</string>
+    <string name="loading">جاري التحميل…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">المساعد الشخصي الذي يقوم فعلاً بالعمل نيابة عنك. لا مزيد من النقر أو التمرير أو النسخ واللصق.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">كيف يمكنني\nمساعدتك؟</string>
+    <string name="suggested_actions_title">إجراءات مقترحة</string>
+    <string name="recent_tasks_title">المهام الأخيرة</string>
+    <string name="action_doordash_title">أضف برجر إلى سلة Doordash وأتمم الشراء</string>
+    <string name="action_silent_mode_title">ضع هاتفي على الصامت لمدة ساعتين</string>
+    <string name="action_uber_title">احجز لي Uber إلى 160 Broadway, San Francisco</string>
+    <string name="action_wallpaper_title">اجعل أحدث صورة في معرضي خلفية الشاشة</string>
+    <string name="input_hint">اضغط للدردشة مع AI</string>
+    <string name="content_description_logo">شعار PhoneGPT</string>
+    <string name="content_description_profile">الملف الشخصي</string>
+    <string name="content_description_mic">الميكروفون</string>
+    <string name="content_description_send">إرسال</string>
+    <string name="content_description_settings_icon">الإعدادات</string>
+    <string name="content_description_document_icon">مستند</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">مطلوب إذن إمكانية الوصول</string>
+    <string name="accessibility_required_message">يحتاج PhoneGPT إلى إذن إمكانية الوصول لتنفيذ المهام على جهازك. يرجى تفعيل خدمة إمكانية الوصول لـ PhoneGPT في الإعدادات.</string>
+    <string name="go_to_settings">الذهاب إلى الإعدادات</string>
+    <string name="cancel">إلغاء</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Half circle on the left -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/androiduse_error" />
+            <size
+                android:width="56dp"
+                android:height="56dp" />
+        </shape>
+    </item>
+    <!-- Rectangle on the right to complete the tab shape -->
+    <item
+        android:left="28dp"
+        android:right="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/androiduse_error" />
+            <corners
+                android:topRightRadius="8dp"
+                android:bottomRightRadius="8dp"
+                android:topLeftRadius="0dp"
+                android:bottomLeftRadius="0dp" />
+        </shape>
+    </item>
+</layer-list>

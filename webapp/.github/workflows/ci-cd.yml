@@ -1,0 +1,262 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # ===========================================
+  # Lint and Type Check
+  # ===========================================
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: pnpm db:generate
+
+      - name: Run linter
+        run: pnpm lint
+
+      - name: Run type check
+        run: pnpm type-check
+
+  # ===========================================
+  # Build
+  # ===========================================
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: pnpm db:generate
+
+      - name: Copy production env
+        run: cp .env.production .env
+
+      - name: Build all apps
+        run: pnpm build
+        env:
+          # Skip env validation during CI build
+          SKIP_ENV_VALIDATION: true
+
+      - name: Upload build artifacts (frontend)
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: apps/frontend/.next
+          retention-days: 7
+
+      - name: Upload build artifacts (admin)
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-build
+          path: apps/admin/.next
+          retention-days: 7
+
+  # ===========================================
+  # Tag Release (only on main branch)
+  # ===========================================
+  tag-release:
+    name: Tag Release
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      tag_created: ${{ steps.check_tag.outputs.tag_created }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get package version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Package version: $VERSION"
+
+      - name: Check if tag exists
+        id: check_tag
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "Tag v$VERSION already exists"
+            echo "tag_created=false" >> $GITHUB_OUTPUT
+          else
+            echo "Tag v$VERSION does not exist, will create"
+            echo "tag_created=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Git tag
+        if: steps.check_tag.outputs.tag_created == 'true'
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v$VERSION" -m "Release v$VERSION"
+          git push origin "v$VERSION"
+
+      - name: Create GitHub Release
+        if: steps.check_tag.outputs.tag_created == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+          body: |
+            ## Release v${{ steps.version.outputs.version }}
+
+            ### Changes
+            See [commits since last release](https://github.com/${{ github.repository }}/compare/...v${{ steps.version.outputs.version }})
+
+            ### Build Information
+            - **Commit**: ${{ github.sha }}
+            - **Built at**: ${{ github.event.head_commit.timestamp }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+
+  # ===========================================
+  # Docker Build & Push
+  # ===========================================
+  docker:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: pnpm db:generate
+
+      - name: Copy production env
+        run: cp .env.production .env
+
+      - name: Build apps
+        run: pnpm build
+        env:
+          SKIP_ENV_VALIDATION: true
+
+      - name: Package standalone builds
+        run: |
+          rm -rf dist
+          mkdir -p dist/frontend dist/admin
+
+          # Package frontend
+          cp -r apps/frontend/.next/standalone/* dist/frontend/
+          mkdir -p dist/frontend/apps/frontend/.next
+          cp -r apps/frontend/.next/static dist/frontend/apps/frontend/.next/
+          if [ -d "apps/frontend/public" ]; then
+            cp -r apps/frontend/public dist/frontend/apps/frontend/
+          fi
+
+          # Package admin
+          cp -r apps/admin/.next/standalone/* dist/admin/
+          mkdir -p dist/admin/apps/admin/.next
+          cp -r apps/admin/.next/static dist/admin/apps/admin/.next/
+          if [ -d "apps/admin/public" ]; then
+            cp -r apps/admin/public dist/admin/apps/admin/
+          fi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get version
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Normalize repository name
+        id: repo
+        run: echo "name=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Build and push frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.frontend
+          push: true
+          tags: |
+            ghcr.io/${{ steps.repo.outputs.name }}/frontend:${{ steps.version.outputs.version }}
+            ghcr.io/${{ steps.repo.outputs.name }}/frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push admin
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.admin
+          push: true
+          tags: |
+            ghcr.io/${{ steps.repo.outputs.name }}/admin:${{ steps.version.outputs.version }}
+            ghcr.io/${{ steps.repo.outputs.name }}/admin:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

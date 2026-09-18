@@ -1,0 +1,123 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "AUTH_SECRET",
+    "NEXT_PUBLIC_*"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "^db:generate"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env",
+        ".env.production"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ],
+      "env": [
+        "DATABASE_URL",
+        "AUTH_SECRET",
+        "AUTH_*",
+        "AWS_*",
+        "NEXT_PUBLIC_*",
+        "SENTRY_*",
+        "SENDGRID_API_KEY",
+        "EMAIL_SERVICE_URL",
+        "CRON_SECRET"
+      ]
+    },
+    "dev": {
+      "dependsOn": ["^db:generate"],
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".eslintrc*",
+        "eslint.config.*"
+      ],
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "tsconfig.json",
+        "tsconfig.*.json"
+      ],
+      "outputs": [
+        "*.tsbuildinfo"
+      ]
+    },
+    "db:generate": {
+      "inputs": [
+        "prisma/schema.prisma",
+        "prisma.config.ts",
+        ".env",
+        ".env.local"
+      ],
+      "outputs": [
+        "**/generated/**"
+      ],
+      "env": [
+        "DATABASE_URL"
+      ]
+    },
+    "db:push": {
+      "dependsOn": ["db:generate"],
+      "cache": false,
+      "env": [
+        "DATABASE_URL"
+      ]
+    },
+    "db:migrate": {
+      "dependsOn": ["db:generate"],
+      "cache": false,
+      "env": [
+        "DATABASE_URL"
+      ]
+    },
+    "db:studio": {
+      "dependsOn": ["db:generate"],
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "DATABASE_URL"
+      ]
+    },
+    "test": {
+      "dependsOn": ["^build", "^db:generate"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/*.{test,spec}.{ts,tsx}",
+        "vitest.config.ts",
+        "vitest.setup.ts"
+      ],
+      "outputs": ["coverage/**"],
+      "cache": true
+    },
+    "test:watch": {
+      "dependsOn": ["^db:generate"],
+      "cache": false,
+      "persistent": true
+    },
+    "test:coverage": {
+      "dependsOn": ["^build", "^db:generate"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/*.{test,spec}.{ts,tsx}"
+      ],
+      "outputs": ["coverage/**"],
+      "cache": true
+    }
+  }
+}
+

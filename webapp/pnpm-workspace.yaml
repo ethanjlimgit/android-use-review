@@ -1,0 +1,15 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@firebase/util'
+  - '@prisma/engines'
+  - '@sentry/cli'
+  - bufferutil
+  - core-js
+  - msw
+  - prisma
+  - protobufjs
+  - sharp
+  - unrs-resolver

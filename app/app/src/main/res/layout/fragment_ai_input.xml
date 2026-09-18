@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="8dp"
+    android:paddingVertical="8dp">
+
+    <!-- Input Text Field -->
+    <EditText
+        android:id="@+id/instructionInput"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginEnd="@dimen/spacing_sm"
+        android:background="@android:color/transparent"
+        android:hint="@string/input_hint"
+        android:textColorHint="@color/text_hint"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_size_hint"
+        android:inputType="text"
+        android:imeOptions="actionSend"
+        android:maxLines="1"
+        android:importantForAutofill="no" />
+
+    <!-- Combined Mic/Send Button -->
+    <FrameLayout
+        android:id="@+id/actionButton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_button_accent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Mic Icon (shown when input is empty) -->
+        <ImageView
+            android:id="@+id/micIcon"
+            android:layout_width="@dimen/icon_size_medium"
+            android:layout_height="@dimen/icon_size_medium"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mic"
+            android:contentDescription="@string/content_description_mic"
+            app:tint="@color/white" />
+
+        <!-- Send Icon (shown when input has text) -->
+        <ImageView
+            android:id="@+id/sendIcon"
+            android:layout_width="@dimen/icon_size_medium"
+            android:layout_height="@dimen/icon_size_medium"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_send"
+            android:contentDescription="@string/content_description_send"
+            android:visibility="gone"
+            app:tint="@color/white" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPTは画面上のUI要素を識別して視覚化します。このサービスはUIのレイヤーを調べてユーザーに見える要素を検出するのに役立ち、UI分析と自動化に便利です。</string>
+    <string name="keyboard_name">PhoneGPTキーボード</string>
+    <string name="keyboard_on">PhoneGPTキーボード（ON）</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">設定</string>
+    <string name="accessibility_service_not_enabled">ユーザー補助サービスが有効になっていません</string>
+    <string name="enable_now">今すぐ有効にする</string>
+    <string name="accessibility_service">ユーザー補助サービス</string>
+    <string name="test_fetching">フェッチテスト</string>
+    <string name="notification_access_not_granted">通知アクセスが許可されていません</string>
+    <string name="enable">有効にする</string>
+    <string name="notification_listener">通知リスナー</string>
+    <string name="controls_header">コントロール</string>
+    <string name="overlay_label">オーバーレイ</string>
+    <string name="overlay_offset_label">オーバーレイオフセット</string>
+    <string name="reset_button">リセット</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">ヒント：ビジョンモードはオーバーレイがオフでも動作します</string>
+    <string name="socket_server_port_label">ソケットサーバーポート</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">接続詳細</string>
+    <string name="socket_status_label">ソケット状態：</string>
+    <string name="service_not_available">サービスを利用できません</string>
+    <string name="network_access_header">ネットワークアクセス</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">利用不可</string>
+    <string name="token_label">"トークン: "</string>
+    <string name="copy_token_content_description">トークンをコピー</string>
+    <string name="adb_forward_command_header">ADBフォワードコマンド</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">エンドポイント</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">ログ</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">WebSocket設定</string>
+    <string name="server_configuration_header">サーバー設定</string>
+    <string name="enable_ws_server_label">WSサーバーを有効にする</string>
+    <string name="allow_external_connections_label">外部WS接続を許可</string>
+    <string name="port_label">ポート</string>
+    <string name="reverse_connection_header">リバース接続（クライアントモード）</string>
+    <string name="connect_to_host_label">ホストに接続</string>
+    <string name="initiate_outbound_connection_label">アウトバウンド接続を開始</string>
+    <string name="host_url_hint">ホストURL (ws://...)</string>
+    <string name="token_optional_hint">トークン（オプション）</string>
+    <string name="event_filters_header">イベントフィルター</string>
+    <string name="notifications_label">通知</string>
+    <string name="push_system_notifications_label">システム通知をプッシュ</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">PhoneGPTへ\nようこそ</string>
+    <string name="onboarding_welcome_subtitle">あなたの代わりに行動するAI</string>
+    <string name="onboarding_get_started">始める</string>
+
+    <string name="onboarding_accessibility_title">ユーザー補助の許可</string>
+    <string name="onboarding_accessibility_body">このデバイスのインターフェースにアクセスする必要があります</string>
+    <string name="onboarding_accessibility_card_title">データとデバイスは</string>
+    <string name="onboarding_accessibility_safe">安全でプライベート</string>
+    <string name="onboarding_accessibility_no_recording">画面録画なし</string>
+    <string name="onboarding_accessibility_on_device">デバイス上で処理</string>
+
+    <string name="onboarding_accessibility_guide_title">ユーザー補助の許可を付与</string>
+    <string name="onboarding_accessibility_guide_step1">リストで「PhoneGPT」をタップ</string>
+    <string name="onboarding_accessibility_guide_step2">スイッチをONにして確認</string>
+
+    <string name="onboarding_overlay_title">オーバーレイの許可</string>
+    <string name="onboarding_overlay_body">作業中にコントロールを表示する必要があります</string>
+    <string name="onboarding_overlay_card_title">オーバーレイでできること</string>
+    <string name="onboarding_overlay_benefit1">エージェントを制御</string>
+    <string name="onboarding_overlay_benefit2">コマンドを与える</string>
+    <string name="onboarding_overlay_benefit3">何が起きているか確認</string>
+    <string name="onboarding_overlay_learn_more_message">オーバーレイ機能により、PhoneGPTは他のアプリの上にフローティングコントロールパネルを表示できます。アプリを切り替えずに、エージェントと対話し、コマンドを与え、進捗を監視できます。</string>
+
+    <string name="onboarding_overlay_guide_title">オーバーレイの許可を付与</string>
+    <string name="onboarding_overlay_guide_step1">リストで「PhoneGPT」を見つける</string>
+    <string name="onboarding_overlay_guide_step2">「他のアプリの上に表示」をONにする</string>
+
+    <string name="onboarding_recognition_title">マイクの許可</string>
+    <string name="onboarding_recognition_body">音声コマンドにマイクアクセスが必要です</string>
+    <string name="onboarding_recognition_card_title">音声操作でできること</string>
+    <string name="onboarding_recognition_benefit1">声でコマンドを与える</string>
+    <string name="onboarding_recognition_benefit2">ハンズフリー操作</string>
+    <string name="onboarding_recognition_benefit3">音声でより速く作業</string>
+    <string name="onboarding_recognition_learn_more_message">マイク許可により、PhoneGPTはあなたの音声コマンドを聞くことができます。ハンズフリー操作が可能になり、音声を通じてエージェントと自然に対話できます。</string>
+
+    <string name="onboarding_recognition_guide_title">マイクの許可を付与</string>
+    <string name="onboarding_recognition_guide_step1">プロンプトが表示されたら「許可」をタップ</string>
+    <string name="onboarding_recognition_guide_step2">音声操作を有効にするためマイクアクセスを許可</string>
+    <string name="onboarding_recognition_permission_denied">マイクの許可が拒否されました。後で設定で有効にできます。</string>
+    <string name="onboarding_recognition_rationale">PhoneGPTが音声コマンドを理解するにはマイクアクセスが必要です。</string>
+    <string name="onboarding_recognition_waiting">下のボタンをタップして許可を付与してください</string>
+
+    <string name="onboarding_assistant_title">デフォルトアシスタント</string>
+    <string name="onboarding_assistant_body">PhoneGPTをデフォルトアシスタントに設定</string>
+    <string name="onboarding_assistant_benefits">メリット</string>
+    <string name="onboarding_assistant_benefit1">どこからでもPhoneGPTにアクセス</string>
+    <string name="onboarding_assistant_benefit2">ホームボタン長押し</string>
+    <string name="onboarding_assistant_benefit3">クイック音声コマンド</string>
+    <string name="onboarding_assistant_optional">このステップはオプションです</string>
+
+    <string name="onboarding_success_title">準備完了！</string>
+    <string name="onboarding_success_message">PhoneGPTは何でもお手伝いする準備ができています</string>
+
+    <string name="onboarding_button_continue">続ける</string>
+    <string name="onboarding_button_learn_more">詳細を見る</string>
+    <string name="onboarding_button_open_settings">設定を開く</string>
+    <string name="onboarding_button_grant_permission">許可を付与</string>
+    <string name="onboarding_button_skip">スキップ</string>
+    <string name="onboarding_button_back">戻る</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">許可を待っています…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">個人ですか、それとも企業ですか？</string>
+    <string name="survey_user_type_individual">個人</string>
+    <string name="survey_user_type_individual_desc">個人的なタスクにPhoneGPTを使用しています</string>
+    <string name="survey_user_type_company">企業</string>
+    <string name="survey_user_type_company_desc">組織のためにPhoneGPTを使用しています</string>
+
+    <string name="survey_company_size_question">会社の規模は？</string>
+    <string name="survey_company_size_just_me">自分だけ</string>
+    <string name="survey_company_size_2_10">2〜10人</string>
+    <string name="survey_company_size_11_50">11〜50人</string>
+    <string name="survey_company_size_51_200">51〜200人</string>
+    <string name="survey_company_size_201_1000">201〜1,000人</string>
+    <string name="survey_company_size_1000_plus">1,000人以上</string>
+
+    <string name="survey_industry_question">どの業界ですか？</string>
+    <string name="survey_industry_technology">テクノロジー</string>
+    <string name="survey_industry_healthcare">ヘルスケア</string>
+    <string name="survey_industry_finance">金融</string>
+    <string name="survey_industry_education">教育</string>
+    <string name="survey_industry_retail">小売</string>
+    <string name="survey_industry_manufacturing">製造</string>
+    <string name="survey_industry_real_estate">不動産</string>
+    <string name="survey_industry_transportation">運輸</string>
+    <string name="survey_industry_marketing">マーケティング</string>
+    <string name="survey_industry_legal">法務</string>
+    <string name="survey_industry_non_profit">非営利</string>
+    <string name="survey_industry_government">政府</string>
+    <string name="survey_industry_entertainment">エンターテインメント</string>
+    <string name="survey_industry_hospitality">ホスピタリティ</string>
+    <string name="survey_industry_construction">建設</string>
+    <string name="survey_industry_agriculture">農業</string>
+    <string name="survey_industry_other">その他</string>
+
+    <string name="survey_role_question_company">あなたの役職は？</string>
+    <string name="survey_role_question_individual">あなたの職種は？</string>
+    <string name="survey_role_software_engineer">ソフトウェアエンジニア</string>
+    <string name="survey_role_product_manager">プロダクトマネージャー</string>
+    <string name="survey_role_designer">デザイナー</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">創業者</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">エンジニア</string>
+    <string name="survey_role_data_scientist">データサイエンティスト</string>
+    <string name="survey_role_marketing">マーケティング</string>
+    <string name="survey_role_sales">営業</string>
+    <string name="survey_role_customer_support">カスタマーサポート</string>
+    <string name="survey_role_operations">オペレーション</string>
+    <string name="survey_role_hr">人事</string>
+    <string name="survey_role_finance">財務</string>
+    <string name="survey_role_analyst">アナリスト</string>
+    <string name="survey_role_manager">マネージャー</string>
+    <string name="survey_role_director">ディレクター</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">コンサルタント</string>
+    <string name="survey_role_freelancer">フリーランス</string>
+    <string name="survey_role_student">学生</string>
+    <string name="survey_role_researcher">研究者</string>
+    <string name="survey_role_teacher">教師</string>
+    <string name="survey_role_developer">デベロッパー</string>
+    <string name="survey_role_qa">QA/テスト</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">セキュリティ</string>
+    <string name="survey_role_admin">管理者</string>
+    <string name="survey_role_legal">法務</string>
+    <string name="survey_role_other">その他</string>
+    <string name="survey_role_custom_hint">役職を入力</string>
+
+    <string name="survey_use_case_question">PhoneGPTを何に使いたいですか？</string>
+    <string name="survey_use_case_hint">ユースケースを教えてください…</string>
+    <string name="survey_use_case_error">10文字以上入力してください</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">プロフィールを分析中…</string>
+    <string name="survey_personalizing_customizing">%sのためにPhoneGPTをカスタマイズ中…</string>
+    <string name="survey_personalizing_saving">設定を同期中…</string>
+
+    <string name="survey_button_next">次へ</string>
+    <string name="survey_button_finish">完了</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">プレミアムにアップグレード</string>
+    <string name="paywall_yearly_price">¥11,800</string>
+    <string name="paywall_yearly_period">/年</string>
+    <string name="paywall_yearly_equivalent">¥23,000</string>
+    <string name="paywall_yearly_trial">5日間無料トライアル</string>
+    <string name="paywall_yearly_badge">お得</string>
+    <string name="paywall_monthly_price">¥1,900</string>
+    <string name="paywall_monthly_period">/月</string>
+    <string name="paywall_cta_trial">無料トライアルを開始</string>
+    <string name="paywall_cta_subscribe">今すぐ登録</string>
+    <string name="paywall_cancel_anytime">いつでもキャンセル可能</string>
+    <string name="paywall_benefit_1">最も賢いAI推論</string>
+    <string name="paywall_benefit_2">最大使用制限（300万+トークン）</string>
+    <string name="paywall_benefit_3">日常タスクを自動化</string>
+    <string name="paywall_benefit_4">すべてのアプリと連携</string>
+    <string name="paywall_benefit_5">VIP優先速度</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">キャンセル</string>
+    <string name="stripe_upgrade_plan">プランをアップグレード</string>
+    <string name="stripe_task_count">無料クレジットを使い切りました</string>
+    <string name="stripe_select_billing">請求期間を選択</string>
+    <string name="stripe_yearly">年間</string>
+    <string name="stripe_monthly">月間</string>
+    <string name="stripe_yearly_price">¥11,800/年</string>
+    <string name="stripe_yearly_savings">¥11,000/年お得</string>
+    <string name="stripe_yearly_trial">5日間無料トライアル</string>
+    <string name="stripe_monthly_price">¥1,900/月</string>
+    <string name="stripe_best_value">お得</string>
+    <string name="stripe_continue_payment">お支払いへ進む</string>
+    <string name="stripe_check_icon_desc">チェックマークアイコン</string>
+    <string name="loading">読み込み中…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">あなたの代わりに実際に仕事をするパーソナルアシスタント。タップも、スクロールも、コピペも、もう不要。</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">何をお手伝い\nしましょうか？</string>
+    <string name="suggested_actions_title">おすすめのアクション</string>
+    <string name="recent_tasks_title">最近のタスク</string>
+    <string name="action_doordash_title">Doordashのカートにバーガーを追加して注文</string>
+    <string name="action_silent_mode_title">2時間スマホをサイレントモードに</string>
+    <string name="action_uber_title">160 Broadway, San FranciscoまでUberを呼んで</string>
+    <string name="action_wallpaper_title">最新のギャラリー写真を壁紙に設定</string>
+    <string name="input_hint">タップしてAIとチャット</string>
+    <string name="content_description_logo">PhoneGPTロゴ</string>
+    <string name="content_description_profile">プロフィール</string>
+    <string name="content_description_mic">マイク</string>
+    <string name="content_description_send">送信</string>
+    <string name="content_description_settings_icon">設定</string>
+    <string name="content_description_document_icon">ドキュメント</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">ユーザー補助の許可が必要です</string>
+    <string name="accessibility_required_message">PhoneGPTがデバイスでタスクを実行するには、ユーザー補助の許可が必要です。設定でPhoneGPTユーザー補助サービスを有効にしてください。</string>
+    <string name="go_to_settings">設定へ移動</string>
+    <string name="cancel">キャンセル</string>
+</resources>

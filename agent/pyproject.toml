@@ -1,0 +1,200 @@
+[project]
+name = "droiduse-backend"
+version = "0.5.0"
+description = "Backend service for device automation through LLM agents"
+authors = [{ name = "Niels Schmidt", email = "niels.schmidt@droiduse.ai" }]
+dependencies = [
+    "litellm>=1.50.0",
+    "Pillow>=10.0.0",
+    "posthog>=6.7.6",
+    "pydantic>=2.11.10",
+    "rich>=14.1.0",
+    "httpx>=0.27.0",
+    "websockets>=12.0",
+    "aiofiles>=25.1.0",
+    "aiohttp>=3.9.0",
+    "PyJWT>=2.8.0",
+    "opentelemetry-sdk>=1.24.0",
+    "opentelemetry-api>=1.24.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.34.0",
+]
+requires-python = ">=3.11,<3.14"
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Communications :: Chat",
+    "Topic :: Software Development :: Testing :: Acceptance",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: System :: Emulators",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/droiduse/droiduse-backend"
+"Bug Tracker" = "https://github.com/droiduse/droiduse-backend/issues"
+Documentation = "https://docs.droiduse.ai/"
+
+[project.optional-dependencies]
+anthropic = [
+    "anthropic>=0.67.0",
+]
+openai = [
+    "openai>=1.99.1",
+]
+google = [
+    "google-generativeai>=0.5.0",
+]
+deepseek = []
+ollama = []
+groq = []
+dev = [
+    "black==25.9.0",
+    "ruff>=0.13.0",
+    "mypy>=1.0.0",
+    "bandit>=1.8.6",
+    "safety>=3.2.11",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=1.3.0",
+    "pytest-timeout>=2.2.0",
+    "pre-commit>=4.0.0",
+    "droiduse-backend[google]",
+    "droiduse-backend[anthropic]",
+    "droiduse-backend[audio]",
+]
+openrouter = []
+langfuse = [
+    "langfuse>=2.0.0",
+]
+phoenix = [
+    "arize-phoenix>=12.3.0",
+]
+mobilerun = [
+    "mobilerun-sdk",
+]
+audio = [
+    "sounddevice>=0.4.0",
+    "numpy>=1.24.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["droiduse_backend"]
+
+[project.scripts]
+droiduse-backend = "droiduse_backend.cli.main:cli"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "B", # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long (handled by black)
+    "F841",  # local variable assigned but never used
+]
+
+[[tool.pydoc-markdown.loaders]]
+type = "python"
+packages = ["droiduse_backend"]
+modules = ["droiduse_backend"]
+
+[[tool.pydoc-markdown.processors]]
+type = "filter"
+documented_only = false
+do_not_filter_modules = true
+skip_empty_modules = true
+
+[[tool.pydoc-markdown.processors]]
+type = "smart"
+
+[[tool.pydoc-markdown.processors]]
+type = "crossref"
+
+[tool.pydoc-markdown.renderer]
+type = "hugo"
+build_directory = "docs"
+content_directory = "v4/sdk"
+clean_render = true
+
+
+[tool.pydoc-markdown.renderer.markdown]
+classdef_with_decorators = false
+signature_with_decorators = false
+data_code_block = true
+descriptive_class_title = false
+render_module_header = false
+format_code_style = "facebook"
+add_module_prefix = false
+add_method_class_prefix = true
+
+header_level_by_type = { Module = 1, Class = 2, Method = 4, Function = 4, Variable = 4 }
+
+
+[[tool.pydoc-markdown.renderer.pages]]
+title = "DroidAgent"
+name = "droid-agent"
+contents = [
+    "droiduse_backend.agent.droid.droid_agent.DroidAgent",
+    "droiduse_backend.agent.droid.droid_agent.DroidAgent.__init__",
+    "droiduse_backend.agent.droid.droid_agent.DroidAgent.run",
+]
+
+[[tool.pydoc-markdown.renderer.pages]]
+title = "Tools"
+name = "base-tools"
+contents = [
+    "droiduse_backend.tools.tools.Tools.*",
+    "droiduse_backend.tools.tools.describe_tools",
+]
+
+[[tool.pydoc-markdown.renderer.pages]]
+title = "IOSTools"
+name = "ios-tools"
+contents = ["droiduse_backend.tools.ios.IOSTools.*"]
+
+[[tool.pydoc-markdown.renderer.pages]]
+title = "CloudTools"
+name = "cloud-tools"
+contents = ["droiduse_backend.tools.cloud.MobileRunTools.*"]
+
+[tool.uv.sources]
+mobilerun-sdk = { git = "ssh://git@github.com/droidrun/mobilerun-sdk-python.git", branch = "next" }
+
+[dependency-groups]
+dev = [
+    "bandit>=1.8.6",
+    "black==25.9.0",
+    "mypy>=1.0.0",
+    "pre-commit>=4.0.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=1.3.0",
+    "pytest-timeout>=2.2.0",
+    "ruff>=0.13.0",
+    "safety>=3.2.11",
+]

@@ -1,0 +1,25 @@
+{
+  "name": "@droiduse/email-components",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./hooks": "./hooks.ts",
+    "./types": "./types.ts"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.3",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

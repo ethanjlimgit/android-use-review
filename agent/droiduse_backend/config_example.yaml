@@ -1,0 +1,380 @@
+# DroidUse Backend Configuration File
+# Copy this to config.yaml and edit values as needed.
+
+# === API Keys ===
+# Centralized API keys for all services
+# Falls back to environment variables if not set here
+api_keys:
+  # LLM Provider API Keys
+  google_api_key: ""      # GOOGLE_API_KEY (for GoogleGenAI/Gemini)
+  openai_api_key: ""      # OPENAI_API_KEY (for OpenAI/OpenAILike)
+  anthropic_api_key: ""   # ANTHROPIC_API_KEY (for Anthropic)
+  deepseek_api_key: ""    # DEEPSEEK_API_KEY (for DeepSeek)
+  groq_api_key: ""        # GROQ_API_KEY (for Groq)
+
+# === Agent Settings ===
+agent:
+  # Agent type: "droiduse" (native agents) or external agent name (e.g., "autoglm")
+  # When using external agents, configure them in the external_agents section below
+  name: droiduse
+  # Enable semantic element selection for actions
+  use_semantic_actions: true
+  # Maximum number of steps per task
+  max_steps: 30
+  # Maximum execution time per task (seconds)
+  max_time: 600.0
+  # Enable planning with reasoning mode
+  reasoning: false
+  # Enable streaming LLM responses to console in real-time
+  streaming: true
+  # Sleep duration after each action, waits for ui state to be updated (seconds)
+  after_sleep_action: 1.0
+  # Wait duration for UI to stabilize (seconds)
+  wait_for_stable_ui: 0.3
+  # Base directory for prompt templates
+  prompts_dir: config/prompts
+
+  # CodeAct Agent Configuration - Generates and executes code actions
+  codeact:
+    # Enable vision capabilities (screenshots)
+    vision: false
+    # System prompt filename (located in prompts_dir/codeact/)
+    system_prompt: system.jinja2
+    # User prompt filename (located in prompts_dir/codeact/)
+    user_prompt: user.jinja2
+    # Enable safe code execution (restricts imports and builtins)
+    safe_execution: false
+    # LLM settings
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.2
+
+  # Manager Agent Configuration - Plans and reasons about task progress
+  manager:
+    # Enable vision capabilities (screenshots)
+    vision: false
+    # System prompt filename (located in prompts_dir/manager/)
+    system_prompt: system.jinja2
+    # Use stateless manager (rebuilds context each turn, no chat history, experimental)
+    stateless: false
+    # LLM settings
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.2
+
+  # Executor Agent Configuration - Selects and executes atomic actions
+  executor:
+    # Enable vision capabilities (screenshots)
+    vision: false
+    # System prompt filename (located in prompts_dir/executor/)
+    system_prompt: system.jinja2
+    # LLM settings
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.1
+
+  # Scripter Agent Configuration - Executes Python scripts for off-device operations
+  scripter:
+    # Enable scripter execution for off-device operations
+    enabled: true
+    # Maximum steps per scripter agent task
+    max_steps: 10
+    # Execution timeout per code block (seconds)
+    execution_timeout: 30.0
+    # System prompt filename (located in prompts_dir/scripter/)
+    system_prompt_path: system.jinja2
+    # Enable safe code execution (restricts imports and builtins)
+    safe_execution: false
+    # LLM settings
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.1
+
+  # Text Manipulator - Edits text in input fields
+  text_manipulator:
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.3
+
+  # App Opener - Opens apps by name/description
+  app_opener:
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.0
+
+  # Structured Output - Extracts structured data from final answers
+  structured_output:
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 0.0
+
+  # Task Suggester - Suggests complex multi-step tasks based on screen context
+  suggester:
+    # Maximum number of suggestions to return
+    max_suggestions: 5
+    llm:
+      provider: Gemini
+      model: gemini-3-flash-preview
+      temperature: 1.0  # Higher temperature for creative suggestions
+
+  # App Knowledge Configuration
+  # App knowledge provides app-specific instructions with one-to-one mapping to knowledge entries
+  # When instruction is provided, uses RAG (vector embeddings + keyword search) to find best matches
+  app_cards:
+    # Enable app-specific instruction knowledge
+    enabled: true
+    # Mode: local (file-based), server (HTTP API), composite (server with local fallback), or database (direct DB)
+    mode: local
+    # Directory containing app knowledge files (for local/composite modes)
+    app_cards_dir: config/app_cards
+    # Server URL for remote app knowledge (for server/composite modes)
+    # The frontend API uses RAG (Retrieval-Augmented Generation) when instruction is provided:
+    #   - Vector embeddings for semantic similarity
+    #   - Keyword matching for exact term matches
+    #   - Returns top 5 most relevant knowledge entries
+    # Examples:
+    #   - Frontend API: https://your-domain.com/api (uses /api/app-knowledge endpoint with RAG)
+    #   - Backend app knowledge server: http://localhost:8001 (uses /app-knowledge endpoint)
+    server_url: null
+    # Server request timeout in seconds
+    server_timeout: 10.0
+    # Number of server retry attempts
+    server_max_retries: 2
+
+# === External Agents Configuration ===
+# Configuration for external agents (alternative to native DroidUse agents)
+# To use an external agent, set agent.name above to the agent name (e.g., "autoglm")
+external_agents:
+  # AutoGLM - Chinese LLM model designed for Android device automation
+  # Reference: https://github.com/zai-org/Open-AutoGLM/
+  autoglm:
+    # Language mode: "cn" (Chinese with 18 detailed rules) or "en" (English with minimal rules)
+    lang: cn
+    # Enable streaming LLM responses
+    stream: true
+    # LLM configuration for AutoGLM
+    llm:
+      # Provider must be OpenAILike for OpenAI-compatible APIs
+      provider: OpenAILike
+      # Model name (must match the model name in your vLLM server)
+      # Common options:
+      #   - THUDM/AutoGLM-phone-9B (original model)
+      #   - zai-org/AutoGLM-Phone-9B (alternative source)
+      model: THUDM/AutoGLM-phone-9B
+      # Base URL for your vLLM server or OpenAI-compatible API endpoint
+      # Examples:
+      #   - Local: http://localhost:8000/v1
+      #   - Remote: http://YOUR_GPU_IP:8000/v1
+      #   - Vast.ai: http://154.57.34.105:12899/v1
+      base_url: http://localhost:8000/v1
+      # Temperature (0.0 = deterministic, recommended for device control)
+      temperature: 0.0
+      # Additional LLM parameters
+      kwargs:
+        # API key (use "EMPTY" for local vLLM servers without authentication)
+        api_key: EMPTY
+        # Nucleus sampling parameter (0.85 recommended)
+        top_p: 0.85
+        # Reduces repetitive outputs (0.2 recommended)
+        frequency_penalty: 0.2
+        # Maximum tokens in response (3000 recommended)
+        max_tokens: 3000
+
+# === Logging Settings ===
+logging:
+  # Enable debug logging
+  debug: false
+  rich_text: false
+
+# === Safe Execution Settings ===
+# Applied when agent.codeact.safe_execution or agent.scripter.safe_execution is true
+safe_execution:
+  # Allow all imports (ignores allowed_modules, respects blocked_modules)
+  allow_all_imports: true
+
+  # Allowed modules (empty + allow_all_imports=false = no imports allowed)
+  # Example: ['json', 'requests', 're', 'datetime', 'math', 'collections']
+  allowed_modules: []
+
+  # Blocked modules (takes precedence over allowed_modules and allow_all_imports)
+  # Prevents dangerous file operations, subprocess execution, and code manipulation
+  blocked_modules:
+    - os
+    - sys
+    - subprocess
+    - shutil
+    - pathlib
+    - pty
+    - fcntl
+    - resource
+    - pickle
+    - shelve
+    - marshal
+    - imp
+    - importlib
+    - ctypes
+    - code
+    - codeop
+    - tempfile
+    - glob
+    - socket
+    - socketserver
+    - asyncio
+
+  # Allow all builtins (ignores allowed_builtins, respects blocked_builtins)
+  allow_all_builtins: true
+
+  # Allowed builtins (empty + allow_all_builtins=false = use safe defaults)
+  # Safe defaults include: int, str, list, dict, print, len, range, etc.
+  allowed_builtins: []
+
+  # Blocked builtins (takes precedence over allowed_builtins and allow_all_builtins)
+  blocked_builtins:
+    - open
+    - compile
+    - exec
+    - eval
+    - __import__
+    - breakpoint
+    - exit
+    - quit
+    - input
+
+# === Tool Settings ===
+tools:
+  # Disabled tools - add tool names to disable them
+  # Available tools:
+  #   - click          # Tap UI elements by index
+  #   - long_press     # Long press UI elements
+  #   - type           # Type text into input fields
+  #   - system_button  # Press back, home, enter
+  #   - swipe          # Swipe gestures
+  #   - wait           # Wait for duration
+  #   - open_app       # Open apps by name
+  #   - type_secret    # Type credentials (requires credentials.enabled: true)
+  disabled_tools: []
+
+# === Credential Settings ===
+credentials:
+  # Enable credential manager for secure secret storage
+  enabled: false
+  # Path to credentials file (see config/credentials_example.yaml for format)
+  file_path: config/credentials.yaml
+
+# === Plugin Settings ===
+# Plugins handle background operations (database, telemetry, tracing, trajectory)
+# All plugins run in fire-and-forget mode - they never block the main agent workflow
+plugins:
+  # Local Logging Plugin - Records task and step data via HTTP API to web server
+  # Configure web API endpoint in websocket_server.web_api_url below
+  local_logging:
+    enabled: true
+
+  # PostHog Telemetry Plugin - Sends anonymous usage analytics
+  posthog_telemetry:
+    enabled: false
+    # PostHog API key (falls back to POSTHOG_API_KEY env var)
+    api_key: ""
+    # PostHog host URL (falls back to POSTHOG_HOST env var)
+    host: ""
+
+  # Tracing Plugin - Uploads traces to Langfuse or Phoenix
+  tracing:
+    enabled: false
+    # Tracing provider: phoenix or langfuse
+    provider: phoenix
+    # Upload screenshots to Langfuse
+    screenshots_enabled: false
+    # Langfuse configuration (falls back to env vars)
+    langfuse_secret_key: ""   # LANGFUSE_SECRET_KEY
+    langfuse_public_key: ""   # LANGFUSE_PUBLIC_KEY
+    langfuse_host: ""         # LANGFUSE_HOST
+    # User/session identification
+    langfuse_user_id: "anonymous"
+    langfuse_session_id: ""   # Empty = auto-generate UUID per process
+
+  # Trajectory Plugin - Writes trajectory data (screenshots, UI states) to disk
+  trajectory:
+    enabled: false
+    # Trajectory saving level (none, step, action)
+    save_trajectory: none
+    # Path for trajectory files (absolute or relative to cwd)
+    trajectory_path: trajectories
+    # Queue size for background trajectory writes
+    queue_size: 300
+    # Create GIFs from trajectory screenshots
+    create_gifs: true
+
+  # Memory Summary Plugin - Saves task summaries as user long-term memory
+  memory_summary:
+    enabled: true
+    # Maximum number of task summaries to keep per user (rolling history)
+    max_task_summaries: 50
+
+# === WebSocket Server Settings ===
+# WebSocket server configuration (optimized for cellular connections)
+websocket_server:
+  # Send ping every N seconds to keep connection alive (cellular networks)
+  ping_interval: 20
+  # Wait N seconds for pong response before considering connection dead
+  ping_timeout: 60
+  # Wait N seconds for WebSocket close handshake
+  close_timeout: 30
+  # Maximum message size in bytes (10MB for large screenshots)
+  max_message_size: 10485760
+  # Timeout for receiving initial task request (seconds)
+  initial_recv_timeout: 120.0
+  # Enable/disable JWT authentication validation (set to false for development/testing)
+  auth_enabled: true
+  # Enable/disable app card HTTP server (serves app cards from database)
+  app_card_server_enabled: false
+  # Port for app card HTTP server
+  app_card_server_port: 8001
+  # Web API server URL for HTTP logging (task/step/user memory/app card requests)
+  # Default: http://localhost:3000/api
+  web_api_url: "http://localhost:3000/api"
+  # NextAuth secret for authenticating with web API
+  # This is the AUTH_SECRET from your Next.js frontend .env file
+  # Leave empty if no authentication is required
+  web_api_auth_secret: ""
+  # Server metadata for heartbeat reporting
+  public_ip_address: ""  # Public IP address (auto-detected if empty)
+  server_name: ""  # Server name identifier (e.g., "agent-prod-1")
+  server_region: "unknown"  # Server region (e.g., "us-east", "eu-west")
+  server_capacity: 10  # Maximum concurrent connections/tasks
+
+# === Heartbeat Server Settings ===
+# Heartbeat server configuration for reporting server status to control plane
+heartbeat_server:
+  # Enable/disable heartbeat reporting
+  enabled: false
+  # Control plane API URL to send heartbeats to (e.g., "https://control-plane.example.com")
+  heartbeat_api_url: ""
+  # Send heartbeat every N seconds
+  heartbeat_interval: 30
+
+# === Transcription Settings ===
+# Real-time speech-to-text using ElevenLabs Scribe v2
+# The backend acts as a relay proxy between Android app and ElevenLabs API
+transcription:
+  # Enable/disable transcription service
+  enabled: false
+  # ElevenLabs API key (falls back to ELEVENLABS_API_KEY env var)
+  elevenlabs_api_key: ""
+  # Default language for transcription (empty = auto-detect)
+  # Examples: "en", "es", "fr", "de", "ja", "zh"
+  default_language: ""
+  # Voice activity detection silence threshold in seconds (0.5-1.5)
+  # Lower = faster response, higher = fewer false commits
+  vad_silence_threshold: 1.0
+  # Maximum session duration in seconds (default: 5 minutes)
+  max_session_duration: 300
+  # ElevenLabs model ID for real-time transcription
+  model_id: "scribe_v2_realtime"

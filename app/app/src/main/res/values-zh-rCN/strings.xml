@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT识别并可视化屏幕上的UI元素。此服务通过检查UI层来帮助检测哪些元素对用户可见，这对UI分析和自动化非常有用。</string>
+    <string name="keyboard_name">PhoneGPT键盘</string>
+    <string name="keyboard_on">PhoneGPT键盘（已开启）</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">设置</string>
+    <string name="accessibility_service_not_enabled">无障碍服务未启用</string>
+    <string name="enable_now">立即启用</string>
+    <string name="accessibility_service">无障碍服务</string>
+    <string name="test_fetching">测试获取</string>
+    <string name="notification_access_not_granted">通知权限未授予</string>
+    <string name="enable">启用</string>
+    <string name="notification_listener">通知监听器</string>
+    <string name="controls_header">控制</string>
+    <string name="overlay_label">悬浮窗</string>
+    <string name="overlay_offset_label">悬浮窗偏移</string>
+    <string name="reset_button">重置</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">提示：即使关闭悬浮窗，视觉模式也能工作</string>
+    <string name="socket_server_port_label">Socket服务器端口</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">连接详情</string>
+    <string name="socket_status_label">Socket状态：</string>
+    <string name="service_not_available">服务不可用</string>
+    <string name="network_access_header">网络访问</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">不可用</string>
+    <string name="token_label">"令牌: "</string>
+    <string name="copy_token_content_description">复制令牌</string>
+    <string name="adb_forward_command_header">ADB转发命令</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">端点</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">日志</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">WebSocket设置</string>
+    <string name="server_configuration_header">服务器配置</string>
+    <string name="enable_ws_server_label">启用WS服务器</string>
+    <string name="allow_external_connections_label">允许外部WS连接</string>
+    <string name="port_label">端口</string>
+    <string name="reverse_connection_header">反向连接（客户端模式）</string>
+    <string name="connect_to_host_label">连接到主机</string>
+    <string name="initiate_outbound_connection_label">发起出站连接</string>
+    <string name="host_url_hint">主机URL (ws://...)</string>
+    <string name="token_optional_hint">令牌（可选）</string>
+    <string name="event_filters_header">事件过滤器</string>
+    <string name="notifications_label">通知</string>
+    <string name="push_system_notifications_label">推送系统通知</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">欢迎使用\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">一个为你行动的AI</string>
+    <string name="onboarding_get_started">开始使用</string>
+
+    <string name="onboarding_accessibility_title">无障碍权限</string>
+    <string name="onboarding_accessibility_body">我们需要访问此设备的界面</string>
+    <string name="onboarding_accessibility_card_title">数据和设备保持</string>
+    <string name="onboarding_accessibility_safe">安全且私密</string>
+    <string name="onboarding_accessibility_no_recording">无屏幕录制</string>
+    <string name="onboarding_accessibility_on_device">在设备上处理</string>
+
+    <string name="onboarding_accessibility_guide_title">授予无障碍权限</string>
+    <string name="onboarding_accessibility_guide_step1">在列表中点击\"PhoneGPT\"</string>
+    <string name="onboarding_accessibility_guide_step2">将开关切换为开启并确认</string>
+
+    <string name="onboarding_overlay_title">悬浮窗权限</string>
+    <string name="onboarding_overlay_body">我们需要在工作时显示控制面板</string>
+    <string name="onboarding_overlay_card_title">悬浮窗让你可以</string>
+    <string name="onboarding_overlay_benefit1">控制智能助手</string>
+    <string name="onboarding_overlay_benefit2">发出指令</string>
+    <string name="onboarding_overlay_benefit3">查看进度</string>
+    <string name="onboarding_overlay_learn_more_message">悬浮窗权限允许PhoneGPT在其他应用上方显示浮动控制面板。这让你可以与助手交互、发出指令、监控进度，而无需切换应用。</string>
+
+    <string name="onboarding_overlay_guide_title">授予悬浮窗权限</string>
+    <string name="onboarding_overlay_guide_step1">在列表中找到\"PhoneGPT\"</string>
+    <string name="onboarding_overlay_guide_step2">将\"允许在其他应用上层显示\"切换为开启</string>
+
+    <string name="onboarding_recognition_title">麦克风权限</string>
+    <string name="onboarding_recognition_body">我们需要麦克风权限来使用语音指令</string>
+    <string name="onboarding_recognition_card_title">语音控制让你可以</string>
+    <string name="onboarding_recognition_benefit1">通过语音发出指令</string>
+    <string name="onboarding_recognition_benefit2">免提控制</string>
+    <string name="onboarding_recognition_benefit3">用语音更快地工作</string>
+    <string name="onboarding_recognition_learn_more_message">麦克风权限允许PhoneGPT听取你的语音指令。这启用免提控制，让你可以更自然地通过语音与助手交互。</string>
+
+    <string name="onboarding_recognition_guide_title">授予麦克风权限</string>
+    <string name="onboarding_recognition_guide_step1">当提示时点击\"允许\"</string>
+    <string name="onboarding_recognition_guide_step2">授予麦克风访问权限以启用语音控制</string>
+    <string name="onboarding_recognition_permission_denied">麦克风权限被拒绝。你可以稍后在设置中启用。</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT需要麦克风权限来理解你的语音指令。</string>
+    <string name="onboarding_recognition_waiting">点击下方按钮授予权限</string>
+
+    <string name="onboarding_assistant_title">默认助手</string>
+    <string name="onboarding_assistant_body">将PhoneGPT设为默认助手</string>
+    <string name="onboarding_assistant_benefits">优势</string>
+    <string name="onboarding_assistant_benefit1">随时随地访问PhoneGPT</string>
+    <string name="onboarding_assistant_benefit2">长按主页键</string>
+    <string name="onboarding_assistant_benefit3">快速语音指令</string>
+    <string name="onboarding_assistant_optional">此步骤为可选</string>
+
+    <string name="onboarding_success_title">设置完成！</string>
+    <string name="onboarding_success_message">PhoneGPT已准备好帮助你完成任何任务</string>
+
+    <string name="onboarding_button_continue">继续</string>
+    <string name="onboarding_button_learn_more">了解更多</string>
+    <string name="onboarding_button_open_settings">打开设置</string>
+    <string name="onboarding_button_grant_permission">授予权限</string>
+    <string name="onboarding_button_skip">跳过</string>
+    <string name="onboarding_button_back">返回</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">等待权限授予…</string>
+
+    <!-- Survey -->
+    <!-- Screen 1: User Type -->
+    <string name="survey_user_type_question">你是个人用户还是企业用户？</string>
+    <string name="survey_user_type_individual">个人</string>
+    <string name="survey_user_type_individual_desc">我将PhoneGPT用于个人任务</string>
+    <string name="survey_user_type_company">企业</string>
+    <string name="survey_user_type_company_desc">我将PhoneGPT用于我的组织</string>
+
+    <!-- Screen 2: Company Size -->
+    <string name="survey_company_size_question">你的公司规模是多大？</string>
+    <string name="survey_company_size_just_me">仅我一人</string>
+    <string name="survey_company_size_2_10">2–10名员工</string>
+    <string name="survey_company_size_11_50">11–50名员工</string>
+    <string name="survey_company_size_51_200">51–200名员工</string>
+    <string name="survey_company_size_201_1000">201–1,000名员工</string>
+    <string name="survey_company_size_1000_plus">1,000+名员工</string>
+
+    <!-- Screen 3: Industry -->
+    <string name="survey_industry_question">你所在的行业是？</string>
+    <string name="survey_industry_technology">科技</string>
+    <string name="survey_industry_healthcare">医疗健康</string>
+    <string name="survey_industry_finance">金融</string>
+    <string name="survey_industry_education">教育</string>
+    <string name="survey_industry_retail">零售</string>
+    <string name="survey_industry_manufacturing">制造业</string>
+    <string name="survey_industry_real_estate">房地产</string>
+    <string name="survey_industry_transportation">交通运输</string>
+    <string name="survey_industry_marketing">市场营销</string>
+    <string name="survey_industry_legal">法律</string>
+    <string name="survey_industry_non_profit">非营利组织</string>
+    <string name="survey_industry_government">政府</string>
+    <string name="survey_industry_entertainment">娱乐</string>
+    <string name="survey_industry_hospitality">酒店业</string>
+    <string name="survey_industry_construction">建筑</string>
+    <string name="survey_industry_agriculture">农业</string>
+    <string name="survey_industry_other">其他</string>
+
+    <!-- Screen 4: Role -->
+    <string name="survey_role_question_company">你的职位是？</string>
+    <string name="survey_role_question_individual">你的职业是？</string>
+    <string name="survey_role_software_engineer">软件工程师</string>
+    <string name="survey_role_product_manager">产品经理</string>
+    <string name="survey_role_designer">设计师</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">创始人</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">工程师</string>
+    <string name="survey_role_data_scientist">数据科学家</string>
+    <string name="survey_role_marketing">市场营销</string>
+    <string name="survey_role_sales">销售</string>
+    <string name="survey_role_customer_support">客户支持</string>
+    <string name="survey_role_operations">运营</string>
+    <string name="survey_role_hr">人力资源</string>
+    <string name="survey_role_finance">财务</string>
+    <string name="survey_role_analyst">分析师</string>
+    <string name="survey_role_manager">经理</string>
+    <string name="survey_role_director">总监</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">顾问</string>
+    <string name="survey_role_freelancer">自由职业者</string>
+    <string name="survey_role_student">学生</string>
+    <string name="survey_role_researcher">研究员</string>
+    <string name="survey_role_teacher">教师</string>
+    <string name="survey_role_developer">开发者</string>
+    <string name="survey_role_qa">QA/测试</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">安全</string>
+    <string name="survey_role_admin">管理员</string>
+    <string name="survey_role_legal">法务</string>
+    <string name="survey_role_other">其他</string>
+    <string name="survey_role_custom_hint">输入你的职位</string>
+
+    <!-- Screen 5: Use Case -->
+    <string name="survey_use_case_question">你想用PhoneGPT做什么？</string>
+    <string name="survey_use_case_hint">告诉我们你的使用场景…</string>
+    <string name="survey_use_case_error">请至少输入10个字符</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <!-- Screen 6: Personalizing -->
+    <string name="survey_personalizing_analyzing">正在分析你的资料…</string>
+    <string name="survey_personalizing_customizing">正在为%s定制PhoneGPT…</string>
+    <string name="survey_personalizing_saving">正在同步你的偏好设置…</string>
+
+    <!-- Common buttons -->
+    <string name="survey_button_next">下一步</string>
+    <string name="survey_button_finish">完成</string>
+
+    <!-- Paywall Pricing Plans -->
+    <string name="paywall_title">升级到高级版</string>
+    <string name="paywall_yearly_price">$79.99</string>
+    <string name="paywall_yearly_period">/年</string>
+    <string name="paywall_yearly_equivalent">$155.88</string>
+    <string name="paywall_yearly_trial">5天免费试用</string>
+    <string name="paywall_yearly_badge">最超值</string>
+    <string name="paywall_monthly_price">$12.99</string>
+    <string name="paywall_monthly_period">/月</string>
+    <string name="paywall_cta_trial">开始免费试用</string>
+    <string name="paywall_cta_subscribe">立即订阅</string>
+    <string name="paywall_cancel_anytime">随时取消</string>
+    <string name="paywall_benefit_1">最智能的AI推理</string>
+    <string name="paywall_benefit_2">最大使用限额（300万+令牌）</string>
+    <string name="paywall_benefit_3">自动化日常任务</string>
+    <string name="paywall_benefit_4">连接你的所有应用</string>
+    <string name="paywall_benefit_5">VIP优先速度</string>
+
+    <!-- Stripe Payment Activity -->
+    <string name="stripe_cancel">取消</string>
+    <string name="stripe_upgrade_plan">升级套餐</string>
+    <string name="stripe_task_count">你的免费额度已用完</string>
+    <string name="stripe_select_billing">选择计费周期</string>
+    <string name="stripe_yearly">年付</string>
+    <string name="stripe_monthly">月付</string>
+    <string name="stripe_yearly_price">$79.99/年</string>
+    <string name="stripe_yearly_savings">每年节省$75.89</string>
+    <string name="stripe_yearly_trial">5天免费试用</string>
+    <string name="stripe_monthly_price">$12.99/月</string>
+    <string name="stripe_best_value">最超值</string>
+    <string name="stripe_continue_payment">继续支付</string>
+    <string name="stripe_check_icon_desc">勾选图标</string>
+    <string name="loading">加载中…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">真正为你工作的私人助理。不再需要点击、滑动或复制粘贴。</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">我能帮你\n做什么？</string>
+    <string name="suggested_actions_title">推荐操作</string>
+    <string name="recent_tasks_title">最近任务</string>
+    <string name="action_doordash_title">在Doordash购物车中添加汉堡并结账</string>
+    <string name="action_silent_mode_title">将手机静音两小时</string>
+    <string name="action_uber_title">帮我叫一辆Uber到旧金山百老汇160号</string>
+    <string name="action_wallpaper_title">将我最新的相册照片设为壁纸</string>
+    <string name="input_hint">点击与AI聊天</string>
+    <string name="content_description_logo">PhoneGPT图标</string>
+    <string name="content_description_profile">个人资料</string>
+    <string name="content_description_mic">麦克风</string>
+    <string name="content_description_send">发送</string>
+    <string name="content_description_settings_icon">设置</string>
+    <string name="content_description_document_icon">文档</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">需要无障碍权限</string>
+    <string name="accessibility_required_message">PhoneGPT需要无障碍权限才能在您的设备上执行任务。请在设置中启用PhoneGPT无障碍服务。</string>
+    <string name="go_to_settings">前往设置</string>
+    <string name="cancel">取消</string>
+</resources>

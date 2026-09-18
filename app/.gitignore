@@ -1,0 +1,25 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+output
+.idea
+.aab
+/app/production/release
+
+# Keystore files (NEVER commit these!)
+*.keystore
+*.jks
+keystore.properties
+**/*.aab

@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Simple Android robot logo -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M16,4C9.373,4 4,9.373 4,16C4,22.627 9.373,28 16,28C22.627,28 28,22.627 28,16C28,9.373 22.627,4 16,4ZM16,6C21.515,6 26,10.485 26,16C26,21.515 21.515,26 16,26C10.485,26 6,21.515 6,16C6,10.485 10.485,6 16,6Z" />
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M13,13L13,19L19,19L19,13ZM15,15L17,15L17,17L15,17Z" />
+</vector>

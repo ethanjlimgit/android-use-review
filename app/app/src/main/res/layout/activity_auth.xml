@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/androiduse_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name"
+            android:layout_marginBottom="16dp"
+            android:scaleType="fitCenter" />
+
+        <!-- Mantra -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auth_mantra_title"
+            android:textSize="24sp"
+            android:textColor="@color/androiduse_text_primary"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/auth_mantra_subtitle"
+            android:textSize="15sp"
+            android:textColor="@color/androiduse_text_secondary"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <!-- Server Environment Configuration -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBackendConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/androiduse_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Server Environment"
+                    android:textSize="14sp"
+                    android:textColor="@color/androiduse_text_secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgEnvironment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <RadioButton
+                        android:id="@+id/rbDev"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Dev"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbStaging"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Staging"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbProduction"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Production"
+                        android:checked="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary" />
+                </RadioGroup>
+
+                <!-- Dev Environment Configuration (visible only in dev mode) -->
+                <LinearLayout
+                    android:id="@+id/layoutDevConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Auth Server URL"
+                        style="@style/Widget.AndroidUse.TextInputLayout"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAuthServerUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="http://192.168.0.15:3000"
+                            android:inputType="textUri"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="WebSocket Server Host"
+                        style="@style/Widget.AndroidUse.TextInputLayout"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etWsServerHost"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="192.168.0.15"
+                            android:inputType="textUri"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="WebSocket Server Port"
+                        style="@style/Widget.AndroidUse.TextInputLayout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etWsServerPort"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="8000"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Skip Login Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSkipLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Continue Without Login"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:cornerRadius="12dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/androiduse_primary"
+            android:textColor="@color/androiduse_primary"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Email/Password Sign In -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEmailAuth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/androiduse_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tvEmailAuthTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In"
+                    android:textSize="20sp"
+                    android:textColor="@color/androiduse_text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Name Field (Sign Up only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name (optional)"
+                    android:visibility="gone"
+                    style="@style/Widget.AndroidUse.TextInputLayout"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    style="@style/Widget.AndroidUse.TextInputLayout"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    app:passwordToggleEnabled="true"
+                    style="@style/Widget.AndroidUse.TextInputLayout"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Forgot Password Link (Sign In only) -->
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Forgot Password?"
+                    android:textSize="14sp"
+                    android:textColor="@color/androiduse_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Resend Verification Email Link (Hidden by default) -->
+                <TextView
+                    android:id="@+id/tvResendVerification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Resend Verification Email"
+                    android:textSize="14sp"
+                    android:textColor="@color/androiduse_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Sign In/Sign Up Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEmailAuth"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp"
+                    app:backgroundTint="@color/androiduse_primary"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Toggle Sign In/Sign Up -->
+                <TextView
+                    android:id="@+id/tvToggleAuthMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Don't have an account? Sign Up"
+                    android:textSize="14sp"
+                    android:textColor="@color/androiduse_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- OR Divider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/androiduse_divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textSize="14sp"
+                android:textColor="@color/androiduse_text_secondary"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/androiduse_divider" />
+        </LinearLayout>
+
+        <!-- OAuth Sign In Options -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/androiduse_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Google Sign In -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignInGoogle"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Continue with Google"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_search"
+                    app:iconGravity="start"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/black" />
+
+                <!-- GitHub Sign In (Hidden) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignInGitHub"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Continue with GitHub"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_sort_by_size"
+                    app:iconGravity="start"
+                    app:backgroundTint="#24292e"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Twitter Sign In (Hidden) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignInTwitter"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Continue with Twitter"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_share"
+                    app:iconGravity="start"
+                    app:backgroundTint="#1DA1F2"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Status Messages -->
+        <TextView
+            android:id="@+id/tvAuthStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="@color/androiduse_text_secondary"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/progressAuth"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminateTint="@color/androiduse_primary"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>

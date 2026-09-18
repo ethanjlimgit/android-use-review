@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "email-service": {
+      "type": "url",
+      "url": "http://localhost:3002/api/mcp",
+      "headers": {
+        "X-API-Key": ""
+      }
+    }
+  }
+}

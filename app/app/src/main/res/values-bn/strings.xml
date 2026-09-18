@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT স্ক্রিনে UI উপাদানগুলি সনাক্ত এবং ভিজ্যুয়ালাইজ করে। এই সেবাটি UI এর স্তরগুলি পরীক্ষা করে ব্যবহারকারীর কাছে দৃশ্যমান উপাদানগুলি সনাক্ত করতে সাহায্য করে, যা UI বিশ্লেষণ এবং অটোমেশনের জন্য উপযোগী।</string>
+    <string name="keyboard_name">PhoneGPT কীবোর্ড</string>
+    <string name="keyboard_on">PhoneGPT কীবোর্ড (চালু)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">সেটিংস</string>
+    <string name="accessibility_service_not_enabled">অ্যাক্সেসিবিলিটি সার্ভিস সক্ষম নয়</string>
+    <string name="enable_now">এখনই সক্ষম করুন</string>
+    <string name="accessibility_service">অ্যাক্সেসিবিলিটি সার্ভিস</string>
+    <string name="test_fetching">ফেচিং টেস্ট করুন</string>
+    <string name="notification_access_not_granted">নোটিফিকেশন অ্যাক্সেস দেওয়া হয়নি</string>
+    <string name="enable">সক্ষম করুন</string>
+    <string name="notification_listener">নোটিফিকেশন লিসনার</string>
+    <string name="controls_header">নিয়ন্ত্রণ</string>
+    <string name="overlay_label">ওভারলে</string>
+    <string name="overlay_offset_label">ওভারলে অফসেট</string>
+    <string name="reset_button">রিসেট</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">টিপস: ভিশন মোড ওভারলে বন্ধ থাকলেও কাজ করে</string>
+    <string name="socket_server_port_label">সকেট সার্ভার পোর্ট</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">সংযোগের বিবরণ</string>
+    <string name="socket_status_label">সকেট স্ট্যাটাস:</string>
+    <string name="service_not_available">সার্ভিস উপলব্ধ নয়</string>
+    <string name="network_access_header">নেটওয়ার্ক অ্যাক্সেস</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">অনুপলব্ধ</string>
+    <string name="token_label">"টোকেন: "</string>
+    <string name="copy_token_content_description">টোকেন কপি করুন</string>
+    <string name="adb_forward_command_header">ADB ফরওয়ার্ড কমান্ড</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">এন্ডপয়েন্ট</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">লগ</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">WebSocket সেটিংস</string>
+    <string name="server_configuration_header">সার্ভার কনফিগারেশন</string>
+    <string name="enable_ws_server_label">WS সার্ভার সক্ষম করুন</string>
+    <string name="allow_external_connections_label">বাহ্যিক WS সংযোগ অনুমতি দিন</string>
+    <string name="port_label">পোর্ট</string>
+    <string name="reverse_connection_header">রিভার্স কানেকশন (ক্লায়েন্ট মোড)</string>
+    <string name="connect_to_host_label">হোস্টে সংযোগ করুন</string>
+    <string name="initiate_outbound_connection_label">আউটবাউন্ড সংযোগ শুরু করুন</string>
+    <string name="host_url_hint">হোস্ট URL (ws://...)</string>
+    <string name="token_optional_hint">টোকেন (ঐচ্ছিক)</string>
+    <string name="event_filters_header">ইভেন্ট ফিল্টার</string>
+    <string name="notifications_label">নোটিফিকেশন</string>
+    <string name="push_system_notifications_label">সিস্টেম নোটিফিকেশন পুশ করুন</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">PhoneGPT-এ\nস্বাগতম</string>
+    <string name="onboarding_welcome_subtitle">একটি AI যা আপনার হয়ে কাজ করে</string>
+    <string name="onboarding_get_started">শুরু করুন</string>
+
+    <string name="onboarding_accessibility_title">অ্যাক্সেসিবিলিটি পারমিশন</string>
+    <string name="onboarding_accessibility_body">আমাদের এই ডিভাইসের ইন্টারফেসে অ্যাক্সেস প্রয়োজন</string>
+    <string name="onboarding_accessibility_card_title">ডেটা এবং ডিভাইস থাকবে</string>
+    <string name="onboarding_accessibility_safe">নিরাপদ ও প্রাইভেট</string>
+    <string name="onboarding_accessibility_no_recording">কোন স্ক্রিন রেকর্ডিং নেই</string>
+    <string name="onboarding_accessibility_on_device">ডিভাইসে</string>
+
+    <string name="onboarding_accessibility_guide_title">অ্যাক্সেসিবিলিটি পারমিশন দিন</string>
+    <string name="onboarding_accessibility_guide_step1">তালিকায় \"PhoneGPT\" ট্যাপ করুন</string>
+    <string name="onboarding_accessibility_guide_step2">সুইচ অন করুন এবং নিশ্চিত করুন</string>
+
+    <string name="onboarding_overlay_title">ওভারলে পারমিশন</string>
+    <string name="onboarding_overlay_body">কাজ করার সময় আমাদের কন্ট্রোল দেখাতে হবে</string>
+    <string name="onboarding_overlay_card_title">ওভারলে আপনাকে দেয়</string>
+    <string name="onboarding_overlay_benefit1">এজেন্ট নিয়ন্ত্রণ করুন</string>
+    <string name="onboarding_overlay_benefit2">কমান্ড দিন</string>
+    <string name="onboarding_overlay_benefit3">কী হচ্ছে দেখুন</string>
+    <string name="onboarding_overlay_learn_more_message">ওভারলে PhoneGPT-কে অন্যান্য অ্যাপের উপরে একটি ফ্লোটিং কন্ট্রোল প্যানেল দেখাতে দেয়। এটি আপনাকে অ্যাপ সুইচ না করেই এজেন্টের সাথে ইন্টারঅ্যাক্ট করতে, কমান্ড দিতে এবং অগ্রগতি মনিটর করতে দেয়।</string>
+
+    <string name="onboarding_overlay_guide_title">ওভারলে পারমিশন দিন</string>
+    <string name="onboarding_overlay_guide_step1">তালিকায় \"PhoneGPT\" খুঁজুন</string>
+    <string name="onboarding_overlay_guide_step2">\"অন্যান্য অ্যাপের উপরে দেখান\" অন করুন</string>
+
+    <string name="onboarding_recognition_title">মাইক্রোফোন পারমিশন</string>
+    <string name="onboarding_recognition_body">ভয়েস কমান্ডের জন্য মাইক্রোফোন অ্যাক্সেস প্রয়োজন</string>
+    <string name="onboarding_recognition_card_title">ভয়েস কন্ট্রোল আপনাকে দেয়</string>
+    <string name="onboarding_recognition_benefit1">ভয়েসে কমান্ড দিন</string>
+    <string name="onboarding_recognition_benefit2">হ্যান্ডস-ফ্রি কন্ট্রোল</string>
+    <string name="onboarding_recognition_benefit3">কথায় দ্রুত কাজ করুন</string>
+    <string name="onboarding_recognition_learn_more_message">মাইক্রোফোন পারমিশন PhoneGPT-কে আপনার ভয়েস কমান্ড শুনতে দেয়। এটি হ্যান্ডস-ফ্রি কন্ট্রোল সক্ষম করে এবং কথার মাধ্যমে এজেন্টের সাথে স্বাভাবিকভাবে ইন্টারঅ্যাক্ট করা সহজ করে।</string>
+
+    <string name="onboarding_recognition_guide_title">মাইক্রোফোন পারমিশন দিন</string>
+    <string name="onboarding_recognition_guide_step1">প্রম্পট হলে \"অনুমতি দিন\" ট্যাপ করুন</string>
+    <string name="onboarding_recognition_guide_step2">ভয়েস কন্ট্রোল সক্ষম করতে মাইক্রোফোন অ্যাক্সেস দিন</string>
+    <string name="onboarding_recognition_permission_denied">মাইক্রোফোন পারমিশন প্রত্যাখ্যাত। আপনি পরে সেটিংসে এটি সক্ষম করতে পারেন।</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT-এর আপনার ভয়েস কমান্ড বুঝতে মাইক্রোফোন অ্যাক্সেস প্রয়োজন।</string>
+    <string name="onboarding_recognition_waiting">পারমিশন দিতে নিচের বোতাম ট্যাপ করুন</string>
+
+    <string name="onboarding_assistant_title">ডিফল্ট অ্যাসিস্ট্যান্ট</string>
+    <string name="onboarding_assistant_body">PhoneGPT-কে আপনার ডিফল্ট অ্যাসিস্ট্যান্ট হিসাবে সেট করুন</string>
+    <string name="onboarding_assistant_benefits">সুবিধা</string>
+    <string name="onboarding_assistant_benefit1">যেকোনো জায়গা থেকে PhoneGPT অ্যাক্সেস করুন</string>
+    <string name="onboarding_assistant_benefit2">হোম বাটন লং প্রেস করুন</string>
+    <string name="onboarding_assistant_benefit3">দ্রুত ভয়েস কমান্ড</string>
+    <string name="onboarding_assistant_optional">এই ধাপটি ঐচ্ছিক</string>
+
+    <string name="onboarding_success_title">সব প্রস্তুত!</string>
+    <string name="onboarding_success_message">PhoneGPT যেকোনো কাজে আপনাকে সাহায্য করতে প্রস্তুত</string>
+
+    <string name="onboarding_button_continue">চালিয়ে যান</string>
+    <string name="onboarding_button_learn_more">আরও জানুন</string>
+    <string name="onboarding_button_open_settings">সেটিংস খুলুন</string>
+    <string name="onboarding_button_grant_permission">পারমিশন দিন</string>
+    <string name="onboarding_button_skip">এড়িয়ে যান</string>
+    <string name="onboarding_button_back">পিছনে</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">পারমিশনের জন্য অপেক্ষা করছে…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">আপনি কি একজন ব্যক্তি নাকি কোম্পানি?</string>
+    <string name="survey_user_type_individual">ব্যক্তি</string>
+    <string name="survey_user_type_individual_desc">আমি ব্যক্তিগত কাজের জন্য PhoneGPT ব্যবহার করি</string>
+    <string name="survey_user_type_company">কোম্পানি</string>
+    <string name="survey_user_type_company_desc">আমি আমার সংস্থার জন্য PhoneGPT ব্যবহার করি</string>
+
+    <string name="survey_company_size_question">আপনার কোম্পানির আকার কত?</string>
+    <string name="survey_company_size_just_me">শুধু আমি</string>
+    <string name="survey_company_size_2_10">২–১০ কর্মচারী</string>
+    <string name="survey_company_size_11_50">১১–৫০ কর্মচারী</string>
+    <string name="survey_company_size_51_200">৫১–২০০ কর্মচারী</string>
+    <string name="survey_company_size_201_1000">২০১–১,০০০ কর্মচারী</string>
+    <string name="survey_company_size_1000_plus">১,০০০+ কর্মচারী</string>
+
+    <string name="survey_industry_question">আপনি কোন শিল্পে আছেন?</string>
+    <string name="survey_industry_technology">প্রযুক্তি</string>
+    <string name="survey_industry_healthcare">স্বাস্থ্যসেবা</string>
+    <string name="survey_industry_finance">অর্থ</string>
+    <string name="survey_industry_education">শিক্ষা</string>
+    <string name="survey_industry_retail">খুচরা</string>
+    <string name="survey_industry_manufacturing">উৎপাদন</string>
+    <string name="survey_industry_real_estate">রিয়েল এস্টেট</string>
+    <string name="survey_industry_transportation">পরিবহন</string>
+    <string name="survey_industry_marketing">মার্কেটিং</string>
+    <string name="survey_industry_legal">আইনি</string>
+    <string name="survey_industry_non_profit">অলাভজনক</string>
+    <string name="survey_industry_government">সরকার</string>
+    <string name="survey_industry_entertainment">বিনোদন</string>
+    <string name="survey_industry_hospitality">আতিথেয়তা</string>
+    <string name="survey_industry_construction">নির্মাণ</string>
+    <string name="survey_industry_agriculture">কৃষি</string>
+    <string name="survey_industry_other">অন্যান্য</string>
+
+    <string name="survey_role_question_company">আপনার ভূমিকা কী?</string>
+    <string name="survey_role_question_individual">আপনার পেশা কী?</string>
+    <string name="survey_role_software_engineer">সফটওয়্যার ইঞ্জিনিয়ার</string>
+    <string name="survey_role_product_manager">প্রোডাক্ট ম্যানেজার</string>
+    <string name="survey_role_designer">ডিজাইনার</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">প্রতিষ্ঠাতা</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">ইঞ্জিনিয়ার</string>
+    <string name="survey_role_data_scientist">ডেটা সায়েন্টিস্ট</string>
+    <string name="survey_role_marketing">মার্কেটিং</string>
+    <string name="survey_role_sales">সেলস</string>
+    <string name="survey_role_customer_support">কাস্টমার সাপোর্ট</string>
+    <string name="survey_role_operations">অপারেশনস</string>
+    <string name="survey_role_hr">মানব সম্পদ</string>
+    <string name="survey_role_finance">অর্থ</string>
+    <string name="survey_role_analyst">বিশ্লেষক</string>
+    <string name="survey_role_manager">ম্যানেজার</string>
+    <string name="survey_role_director">পরিচালক</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">পরামর্শদাতা</string>
+    <string name="survey_role_freelancer">ফ্রিল্যান্সার</string>
+    <string name="survey_role_student">শিক্ষার্থী</string>
+    <string name="survey_role_researcher">গবেষক</string>
+    <string name="survey_role_teacher">শিক্ষক</string>
+    <string name="survey_role_developer">ডেভেলপার</string>
+    <string name="survey_role_qa">QA/টেস্টিং</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">নিরাপত্তা</string>
+    <string name="survey_role_admin">অ্যাডমিন</string>
+    <string name="survey_role_legal">আইনি</string>
+    <string name="survey_role_other">অন্যান্য</string>
+    <string name="survey_role_custom_hint">আপনার ভূমিকা লিখুন</string>
+
+    <string name="survey_use_case_question">আপনি PhoneGPT কিসের জন্য ব্যবহার করতে চান?</string>
+    <string name="survey_use_case_hint">আপনার ব্যবহারের ক্ষেত্রে আমাদের বলুন…</string>
+    <string name="survey_use_case_error">অনুগ্রহ করে কমপক্ষে ১০টি অক্ষর লিখুন</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">আপনার প্রোফাইল বিশ্লেষণ করা হচ্ছে…</string>
+    <string name="survey_personalizing_customizing">%s-এর জন্য PhoneGPT কাস্টমাইজ করা হচ্ছে…</string>
+    <string name="survey_personalizing_saving">আপনার পছন্দগুলি সিঙ্ক করা হচ্ছে…</string>
+
+    <string name="survey_button_next">পরবর্তী</string>
+    <string name="survey_button_finish">শেষ করুন</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">প্রিমিয়ামে আপগ্রেড করুন</string>
+    <string name="paywall_yearly_price">৳৮,৯৯৯</string>
+    <string name="paywall_yearly_period">/বছর</string>
+    <string name="paywall_yearly_equivalent">৳১৭,৪৯৯</string>
+    <string name="paywall_yearly_trial">৫ দিন বিনামূল্যে ট্রায়াল</string>
+    <string name="paywall_yearly_badge">সেরা মূল্য</string>
+    <string name="paywall_monthly_price">৳১,৪৯৯</string>
+    <string name="paywall_monthly_period">/মাস</string>
+    <string name="paywall_cta_trial">বিনামূল্যে ট্রায়াল শুরু করুন</string>
+    <string name="paywall_cta_subscribe">এখনই সাবস্ক্রাইব করুন</string>
+    <string name="paywall_cancel_anytime">যেকোনো সময় বাতিল করুন</string>
+    <string name="paywall_benefit_1">সবচেয়ে স্মার্ট AI রিজনিং</string>
+    <string name="paywall_benefit_2">সর্বোচ্চ ব্যবহার সীমা (৩M+ টোকেন)</string>
+    <string name="paywall_benefit_3">দৈনিক কাজ অটোমেট করুন</string>
+    <string name="paywall_benefit_4">আপনার সব অ্যাপের সাথে সংযোগ করুন</string>
+    <string name="paywall_benefit_5">VIP অগ্রাধিকার স্পিড</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">বাতিল</string>
+    <string name="stripe_upgrade_plan">প্ল্যান আপগ্রেড করুন</string>
+    <string name="stripe_task_count">আপনি আপনার বিনামূল্যে ক্রেডিট ব্যবহার করেছেন</string>
+    <string name="stripe_select_billing">বিলিং সময়কাল নির্বাচন করুন</string>
+    <string name="stripe_yearly">বার্ষিক</string>
+    <string name="stripe_monthly">মাসিক</string>
+    <string name="stripe_yearly_price">৳৮,৯৯৯/বছর</string>
+    <string name="stripe_yearly_savings">বছরে ৳৮,৫০০ সাশ্রয় করুন</string>
+    <string name="stripe_yearly_trial">৫ দিন বিনামূল্যে ট্রায়াল</string>
+    <string name="stripe_monthly_price">৳১,৪৯৯/মাস</string>
+    <string name="stripe_best_value">সেরা মূল্য</string>
+    <string name="stripe_continue_payment">পেমেন্টে যান</string>
+    <string name="stripe_check_icon_desc">চেক মার্ক আইকন</string>
+    <string name="loading">লোড হচ্ছে…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">যে পার্সোনাল অ্যাসিস্ট্যান্ট আসলেই আপনার জন্য কাজ করে। আর ট্যাপ, স্ক্রোল বা কপি-পেস্ট করতে হবে না।</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">আমি কিভাবে\nসাহায্য করতে পারি?</string>
+    <string name="suggested_actions_title">প্রস্তাবিত অ্যাকশন</string>
+    <string name="recent_tasks_title">সাম্প্রতিক কাজ</string>
+    <string name="action_doordash_title">আমার Doordash কার্টে একটি বার্গার যোগ করুন এবং চেকআউট করুন</string>
+    <string name="action_silent_mode_title">আমার ফোন দুই ঘণ্টার জন্য সাইলেন্ট মোডে রাখুন</string>
+    <string name="action_uber_title">160 Broadway, San Francisco-তে আমার জন্য একটি Uber বুক করুন</string>
+    <string name="action_wallpaper_title">আমার সবচেয়ে সাম্প্রতিক গ্যালারি ফটো ওয়ালপেপার হিসাবে সেট করুন</string>
+    <string name="input_hint">AI এর সাথে চ্যাট করতে ট্যাপ করুন</string>
+    <string name="content_description_logo">PhoneGPT লোগো</string>
+    <string name="content_description_profile">প্রোফাইল</string>
+    <string name="content_description_mic">মাইক্রোফোন</string>
+    <string name="content_description_send">পাঠান</string>
+    <string name="content_description_settings_icon">সেটিংস</string>
+    <string name="content_description_document_icon">ডকুমেন্ট</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">অ্যাক্সেসিবিলিটি পারমিশন প্রয়োজন</string>
+    <string name="accessibility_required_message">PhoneGPT-এর আপনার ডিভাইসে কাজ করতে অ্যাক্সেসিবিলিটি পারমিশন প্রয়োজন। অনুগ্রহ করে সেটিংসে PhoneGPT অ্যাক্সেসিবিলিটি সার্ভিস সক্ষম করুন।</string>
+    <string name="go_to_settings">সেটিংসে যান</string>
+    <string name="cancel">বাতিল</string>
+</resources>

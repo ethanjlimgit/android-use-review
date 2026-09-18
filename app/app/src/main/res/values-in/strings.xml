@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT mengidentifikasi dan memvisualisasikan elemen UI di layar. Layanan ini membantu mendeteksi elemen mana yang terlihat oleh pengguna dengan memeriksa lapisan UI, yang berguna untuk analisis UI dan otomatisasi.</string>
+    <string name="keyboard_name">Keyboard PhoneGPT</string>
+    <string name="keyboard_on">Keyboard PhoneGPT (AKTIF)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">Pengaturan</string>
+    <string name="accessibility_service_not_enabled">Layanan Aksesibilitas Tidak Diaktifkan</string>
+    <string name="enable_now">Aktifkan Sekarang</string>
+    <string name="accessibility_service">Layanan Aksesibilitas</string>
+    <string name="test_fetching">Tes Pengambilan</string>
+    <string name="notification_access_not_granted">Akses Notifikasi Tidak Diberikan</string>
+    <string name="enable">Aktifkan</string>
+    <string name="notification_listener">Pendengar Notifikasi</string>
+    <string name="controls_header">Kontrol</string>
+    <string name="overlay_label">Overlay</string>
+    <string name="overlay_offset_label">Offset Overlay</string>
+    <string name="reset_button">Reset</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">Tips: Mode visi berfungsi bahkan saat overlay dimatikan</string>
+    <string name="socket_server_port_label">Port Server Socket</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">Detail Koneksi</string>
+    <string name="socket_status_label">Status Socket:</string>
+    <string name="service_not_available">Layanan tidak tersedia</string>
+    <string name="network_access_header">Akses Jaringan</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">Tidak tersedia</string>
+    <string name="token_label">"Token: "</string>
+    <string name="copy_token_content_description">Salin token</string>
+    <string name="adb_forward_command_header">Perintah ADB Forward</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">Endpoint</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">Log</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">Pengaturan WebSocket</string>
+    <string name="server_configuration_header">KONFIGURASI SERVER</string>
+    <string name="enable_ws_server_label">Aktifkan Server WS</string>
+    <string name="allow_external_connections_label">Izinkan koneksi eksternal WS</string>
+    <string name="port_label">Port</string>
+    <string name="reverse_connection_header">KONEKSI BALIK (MODE KLIEN)</string>
+    <string name="connect_to_host_label">Hubungkan ke Host</string>
+    <string name="initiate_outbound_connection_label">Mulai koneksi keluar</string>
+    <string name="host_url_hint">URL Host (ws://...)</string>
+    <string name="token_optional_hint">Token (Opsional)</string>
+    <string name="event_filters_header">FILTER ACARA</string>
+    <string name="notifications_label">Notifikasi</string>
+    <string name="push_system_notifications_label">Kirim notifikasi sistem</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Selamat datang di\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">AI yang bertindak agar Anda tidak perlu melakukannya</string>
+    <string name="onboarding_get_started">Mulai</string>
+
+    <string name="onboarding_accessibility_title">Izin Aksesibilitas</string>
+    <string name="onboarding_accessibility_body">Kami membutuhkan akses ke antarmuka perangkat ini</string>
+    <string name="onboarding_accessibility_card_title">Data dan perangkat tetap</string>
+    <string name="onboarding_accessibility_safe">Aman dan pribadi</string>
+    <string name="onboarding_accessibility_no_recording">Tanpa rekaman layar</string>
+    <string name="onboarding_accessibility_on_device">Di perangkat</string>
+
+    <string name="onboarding_accessibility_guide_title">Berikan Izin Aksesibilitas</string>
+    <string name="onboarding_accessibility_guide_step1">Ketuk \"PhoneGPT\" di daftar</string>
+    <string name="onboarding_accessibility_guide_step2">Aktifkan sakelar dan konfirmasi</string>
+
+    <string name="onboarding_overlay_title">Izin Overlay</string>
+    <string name="onboarding_overlay_body">Kami perlu menampilkan kontrol saat bekerja</string>
+    <string name="onboarding_overlay_card_title">Overlay memungkinkan Anda</string>
+    <string name="onboarding_overlay_benefit1">Mengontrol agen</string>
+    <string name="onboarding_overlay_benefit2">Memberikan perintah</string>
+    <string name="onboarding_overlay_benefit3">Melihat apa yang terjadi</string>
+    <string name="onboarding_overlay_learn_more_message">Overlay memungkinkan PhoneGPT menampilkan panel kontrol mengambang di atas aplikasi lain. Ini memungkinkan Anda berinteraksi dengan agen, memberikan perintah, dan memantau kemajuan tanpa berpindah aplikasi.</string>
+
+    <string name="onboarding_overlay_guide_title">Berikan Izin Overlay</string>
+    <string name="onboarding_overlay_guide_step1">Temukan \"PhoneGPT\" di daftar</string>
+    <string name="onboarding_overlay_guide_step2">Aktifkan \"Izinkan tampilan di atas aplikasi lain\"</string>
+
+    <string name="onboarding_recognition_title">Izin Mikrofon</string>
+    <string name="onboarding_recognition_body">Kami membutuhkan akses mikrofon untuk perintah suara</string>
+    <string name="onboarding_recognition_card_title">Kontrol suara memungkinkan Anda</string>
+    <string name="onboarding_recognition_benefit1">Memberikan perintah dengan suara</string>
+    <string name="onboarding_recognition_benefit2">Kontrol tanpa tangan</string>
+    <string name="onboarding_recognition_benefit3">Bekerja lebih cepat dengan bicara</string>
+    <string name="onboarding_recognition_learn_more_message">Izin mikrofon memungkinkan PhoneGPT mendengarkan perintah suara Anda. Ini mengaktifkan kontrol tanpa tangan dan memudahkan interaksi alami dengan agen melalui bicara.</string>
+
+    <string name="onboarding_recognition_guide_title">Berikan Izin Mikrofon</string>
+    <string name="onboarding_recognition_guide_step1">Ketuk \"Izinkan\" saat diminta</string>
+    <string name="onboarding_recognition_guide_step2">Berikan akses mikrofon untuk mengaktifkan kontrol suara</string>
+    <string name="onboarding_recognition_permission_denied">Izin mikrofon ditolak. Anda dapat mengaktifkannya nanti di pengaturan.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT membutuhkan akses mikrofon untuk memahami perintah suara Anda.</string>
+    <string name="onboarding_recognition_waiting">Ketuk tombol di bawah untuk memberikan izin</string>
+
+    <string name="onboarding_assistant_title">Asisten Default</string>
+    <string name="onboarding_assistant_body">Tetapkan PhoneGPT sebagai asisten default Anda</string>
+    <string name="onboarding_assistant_benefits">Manfaat</string>
+    <string name="onboarding_assistant_benefit1">Akses PhoneGPT di mana saja</string>
+    <string name="onboarding_assistant_benefit2">Tekan lama tombol beranda</string>
+    <string name="onboarding_assistant_benefit3">Perintah suara cepat</string>
+    <string name="onboarding_assistant_optional">Langkah ini opsional</string>
+
+    <string name="onboarding_success_title">Semua Siap!</string>
+    <string name="onboarding_success_message">PhoneGPT siap membantu Anda dengan apa pun</string>
+
+    <string name="onboarding_button_continue">Lanjutkan</string>
+    <string name="onboarding_button_learn_more">Pelajari Lebih Lanjut</string>
+    <string name="onboarding_button_open_settings">Buka Pengaturan</string>
+    <string name="onboarding_button_grant_permission">Berikan Izin</string>
+    <string name="onboarding_button_skip">Lewati</string>
+    <string name="onboarding_button_back">Kembali</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">Menunggu izin…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">Apakah Anda individu atau perusahaan?</string>
+    <string name="survey_user_type_individual">Individu</string>
+    <string name="survey_user_type_individual_desc">Saya menggunakan PhoneGPT untuk tugas pribadi</string>
+    <string name="survey_user_type_company">Perusahaan</string>
+    <string name="survey_user_type_company_desc">Saya menggunakan PhoneGPT untuk organisasi saya</string>
+
+    <string name="survey_company_size_question">Berapa ukuran perusahaan Anda?</string>
+    <string name="survey_company_size_just_me">Hanya saya</string>
+    <string name="survey_company_size_2_10">2–10 karyawan</string>
+    <string name="survey_company_size_11_50">11–50 karyawan</string>
+    <string name="survey_company_size_51_200">51–200 karyawan</string>
+    <string name="survey_company_size_201_1000">201–1.000 karyawan</string>
+    <string name="survey_company_size_1000_plus">1.000+ karyawan</string>
+
+    <string name="survey_industry_question">Di industri apa Anda berada?</string>
+    <string name="survey_industry_technology">Teknologi</string>
+    <string name="survey_industry_healthcare">Kesehatan</string>
+    <string name="survey_industry_finance">Keuangan</string>
+    <string name="survey_industry_education">Pendidikan</string>
+    <string name="survey_industry_retail">Ritel</string>
+    <string name="survey_industry_manufacturing">Manufaktur</string>
+    <string name="survey_industry_real_estate">Properti</string>
+    <string name="survey_industry_transportation">Transportasi</string>
+    <string name="survey_industry_marketing">Pemasaran</string>
+    <string name="survey_industry_legal">Hukum</string>
+    <string name="survey_industry_non_profit">Nirlaba</string>
+    <string name="survey_industry_government">Pemerintah</string>
+    <string name="survey_industry_entertainment">Hiburan</string>
+    <string name="survey_industry_hospitality">Perhotelan</string>
+    <string name="survey_industry_construction">Konstruksi</string>
+    <string name="survey_industry_agriculture">Pertanian</string>
+    <string name="survey_industry_other">Lainnya</string>
+
+    <string name="survey_role_question_company">Apa peran Anda?</string>
+    <string name="survey_role_question_individual">Apa jabatan Anda?</string>
+    <string name="survey_role_software_engineer">Software Engineer</string>
+    <string name="survey_role_product_manager">Product Manager</string>
+    <string name="survey_role_designer">Desainer</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">Pendiri</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">Engineer</string>
+    <string name="survey_role_data_scientist">Data Scientist</string>
+    <string name="survey_role_marketing">Pemasaran</string>
+    <string name="survey_role_sales">Penjualan</string>
+    <string name="survey_role_customer_support">Dukungan Pelanggan</string>
+    <string name="survey_role_operations">Operasional</string>
+    <string name="survey_role_hr">SDM</string>
+    <string name="survey_role_finance">Keuangan</string>
+    <string name="survey_role_analyst">Analis</string>
+    <string name="survey_role_manager">Manajer</string>
+    <string name="survey_role_director">Direktur</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">Konsultan</string>
+    <string name="survey_role_freelancer">Freelancer</string>
+    <string name="survey_role_student">Mahasiswa</string>
+    <string name="survey_role_researcher">Peneliti</string>
+    <string name="survey_role_teacher">Guru</string>
+    <string name="survey_role_developer">Developer</string>
+    <string name="survey_role_qa">QA/Testing</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">Keamanan</string>
+    <string name="survey_role_admin">Admin</string>
+    <string name="survey_role_legal">Hukum</string>
+    <string name="survey_role_other">Lainnya</string>
+    <string name="survey_role_custom_hint">Masukkan peran Anda</string>
+
+    <string name="survey_use_case_question">Untuk apa Anda ingin menggunakan PhoneGPT?</string>
+    <string name="survey_use_case_hint">Ceritakan tentang kasus penggunaan Anda…</string>
+    <string name="survey_use_case_error">Harap masukkan minimal 10 karakter</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">Menganalisis profil Anda…</string>
+    <string name="survey_personalizing_customizing">Menyesuaikan PhoneGPT untuk %s…</string>
+    <string name="survey_personalizing_saving">Menyinkronkan preferensi Anda…</string>
+
+    <string name="survey_button_next">Berikutnya</string>
+    <string name="survey_button_finish">Selesai</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">Upgrade ke Premium</string>
+    <string name="paywall_yearly_price">Rp1.299.000</string>
+    <string name="paywall_yearly_period">/tahun</string>
+    <string name="paywall_yearly_equivalent">Rp2.535.000</string>
+    <string name="paywall_yearly_trial">Uji coba gratis 5 hari</string>
+    <string name="paywall_yearly_badge">NILAI TERBAIK</string>
+    <string name="paywall_monthly_price">Rp209.000</string>
+    <string name="paywall_monthly_period">/bulan</string>
+    <string name="paywall_cta_trial">Mulai Uji Coba Gratis</string>
+    <string name="paywall_cta_subscribe">Berlangganan Sekarang</string>
+    <string name="paywall_cancel_anytime">Batalkan kapan saja</string>
+    <string name="paywall_benefit_1">Penalaran AI paling cerdas</string>
+    <string name="paywall_benefit_2">Batas penggunaan maksimal (3M+ token)</string>
+    <string name="paywall_benefit_3">Otomatisasi tugas harian</string>
+    <string name="paywall_benefit_4">Terhubung ke semua aplikasi Anda</string>
+    <string name="paywall_benefit_5">Kecepatan prioritas VIP</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">Batal</string>
+    <string name="stripe_upgrade_plan">Upgrade Paket</string>
+    <string name="stripe_task_count">Anda telah menggunakan kredit gratis Anda</string>
+    <string name="stripe_select_billing">Pilih Periode Penagihan</string>
+    <string name="stripe_yearly">Tahunan</string>
+    <string name="stripe_monthly">Bulanan</string>
+    <string name="stripe_yearly_price">Rp1.299.000/tahun</string>
+    <string name="stripe_yearly_savings">Hemat Rp1.236.000/tahun</string>
+    <string name="stripe_yearly_trial">Uji coba gratis 5 hari</string>
+    <string name="stripe_monthly_price">Rp209.000/bulan</string>
+    <string name="stripe_best_value">NILAI TERBAIK</string>
+    <string name="stripe_continue_payment">Lanjutkan ke Pembayaran</string>
+    <string name="stripe_check_icon_desc">Ikon centang</string>
+    <string name="loading">Memuat…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">Asisten pribadi yang benar-benar mengerjakan pekerjaan untukmu. Tidak perlu lagi mengetuk, menggulir, atau menyalin-menempel.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">Apa yang bisa\nsaya bantu?</string>
+    <string name="suggested_actions_title">Tindakan yang Disarankan</string>
+    <string name="recent_tasks_title">Tugas Terbaru</string>
+    <string name="action_doordash_title">Tambahkan burger ke keranjang Doordash saya dan checkout</string>
+    <string name="action_silent_mode_title">Atur ponsel saya ke mode senyap selama dua jam</string>
+    <string name="action_uber_title">Pesankan saya Uber ke 160 Broadway, San Francisco</string>
+    <string name="action_wallpaper_title">Atur foto galeri terbaru saya sebagai wallpaper</string>
+    <string name="input_hint">Ketuk untuk mengobrol dengan AI</string>
+    <string name="content_description_logo">Logo PhoneGPT</string>
+    <string name="content_description_profile">Profil</string>
+    <string name="content_description_mic">Mikrofon</string>
+    <string name="content_description_send">Kirim</string>
+    <string name="content_description_settings_icon">Pengaturan</string>
+    <string name="content_description_document_icon">Dokumen</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">Izin Aksesibilitas Diperlukan</string>
+    <string name="accessibility_required_message">PhoneGPT memerlukan izin aksesibilitas untuk melakukan tugas di perangkat Anda. Silakan aktifkan layanan aksesibilitas PhoneGPT di Pengaturan.</string>
+    <string name="go_to_settings">Buka Pengaturan</string>
+    <string name="cancel">Batal</string>
+</resources>

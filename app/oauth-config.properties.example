@@ -1,0 +1,50 @@
+# OAuth Configuration Example
+# Copy this file to the appropriate location and fill in your actual OAuth client IDs
+
+# Google OAuth Client IDs
+# Get these from: https://console.cloud.google.com/apis/credentials
+#
+# IMPORTANT: You need TWO different client IDs from Google Cloud Console:
+# 1. GOOGLE_WEB_CLIENT_ID - OAuth 2.0 Client ID of type "Web application"
+#    - Used for Credential Manager (modern flow)
+#    - No SHA-1 fingerprint required
+#
+# 2. GOOGLE_OAUTH_CLIENT_ID - OAuth 2.0 Client ID of type "Android"
+#    - Used for legacy Google Sign-In fallback
+#    - MUST be registered with SHA-1 certificate fingerprint
+#    - Run: ./gradlew signingReport to get your SHA-1
+
+# Dev environment - Web Client ID (for Credential Manager)
+GOOGLE_WEB_CLIENT_ID_DEV=664067061126-4ok2nv4aht0pko4luslt113pheg1gm2q.apps.googleusercontent.com
+
+# Dev environment - Android OAuth Client ID (for legacy fallback)
+GOOGLE_OAUTH_CLIENT_ID_DEV=664067061126-4ok2nv4aht0pko4luslt113pheg1gm2q.apps.googleusercontent.com
+
+# Staging environment - Web Client ID
+GOOGLE_WEB_CLIENT_ID_STAGING=664067061126-4ok2nv4aht0pko4luslt113pheg1gm2q.apps.googleusercontent.com
+
+# Staging environment - Android OAuth Client ID
+GOOGLE_OAUTH_CLIENT_ID_STAGING=664067061126-4ok2nv4aht0pko4luslt113pheg1gm2q.apps.googleusercontent.com
+
+# Production environment - Web Client ID
+GOOGLE_WEB_CLIENT_ID_PROD=664067061126-pojvend4fmfv5mbd6hpvinksdnon6qa6.apps.googleusercontent.com
+
+# Production environment - Android OAuth Client ID
+GOOGLE_OAUTH_CLIENT_ID_PROD=664067061126-pojvend4fmfv5mbd6hpvinksdnon6qa6.apps.googleusercontent.com
+
+# GitHub OAuth Client IDs
+# Get these from: https://github.com/settings/developers
+GITHUB_CLIENT_ID_DEV=YOUR_GITHUB_CLIENT_ID
+GITHUB_CLIENT_ID_STAGING=YOUR_GITHUB_CLIENT_ID
+GITHUB_CLIENT_ID_PROD=YOUR_GITHUB_CLIENT_ID
+
+# Twitter OAuth Client IDs
+# Get these from: https://developer.twitter.com/en/portal/dashboard
+TWITTER_CLIENT_ID_DEV=YOUR_TWITTER_CLIENT_ID
+TWITTER_CLIENT_ID_STAGING=YOUR_TWITTER_CLIENT_ID
+TWITTER_CLIENT_ID_PROD=YOUR_TWITTER_CLIENT_ID
+
+# Configuration Notes:
+# 1. Update app/build.gradle.kts with these values in the appropriate build flavor
+# 2. For Google Sign-In, ensure SHA-1 certificate fingerprint is registered in Google Cloud Console
+# 3. For GitHub/Twitter, ensure redirect URIs are configured: androiduse.autopilot://oauth/callback

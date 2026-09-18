@@ -1,0 +1,10 @@
+name: androiduse-infrastructure
+runtime:
+  name: nodejs
+  options:
+    typescript: true
+description: AndroidUse Platform - DigitalOcean Infrastructure
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: digitalocean-typescript

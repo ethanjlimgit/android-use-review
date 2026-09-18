@@ -1,0 +1,40 @@
+# Exclude everything by default
+*
+
+# Include necessary files for build
+!pyproject.toml
+!uv.lock
+!README.md
+!setup.py
+!MANIFEST.in
+
+# Include source code
+!droiduse_backend/
+
+# Include configuration template
+!droiduse_backend/config_example.yaml
+
+# Exclude common development files
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.git/
+.github/
+.vscode/
+*.md
+!README.md
+docs/
+tests/
+examples/
+trajectories/

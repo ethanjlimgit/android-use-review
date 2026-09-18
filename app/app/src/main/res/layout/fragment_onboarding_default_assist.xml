@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/ivAssistantIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_onboarding_assistant"
+        app:tint="@color/androiduse_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvAssistantTitle"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:contentDescription="@string/onboarding_assistant_title" />
+
+    <TextView
+        android:id="@+id/tvAssistantTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_assistant_title"
+        android:textSize="32sp"
+        android:textColor="@color/text_white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/ivAssistantIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvAssistantBody" />
+
+    <TextView
+        android:id="@+id/tvAssistantBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_assistant_body"
+        android:textSize="18sp"
+        android:textColor="@color/text_gray_light"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAssistantTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cardAssistantInfo"
+        app:layout_constraintWidth_max="300dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardAssistantInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/background_card"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAssistantBody"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvOptional">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_assistant_benefits"
+                android:textSize="16sp"
+                android:textColor="@color/text_gray_light"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_assistant_benefit1"
+                android:textSize="18sp"
+                android:textColor="@color/text_white"
+                android:drawablePadding="8dp"
+                app:drawableStartCompat="@drawable/ic_onboarding_success"
+                app:drawableTint="@color/androiduse_success"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_assistant_benefit2"
+                android:textSize="18sp"
+                android:textColor="@color/text_white"
+                android:drawablePadding="8dp"
+                app:drawableStartCompat="@drawable/ic_onboarding_success"
+                app:drawableTint="@color/androiduse_success"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_assistant_benefit3"
+                android:textSize="18sp"
+                android:textColor="@color/text_white"
+                android:drawablePadding="8dp"
+                app:drawableStartCompat="@drawable/ic_onboarding_success"
+                app:drawableTint="@color/androiduse_success"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvOptional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_assistant_optional"
+        android:textSize="16sp"
+        android:textColor="@color/text_gray"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardAssistantInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnOpenSettings" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenSettings"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:text="@string/onboarding_button_open_settings"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:backgroundTint="@color/androiduse_primary"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvOptional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnSkip" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSkip"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_button_skip"
+        android:textAllCaps="false"
+        android:textColor="@color/text_gray"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

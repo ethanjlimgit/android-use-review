@@ -1,0 +1,40 @@
+# Example override config for droiduse-backend serve command
+#
+# Usage:
+#   droiduse-backend serve --config config_override_example.yaml
+#
+# This config will be merged with the base config.yaml.
+# Only the entries you specify here will override the base config.
+# All other settings from config.yaml will be preserved.
+#
+# Example: If you want to change only the max_steps and LLM model,
+# you don't need to copy the entire config.yaml - just specify those values here.
+
+# Override agent settings (only the values you want to change)
+agent:
+  max_steps: 20  # Override max_steps only (other agent settings preserved from config.yaml)
+  # reasoning: true  # Uncomment to override reasoning mode
+
+# Override specific LLM profiles (nested merge)
+llm_profiles:
+  manager:
+    model: "claude-opus-4-5"  # Override model only (provider and temperature preserved)
+  # executor:
+  #   model: "claude-sonnet-4-5"  # Uncomment to override executor model
+
+# Override WebSocket server settings
+# websocket_server:
+#   ping_interval: 30  # Uncomment to override ping interval
+#   auth_enabled: false  # Uncomment to disable authentication (for testing)
+
+# Override plugins
+# plugins:
+#   posthog_telemetry:
+#     enabled: false  # Uncomment to disable telemetry
+
+# Override transcription settings
+# transcription:
+#   enabled: true  # Uncomment to enable real-time transcription
+#   elevenlabs_api_key: "your-api-key"  # Or set ELEVENLABS_API_KEY env var
+#   default_language: "en"  # Uncomment to set default language
+#   vad_silence_threshold: 0.8  # Uncomment to adjust VAD sensitivity

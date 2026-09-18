@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked state: white text for contrast on primary background -->
+    <item android:color="@color/white" android:state_checked="true" />
+    <!-- Default state: white text -->
+    <item android:color="@color/text_white" />
+</selector>

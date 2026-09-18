@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="56dp"
+    android:height="56dp"
+    android:viewportWidth="56"
+    android:viewportHeight="56">
+    <!-- Red octagon (stop sign shape) -->
+    <path
+        android:fillColor="#DC2626"
+        android:pathData="M16.4,0 L39.6,0 L56,16.4 L56,39.6 L39.6,56 L16.4,56 L0,39.6 L0,16.4 Z" />
+    <!-- White border inside octagon -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M18,3 L38,3 L53,18 L53,38 L38,53 L18,53 L3,38 L3,18 Z" />
+</vector>

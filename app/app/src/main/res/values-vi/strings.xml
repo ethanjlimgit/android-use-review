@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT xác định và hiển thị các phần tử giao diện trên màn hình. Dịch vụ này giúp phát hiện các phần tử hiển thị với người dùng bằng cách kiểm tra các lớp giao diện, hữu ích cho phân tích UI và tự động hóa.</string>
+    <string name="keyboard_name">Bàn phím PhoneGPT</string>
+    <string name="keyboard_on">Bàn phím PhoneGPT (BẬT)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">Cài đặt</string>
+    <string name="accessibility_service_not_enabled">Dịch vụ Trợ năng Chưa Bật</string>
+    <string name="enable_now">Bật Ngay</string>
+    <string name="accessibility_service">Dịch vụ Trợ năng</string>
+    <string name="test_fetching">Kiểm tra Tải</string>
+    <string name="notification_access_not_granted">Quyền Truy cập Thông báo Chưa Được Cấp</string>
+    <string name="enable">Bật</string>
+    <string name="notification_listener">Trình nghe Thông báo</string>
+    <string name="controls_header">Điều khiển</string>
+    <string name="overlay_label">Lớp phủ</string>
+    <string name="overlay_offset_label">Độ lệch Lớp phủ</string>
+    <string name="reset_button">Đặt lại</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">Mẹo: Chế độ nhìn hoạt động ngay cả khi tắt lớp phủ</string>
+    <string name="socket_server_port_label">Cổng Server Socket</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">Chi tiết Kết nối</string>
+    <string name="socket_status_label">Trạng thái Socket:</string>
+    <string name="service_not_available">Dịch vụ không khả dụng</string>
+    <string name="network_access_header">Truy cập Mạng</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">Không khả dụng</string>
+    <string name="token_label">"Token: "</string>
+    <string name="copy_token_content_description">Sao chép token</string>
+    <string name="adb_forward_command_header">Lệnh ADB Forward</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">Điểm cuối</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">Nhật ký</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">Cài đặt WebSocket</string>
+    <string name="server_configuration_header">CẤU HÌNH SERVER</string>
+    <string name="enable_ws_server_label">Bật Server WS</string>
+    <string name="allow_external_connections_label">Cho phép kết nối WS bên ngoài</string>
+    <string name="port_label">Cổng</string>
+    <string name="reverse_connection_header">KẾT NỐI NGƯỢC (CHẾ ĐỘ CLIENT)</string>
+    <string name="connect_to_host_label">Kết nối với Host</string>
+    <string name="initiate_outbound_connection_label">Bắt đầu kết nối đi</string>
+    <string name="host_url_hint">URL Host (ws://...)</string>
+    <string name="token_optional_hint">Token (Tùy chọn)</string>
+    <string name="event_filters_header">BỘ LỌC SỰ KIỆN</string>
+    <string name="notifications_label">Thông báo</string>
+    <string name="push_system_notifications_label">Gửi thông báo hệ thống</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Chào mừng đến\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">AI hành động để bạn không phải làm</string>
+    <string name="onboarding_get_started">Bắt đầu</string>
+
+    <string name="onboarding_accessibility_title">Quyền Trợ năng</string>
+    <string name="onboarding_accessibility_body">Chúng tôi cần truy cập vào giao diện thiết bị này</string>
+    <string name="onboarding_accessibility_card_title">Dữ liệu và thiết bị vẫn</string>
+    <string name="onboarding_accessibility_safe">An toàn và riêng tư</string>
+    <string name="onboarding_accessibility_no_recording">Không ghi màn hình</string>
+    <string name="onboarding_accessibility_on_device">Trên thiết bị</string>
+
+    <string name="onboarding_accessibility_guide_title">Cấp Quyền Trợ năng</string>
+    <string name="onboarding_accessibility_guide_step1">Nhấn vào \"PhoneGPT\" trong danh sách</string>
+    <string name="onboarding_accessibility_guide_step2">Bật công tắc và xác nhận</string>
+
+    <string name="onboarding_overlay_title">Quyền Lớp phủ</string>
+    <string name="onboarding_overlay_body">Chúng tôi cần hiển thị điều khiển khi làm việc</string>
+    <string name="onboarding_overlay_card_title">Lớp phủ cho phép bạn</string>
+    <string name="onboarding_overlay_benefit1">Điều khiển trợ lý</string>
+    <string name="onboarding_overlay_benefit2">Đưa ra lệnh</string>
+    <string name="onboarding_overlay_benefit3">Xem những gì đang xảy ra</string>
+    <string name="onboarding_overlay_learn_more_message">Lớp phủ cho phép PhoneGPT hiển thị bảng điều khiển nổi trên các ứng dụng khác. Điều này cho phép bạn tương tác với trợ lý, đưa ra lệnh và theo dõi tiến trình mà không cần chuyển ứng dụng.</string>
+
+    <string name="onboarding_overlay_guide_title">Cấp Quyền Lớp phủ</string>
+    <string name="onboarding_overlay_guide_step1">Tìm \"PhoneGPT\" trong danh sách</string>
+    <string name="onboarding_overlay_guide_step2">Bật \"Cho phép hiển thị trên các ứng dụng khác\"</string>
+
+    <string name="onboarding_recognition_title">Quyền Micro</string>
+    <string name="onboarding_recognition_body">Chúng tôi cần quyền truy cập micro cho lệnh thoại</string>
+    <string name="onboarding_recognition_card_title">Điều khiển giọng nói cho phép bạn</string>
+    <string name="onboarding_recognition_benefit1">Đưa ra lệnh bằng giọng nói</string>
+    <string name="onboarding_recognition_benefit2">Điều khiển không cần tay</string>
+    <string name="onboarding_recognition_benefit3">Làm việc nhanh hơn bằng lời nói</string>
+    <string name="onboarding_recognition_learn_more_message">Quyền micro cho phép PhoneGPT nghe lệnh thoại của bạn. Điều này kích hoạt điều khiển không cần tay và giúp tương tác tự nhiên với trợ lý thông qua lời nói dễ dàng hơn.</string>
+
+    <string name="onboarding_recognition_guide_title">Cấp Quyền Micro</string>
+    <string name="onboarding_recognition_guide_step1">Nhấn \"Cho phép\" khi được nhắc</string>
+    <string name="onboarding_recognition_guide_step2">Cấp quyền truy cập micro để bật điều khiển giọng nói</string>
+    <string name="onboarding_recognition_permission_denied">Quyền micro bị từ chối. Bạn có thể bật nó sau trong cài đặt.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT cần quyền truy cập micro để hiểu lệnh thoại của bạn.</string>
+    <string name="onboarding_recognition_waiting">Nhấn nút bên dưới để cấp quyền</string>
+
+    <string name="onboarding_assistant_title">Trợ lý Mặc định</string>
+    <string name="onboarding_assistant_body">Đặt PhoneGPT làm trợ lý mặc định của bạn</string>
+    <string name="onboarding_assistant_benefits">Lợi ích</string>
+    <string name="onboarding_assistant_benefit1">Truy cập PhoneGPT ở mọi nơi</string>
+    <string name="onboarding_assistant_benefit2">Nhấn giữ nút home</string>
+    <string name="onboarding_assistant_benefit3">Lệnh thoại nhanh</string>
+    <string name="onboarding_assistant_optional">Bước này là tùy chọn</string>
+
+    <string name="onboarding_success_title">Tất cả Đã Sẵn sàng!</string>
+    <string name="onboarding_success_message">PhoneGPT đã sẵn sàng giúp bạn với bất kỳ điều gì</string>
+
+    <string name="onboarding_button_continue">Tiếp tục</string>
+    <string name="onboarding_button_learn_more">Tìm hiểu Thêm</string>
+    <string name="onboarding_button_open_settings">Mở Cài đặt</string>
+    <string name="onboarding_button_grant_permission">Cấp Quyền</string>
+    <string name="onboarding_button_skip">Bỏ qua</string>
+    <string name="onboarding_button_back">Quay lại</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">Đang chờ quyền…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">Bạn là cá nhân hay công ty?</string>
+    <string name="survey_user_type_individual">Cá nhân</string>
+    <string name="survey_user_type_individual_desc">Tôi sử dụng PhoneGPT cho các tác vụ cá nhân</string>
+    <string name="survey_user_type_company">Công ty</string>
+    <string name="survey_user_type_company_desc">Tôi sử dụng PhoneGPT cho tổ chức của tôi</string>
+
+    <string name="survey_company_size_question">Quy mô công ty của bạn là bao nhiêu?</string>
+    <string name="survey_company_size_just_me">Chỉ mình tôi</string>
+    <string name="survey_company_size_2_10">2–10 nhân viên</string>
+    <string name="survey_company_size_11_50">11–50 nhân viên</string>
+    <string name="survey_company_size_51_200">51–200 nhân viên</string>
+    <string name="survey_company_size_201_1000">201–1.000 nhân viên</string>
+    <string name="survey_company_size_1000_plus">1.000+ nhân viên</string>
+
+    <string name="survey_industry_question">Bạn thuộc ngành nào?</string>
+    <string name="survey_industry_technology">Công nghệ</string>
+    <string name="survey_industry_healthcare">Y tế</string>
+    <string name="survey_industry_finance">Tài chính</string>
+    <string name="survey_industry_education">Giáo dục</string>
+    <string name="survey_industry_retail">Bán lẻ</string>
+    <string name="survey_industry_manufacturing">Sản xuất</string>
+    <string name="survey_industry_real_estate">Bất động sản</string>
+    <string name="survey_industry_transportation">Vận tải</string>
+    <string name="survey_industry_marketing">Marketing</string>
+    <string name="survey_industry_legal">Pháp lý</string>
+    <string name="survey_industry_non_profit">Phi lợi nhuận</string>
+    <string name="survey_industry_government">Chính phủ</string>
+    <string name="survey_industry_entertainment">Giải trí</string>
+    <string name="survey_industry_hospitality">Khách sạn</string>
+    <string name="survey_industry_construction">Xây dựng</string>
+    <string name="survey_industry_agriculture">Nông nghiệp</string>
+    <string name="survey_industry_other">Khác</string>
+
+    <string name="survey_role_question_company">Vai trò của bạn là gì?</string>
+    <string name="survey_role_question_individual">Chức danh công việc của bạn là gì?</string>
+    <string name="survey_role_software_engineer">Kỹ sư Phần mềm</string>
+    <string name="survey_role_product_manager">Quản lý Sản phẩm</string>
+    <string name="survey_role_designer">Thiết kế</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">Nhà sáng lập</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">Kỹ sư</string>
+    <string name="survey_role_data_scientist">Nhà khoa học Dữ liệu</string>
+    <string name="survey_role_marketing">Marketing</string>
+    <string name="survey_role_sales">Bán hàng</string>
+    <string name="survey_role_customer_support">Hỗ trợ Khách hàng</string>
+    <string name="survey_role_operations">Vận hành</string>
+    <string name="survey_role_hr">Nhân sự</string>
+    <string name="survey_role_finance">Tài chính</string>
+    <string name="survey_role_analyst">Phân tích viên</string>
+    <string name="survey_role_manager">Quản lý</string>
+    <string name="survey_role_director">Giám đốc</string>
+    <string name="survey_role_vp">Phó Chủ tịch</string>
+    <string name="survey_role_consultant">Tư vấn</string>
+    <string name="survey_role_freelancer">Freelancer</string>
+    <string name="survey_role_student">Sinh viên</string>
+    <string name="survey_role_researcher">Nghiên cứu viên</string>
+    <string name="survey_role_teacher">Giáo viên</string>
+    <string name="survey_role_developer">Lập trình viên</string>
+    <string name="survey_role_qa">QA/Kiểm thử</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">Bảo mật</string>
+    <string name="survey_role_admin">Quản trị viên</string>
+    <string name="survey_role_legal">Pháp lý</string>
+    <string name="survey_role_other">Khác</string>
+    <string name="survey_role_custom_hint">Nhập vai trò của bạn</string>
+
+    <string name="survey_use_case_question">Bạn muốn sử dụng PhoneGPT để làm gì?</string>
+    <string name="survey_use_case_hint">Cho chúng tôi biết về trường hợp sử dụng của bạn…</string>
+    <string name="survey_use_case_error">Vui lòng nhập ít nhất 10 ký tự</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">Đang phân tích hồ sơ của bạn…</string>
+    <string name="survey_personalizing_customizing">Đang tùy chỉnh PhoneGPT cho %s…</string>
+    <string name="survey_personalizing_saving">Đang đồng bộ tùy chọn của bạn…</string>
+
+    <string name="survey_button_next">Tiếp theo</string>
+    <string name="survey_button_finish">Hoàn thành</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">Nâng cấp lên Premium</string>
+    <string name="paywall_yearly_price">1.999.000₫</string>
+    <string name="paywall_yearly_period">/năm</string>
+    <string name="paywall_yearly_equivalent">3.900.000₫</string>
+    <string name="paywall_yearly_trial">Dùng thử miễn phí 5 ngày</string>
+    <string name="paywall_yearly_badge">GIÁ TRỊ TỐT NHẤT</string>
+    <string name="paywall_monthly_price">319.000₫</string>
+    <string name="paywall_monthly_period">/tháng</string>
+    <string name="paywall_cta_trial">Bắt đầu Dùng thử Miễn phí</string>
+    <string name="paywall_cta_subscribe">Đăng ký Ngay</string>
+    <string name="paywall_cancel_anytime">Hủy bất cứ lúc nào</string>
+    <string name="paywall_benefit_1">Suy luận AI thông minh nhất</string>
+    <string name="paywall_benefit_2">Giới hạn sử dụng tối đa (3M+ token)</string>
+    <string name="paywall_benefit_3">Tự động hóa các tác vụ hàng ngày</string>
+    <string name="paywall_benefit_4">Kết nối với tất cả ứng dụng của bạn</string>
+    <string name="paywall_benefit_5">Tốc độ ưu tiên VIP</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">Hủy</string>
+    <string name="stripe_upgrade_plan">Nâng cấp Gói</string>
+    <string name="stripe_task_count">Bạn đã sử dụng hết tín dụng miễn phí</string>
+    <string name="stripe_select_billing">Chọn Kỳ Thanh toán</string>
+    <string name="stripe_yearly">Hàng năm</string>
+    <string name="stripe_monthly">Hàng tháng</string>
+    <string name="stripe_yearly_price">1.999.000₫/năm</string>
+    <string name="stripe_yearly_savings">Tiết kiệm 1.900.000₫/năm</string>
+    <string name="stripe_yearly_trial">Dùng thử miễn phí 5 ngày</string>
+    <string name="stripe_monthly_price">319.000₫/tháng</string>
+    <string name="stripe_best_value">GIÁ TRỊ TỐT NHẤT</string>
+    <string name="stripe_continue_payment">Tiếp tục Thanh toán</string>
+    <string name="stripe_check_icon_desc">Biểu tượng dấu tích</string>
+    <string name="loading">Đang tải…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">Trợ lý cá nhân thực sự làm việc thay bạn. Không cần chạm, cuộn hay sao chép-dán nữa.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">Tôi có thể giúp\ngì cho bạn?</string>
+    <string name="suggested_actions_title">Hành động Đề xuất</string>
+    <string name="recent_tasks_title">Tác vụ Gần đây</string>
+    <string name="action_doordash_title">Thêm burger vào giỏ hàng Doordash và thanh toán</string>
+    <string name="action_silent_mode_title">Đặt điện thoại ở chế độ im lặng trong hai giờ</string>
+    <string name="action_uber_title">Đặt Uber đến 160 Broadway, San Francisco</string>
+    <string name="action_wallpaper_title">Đặt ảnh mới nhất trong thư viện làm hình nền</string>
+    <string name="input_hint">Nhấn để trò chuyện với AI</string>
+    <string name="content_description_logo">Logo PhoneGPT</string>
+    <string name="content_description_profile">Hồ sơ</string>
+    <string name="content_description_mic">Micro</string>
+    <string name="content_description_send">Gửi</string>
+    <string name="content_description_settings_icon">Cài đặt</string>
+    <string name="content_description_document_icon">Tài liệu</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">Cần Quyền Trợ năng</string>
+    <string name="accessibility_required_message">PhoneGPT cần quyền trợ năng để thực hiện các tác vụ trên thiết bị của bạn. Vui lòng bật dịch vụ trợ năng PhoneGPT trong Cài đặt.</string>
+    <string name="go_to_settings">Đi tới Cài đặt</string>
+    <string name="cancel">Hủy</string>
+</resources>

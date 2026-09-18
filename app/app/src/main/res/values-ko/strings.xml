@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT는 화면의 UI 요소를 식별하고 시각화합니다. 이 서비스는 UI 레이어를 검사하여 사용자에게 보이는 요소를 감지하는 데 도움이 되며, UI 분석 및 자동화에 유용합니다.</string>
+    <string name="keyboard_name">PhoneGPT 키보드</string>
+    <string name="keyboard_on">PhoneGPT 키보드 (켜짐)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">설정</string>
+    <string name="accessibility_service_not_enabled">접근성 서비스가 활성화되지 않았습니다</string>
+    <string name="enable_now">지금 활성화</string>
+    <string name="accessibility_service">접근성 서비스</string>
+    <string name="test_fetching">가져오기 테스트</string>
+    <string name="notification_access_not_granted">알림 액세스가 허용되지 않았습니다</string>
+    <string name="enable">활성화</string>
+    <string name="notification_listener">알림 리스너</string>
+    <string name="controls_header">컨트롤</string>
+    <string name="overlay_label">오버레이</string>
+    <string name="overlay_offset_label">오버레이 오프셋</string>
+    <string name="reset_button">재설정</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">팁: 비전 모드는 오버레이가 꺼져 있어도 작동합니다</string>
+    <string name="socket_server_port_label">소켓 서버 포트</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">연결 세부 정보</string>
+    <string name="socket_status_label">소켓 상태:</string>
+    <string name="service_not_available">서비스를 사용할 수 없습니다</string>
+    <string name="network_access_header">네트워크 액세스</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">사용 불가</string>
+    <string name="token_label">"토큰: "</string>
+    <string name="copy_token_content_description">토큰 복사</string>
+    <string name="adb_forward_command_header">ADB Forward 명령</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">엔드포인트</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">로그</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">WebSocket 설정</string>
+    <string name="server_configuration_header">서버 구성</string>
+    <string name="enable_ws_server_label">WS 서버 활성화</string>
+    <string name="allow_external_connections_label">외부 WS 연결 허용</string>
+    <string name="port_label">포트</string>
+    <string name="reverse_connection_header">역방향 연결 (클라이언트 모드)</string>
+    <string name="connect_to_host_label">호스트에 연결</string>
+    <string name="initiate_outbound_connection_label">아웃바운드 연결 시작</string>
+    <string name="host_url_hint">호스트 URL (ws://...)</string>
+    <string name="token_optional_hint">토큰 (선택 사항)</string>
+    <string name="event_filters_header">이벤트 필터</string>
+    <string name="notifications_label">알림</string>
+    <string name="push_system_notifications_label">시스템 알림 푸시</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">PhoneGPT에\n오신 것을 환영합니다</string>
+    <string name="onboarding_welcome_subtitle">당신을 위해 행동하는 AI</string>
+    <string name="onboarding_get_started">시작하기</string>
+
+    <string name="onboarding_accessibility_title">접근성 권한</string>
+    <string name="onboarding_accessibility_body">이 기기의 인터페이스에 액세스해야 합니다</string>
+    <string name="onboarding_accessibility_card_title">데이터와 기기는</string>
+    <string name="onboarding_accessibility_safe">안전하고 비공개로 유지</string>
+    <string name="onboarding_accessibility_no_recording">화면 녹화 없음</string>
+    <string name="onboarding_accessibility_on_device">기기에서 처리</string>
+
+    <string name="onboarding_accessibility_guide_title">접근성 권한 부여</string>
+    <string name="onboarding_accessibility_guide_step1">목록에서 \"PhoneGPT\"를 탭하세요</string>
+    <string name="onboarding_accessibility_guide_step2">스위치를 켜고 확인하세요</string>
+
+    <string name="onboarding_overlay_title">오버레이 권한</string>
+    <string name="onboarding_overlay_body">작업하는 동안 컨트롤을 표시해야 합니다</string>
+    <string name="onboarding_overlay_card_title">오버레이로 할 수 있는 것</string>
+    <string name="onboarding_overlay_benefit1">에이전트 제어</string>
+    <string name="onboarding_overlay_benefit2">명령 내리기</string>
+    <string name="onboarding_overlay_benefit3">진행 상황 확인</string>
+    <string name="onboarding_overlay_learn_more_message">오버레이를 통해 PhoneGPT는 다른 앱 위에 플로팅 컨트롤 패널을 표시할 수 있습니다. 앱을 전환하지 않고도 에이전트와 상호 작용하고, 명령을 내리고, 진행 상황을 모니터링할 수 있습니다.</string>
+
+    <string name="onboarding_overlay_guide_title">오버레이 권한 부여</string>
+    <string name="onboarding_overlay_guide_step1">목록에서 \"PhoneGPT\"를 찾으세요</string>
+    <string name="onboarding_overlay_guide_step2">\"다른 앱 위에 표시\"를 켜세요</string>
+
+    <string name="onboarding_recognition_title">마이크 권한</string>
+    <string name="onboarding_recognition_body">음성 명령을 위해 마이크 액세스가 필요합니다</string>
+    <string name="onboarding_recognition_card_title">음성 제어로 할 수 있는 것</string>
+    <string name="onboarding_recognition_benefit1">음성으로 명령 내리기</string>
+    <string name="onboarding_recognition_benefit2">핸즈프리 제어</string>
+    <string name="onboarding_recognition_benefit3">음성으로 더 빠르게 작업</string>
+    <string name="onboarding_recognition_learn_more_message">마이크 권한을 통해 PhoneGPT는 음성 명령을 들을 수 있습니다. 핸즈프리 제어가 가능해지고 음성을 통해 에이전트와 자연스럽게 상호 작용할 수 있습니다.</string>
+
+    <string name="onboarding_recognition_guide_title">마이크 권한 부여</string>
+    <string name="onboarding_recognition_guide_step1">메시지가 표시되면 \"허용\"을 탭하세요</string>
+    <string name="onboarding_recognition_guide_step2">음성 제어를 활성화하려면 마이크 액세스를 허용하세요</string>
+    <string name="onboarding_recognition_permission_denied">마이크 권한이 거부되었습니다. 나중에 설정에서 활성화할 수 있습니다.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT가 음성 명령을 이해하려면 마이크 액세스가 필요합니다.</string>
+    <string name="onboarding_recognition_waiting">권한을 부여하려면 아래 버튼을 탭하세요</string>
+
+    <string name="onboarding_assistant_title">기본 어시스턴트</string>
+    <string name="onboarding_assistant_body">PhoneGPT를 기본 어시스턴트로 설정</string>
+    <string name="onboarding_assistant_benefits">장점</string>
+    <string name="onboarding_assistant_benefit1">어디서든 PhoneGPT에 액세스</string>
+    <string name="onboarding_assistant_benefit2">홈 버튼 길게 누르기</string>
+    <string name="onboarding_assistant_benefit3">빠른 음성 명령</string>
+    <string name="onboarding_assistant_optional">이 단계는 선택 사항입니다</string>
+
+    <string name="onboarding_success_title">모든 준비 완료!</string>
+    <string name="onboarding_success_message">PhoneGPT가 무엇이든 도와드릴 준비가 되었습니다</string>
+
+    <string name="onboarding_button_continue">계속</string>
+    <string name="onboarding_button_learn_more">자세히 알아보기</string>
+    <string name="onboarding_button_open_settings">설정 열기</string>
+    <string name="onboarding_button_grant_permission">권한 부여</string>
+    <string name="onboarding_button_skip">건너뛰기</string>
+    <string name="onboarding_button_back">뒤로</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">권한 대기 중…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">개인입니까, 회사입니까?</string>
+    <string name="survey_user_type_individual">개인</string>
+    <string name="survey_user_type_individual_desc">개인 작업을 위해 PhoneGPT를 사용합니다</string>
+    <string name="survey_user_type_company">회사</string>
+    <string name="survey_user_type_company_desc">조직을 위해 PhoneGPT를 사용합니다</string>
+
+    <string name="survey_company_size_question">회사 규모는 얼마입니까?</string>
+    <string name="survey_company_size_just_me">저만</string>
+    <string name="survey_company_size_2_10">2–10명</string>
+    <string name="survey_company_size_11_50">11–50명</string>
+    <string name="survey_company_size_51_200">51–200명</string>
+    <string name="survey_company_size_201_1000">201–1,000명</string>
+    <string name="survey_company_size_1000_plus">1,000명 이상</string>
+
+    <string name="survey_industry_question">어떤 산업에 종사하십니까?</string>
+    <string name="survey_industry_technology">기술</string>
+    <string name="survey_industry_healthcare">의료</string>
+    <string name="survey_industry_finance">금융</string>
+    <string name="survey_industry_education">교육</string>
+    <string name="survey_industry_retail">소매</string>
+    <string name="survey_industry_manufacturing">제조</string>
+    <string name="survey_industry_real_estate">부동산</string>
+    <string name="survey_industry_transportation">운송</string>
+    <string name="survey_industry_marketing">마케팅</string>
+    <string name="survey_industry_legal">법률</string>
+    <string name="survey_industry_non_profit">비영리</string>
+    <string name="survey_industry_government">정부</string>
+    <string name="survey_industry_entertainment">엔터테인먼트</string>
+    <string name="survey_industry_hospitality">호스피탈리티</string>
+    <string name="survey_industry_construction">건설</string>
+    <string name="survey_industry_agriculture">농업</string>
+    <string name="survey_industry_other">기타</string>
+
+    <string name="survey_role_question_company">직책이 무엇입니까?</string>
+    <string name="survey_role_question_individual">직업이 무엇입니까?</string>
+    <string name="survey_role_software_engineer">소프트웨어 엔지니어</string>
+    <string name="survey_role_product_manager">프로덕트 매니저</string>
+    <string name="survey_role_designer">디자이너</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">창업자</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">엔지니어</string>
+    <string name="survey_role_data_scientist">데이터 사이언티스트</string>
+    <string name="survey_role_marketing">마케팅</string>
+    <string name="survey_role_sales">영업</string>
+    <string name="survey_role_customer_support">고객 지원</string>
+    <string name="survey_role_operations">운영</string>
+    <string name="survey_role_hr">인사</string>
+    <string name="survey_role_finance">재무</string>
+    <string name="survey_role_analyst">분석가</string>
+    <string name="survey_role_manager">매니저</string>
+    <string name="survey_role_director">이사</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">컨설턴트</string>
+    <string name="survey_role_freelancer">프리랜서</string>
+    <string name="survey_role_student">학생</string>
+    <string name="survey_role_researcher">연구원</string>
+    <string name="survey_role_teacher">교사</string>
+    <string name="survey_role_developer">개발자</string>
+    <string name="survey_role_qa">QA/테스트</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">보안</string>
+    <string name="survey_role_admin">관리자</string>
+    <string name="survey_role_legal">법무</string>
+    <string name="survey_role_other">기타</string>
+    <string name="survey_role_custom_hint">직책 입력</string>
+
+    <string name="survey_use_case_question">PhoneGPT를 무엇에 사용하고 싶으십니까?</string>
+    <string name="survey_use_case_hint">사용 사례를 알려주세요…</string>
+    <string name="survey_use_case_error">최소 10자 이상 입력해 주세요</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">프로필 분석 중…</string>
+    <string name="survey_personalizing_customizing">%s을(를) 위해 PhoneGPT 맞춤 설정 중…</string>
+    <string name="survey_personalizing_saving">설정 동기화 중…</string>
+
+    <string name="survey_button_next">다음</string>
+    <string name="survey_button_finish">완료</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">프리미엄으로 업그레이드</string>
+    <string name="paywall_yearly_price">₩109,000</string>
+    <string name="paywall_yearly_period">/년</string>
+    <string name="paywall_yearly_equivalent">₩215,000</string>
+    <string name="paywall_yearly_trial">5일 무료 체험</string>
+    <string name="paywall_yearly_badge">최고의 가치</string>
+    <string name="paywall_monthly_price">₩17,900</string>
+    <string name="paywall_monthly_period">/월</string>
+    <string name="paywall_cta_trial">무료 체험 시작</string>
+    <string name="paywall_cta_subscribe">지금 구독</string>
+    <string name="paywall_cancel_anytime">언제든지 취소 가능</string>
+    <string name="paywall_benefit_1">가장 스마트한 AI 추론</string>
+    <string name="paywall_benefit_2">최대 사용 한도 (300만+ 토큰)</string>
+    <string name="paywall_benefit_3">일상 작업 자동화</string>
+    <string name="paywall_benefit_4">모든 앱과 연결</string>
+    <string name="paywall_benefit_5">VIP 우선 속도</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">취소</string>
+    <string name="stripe_upgrade_plan">플랜 업그레이드</string>
+    <string name="stripe_task_count">무료 크레딧을 모두 사용했습니다</string>
+    <string name="stripe_select_billing">결제 기간 선택</string>
+    <string name="stripe_yearly">연간</string>
+    <string name="stripe_monthly">월간</string>
+    <string name="stripe_yearly_price">₩109,000/년</string>
+    <string name="stripe_yearly_savings">연간 ₩105,000 절약</string>
+    <string name="stripe_yearly_trial">5일 무료 체험</string>
+    <string name="stripe_monthly_price">₩17,900/월</string>
+    <string name="stripe_best_value">최고의 가치</string>
+    <string name="stripe_continue_payment">결제로 계속</string>
+    <string name="stripe_check_icon_desc">체크 표시 아이콘</string>
+    <string name="loading">로딩 중…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">실제로 당신을 위해 일하는 개인 비서. 더 이상 탭하고, 스크롤하고, 복사-붙여넣기할 필요 없습니다.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">무엇을 도와\n드릴까요?</string>
+    <string name="suggested_actions_title">추천 작업</string>
+    <string name="recent_tasks_title">최근 작업</string>
+    <string name="action_doordash_title">Doordash 장바구니에 버거를 추가하고 결제해 줘</string>
+    <string name="action_silent_mode_title">2시간 동안 폰을 무음으로 설정해 줘</string>
+    <string name="action_uber_title">160 Broadway, San Francisco로 Uber 불러줘</string>
+    <string name="action_wallpaper_title">최근 갤러리 사진을 배경화면으로 설정해 줘</string>
+    <string name="input_hint">탭하여 AI와 채팅</string>
+    <string name="content_description_logo">PhoneGPT 로고</string>
+    <string name="content_description_profile">프로필</string>
+    <string name="content_description_mic">마이크</string>
+    <string name="content_description_send">보내기</string>
+    <string name="content_description_settings_icon">설정</string>
+    <string name="content_description_document_icon">문서</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">접근성 권한 필요</string>
+    <string name="accessibility_required_message">PhoneGPT가 기기에서 작업을 수행하려면 접근성 권한이 필요합니다. 설정에서 PhoneGPT 접근성 서비스를 활성화해 주세요.</string>
+    <string name="go_to_settings">설정으로 이동</string>
+    <string name="cancel">취소</string>
+</resources>

@@ -1,0 +1,102 @@
+{
+  "api_keys": {
+    "google_api_key": "",
+    "openai_api_key": "",
+    "anthropic_api_key": "",
+    "deepseek_api_key": "",
+    "groq_api_key": ""
+  },
+  "agent": {
+    "name": "droiduse",
+    "use_semantic_actions": false,
+    "max_steps": 30,
+    "max_time": 600.0,
+    "reasoning": false,
+    "streaming": true,
+    "after_sleep_action": 1.0,
+    "wait_for_stable_ui": 0.3,
+    "prompts_dir": "prompts",
+    "codeact": {
+      "vision": false,
+      "system_prompt": "system.njk",
+      "user_prompt": "user.njk",
+      "safe_execution": false,
+      "llm": {
+        "provider": "Gemini",
+        "model": "gemini-2.5-flash",
+        "temperature": 0.2
+      }
+    },
+    "manager": {
+      "vision": false,
+      "system_prompt": "system.njk",
+      "stateless": false,
+      "llm": {
+        "provider": "Gemini",
+        "model": "gemini-2.5-flash",
+        "temperature": 0.2
+      }
+    },
+    "executor": {
+      "vision": false,
+      "system_prompt": "system.njk",
+      "llm": {
+        "provider": "Gemini",
+        "model": "gemini-2.5-flash",
+        "temperature": 0.1
+      }
+    },
+    "scripter": {
+      "enabled": true,
+      "max_steps": 10,
+      "execution_timeout": 30.0,
+      "llm": {
+        "provider": "Gemini",
+        "model": "gemini-2.5-flash",
+        "temperature": 0.1
+      }
+    }
+  },
+  "llm_profiles": {
+    "suggester": {
+      "provider": "Gemini",
+      "model": "gemini-3-flash-preview",
+      "temperature": 1
+    }
+  },
+  "logging": {
+    "debug": false,
+    "rich_text": false
+  },
+  "tools": {
+    "disabled_tools": []
+  },
+  "plugins": {
+    "local_logging": {
+      "enabled": true
+    },
+    "posthog_telemetry": {
+      "enabled": false
+    },
+    "tracing": {
+      "enabled": false
+    },
+    "trajectory": {
+      "enabled": false,
+      "save_trajectory": "none"
+    },
+    "memory_summary": {
+      "enabled": true
+    }
+  },
+  "websocket_server": {
+    "ping_interval": 20,
+    "ping_timeout": 60,
+    "close_timeout": 30,
+    "max_message_size": 10485760,
+    "initial_recv_timeout": 120.0,
+    "auth_enabled": true,
+    "web_api_url": "http://localhost:3000/api",
+    "server_capacity": 10
+  }
+}

@@ -1,0 +1,491 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Note: In Prisma 7, the url is configured in prisma.config.ts instead
+  schemas  = ["androiduse"]
+}
+
+model User {
+  id            String    @id @default(dbgenerated("gen_random_uuid()"))
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  username      String?   @unique
+  password      String?   // Optional, only for credentials provider
+  role          String    @default("user") // user, admin
+  banned        Boolean   @default(false)
+  bannedAt      DateTime? @map("banned_at")
+  bannedReason  String?   @map("banned_reason") @db.Text
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  // Stripe subscription fields
+  stripeCustomerId      String?   @unique @map("stripe_customer_id")
+  stripeSubscriptionId  String?   @unique @map("stripe_subscription_id")
+  stripePriceId         String?   @map("stripe_price_id")
+  subscriptionTier      String?   @default("free") @map("subscription_tier") // free, basic, premium, business
+  subscriptionStatus    String?   @default("inactive") @map("subscription_status") // inactive, active, canceled, past_due, trialing
+  cancelAtPeriodEnd     Boolean   @default(false) @map("cancel_at_period_end") // Whether subscription is set to cancel at period end
+  creditAllowance       Int       @default(600) @map("credit_allowance") // Monthly credit limit (1 credit = 1 second of agent work), default is free tier
+  creditsUsed           Int       @default(0) @map("credits_used") // Credits used this period
+  creditResetDate       DateTime? @map("credit_reset_date") // When credits reset
+  subscriptionStartDate DateTime? @map("subscription_start_date")
+  subscriptionEndDate   DateTime? @map("subscription_end_date")
+
+  // Marketing survey fields
+  surveyCompleted       Boolean   @default(false) @map("survey_completed")
+  userType              String?   @map("user_type") // "individual" or "company"
+  companySize           String?   @map("company_size") // "just_me", "2-10", "11-50", "51-200", "201-1000", "1000+"
+  industry              String?
+  occupation            String?
+  useCase               String?   @map("use_case") @db.Text
+  surveyCompletedAt     DateTime? @map("survey_completed_at")
+
+  // IP geolocation fields
+  lastLoginIp           String?   @map("last_login_ip")
+  lastLoginCountry      String?   @map("last_login_country")
+  lastLoginCity         String?   @map("last_login_city")
+  lastLoginAt           DateTime? @map("last_login_at")
+
+  // Product label — which product the user signed up from
+  product               String?   // ask-boris, ask-charlie, androiduse
+
+  // Referral system fields
+  referralCode          String?   @unique @map("referral_code")
+  referredById          String?   @map("referred_by_id")
+  freeBonusCredits      Int       @default(0) @map("free_bonus_credits")
+  referralCount         Int       @default(0) @map("referral_count")
+
+  accounts                 Account[]
+  sessions                 Session[]
+  blogPosts                BlogPost[]
+  skillLikes               SkillLike[]
+  skillEntries             Skill[]                    @relation("SkillAuthor")
+  memories                 UserMemory[]
+  userTokens               UserToken[]
+  tasks                    Task[]
+
+  // Referral relations
+  referredBy               User?     @relation("UserReferrals", fields: [referredById], references: [id])
+  referredUsers            User[]    @relation("UserReferrals")
+  referralsGiven           Referral[] @relation("ReferrerReferrals")
+  referralReceived         Referral?  @relation("RefereeReferral")
+
+  @@index([role])
+  @@index([referralCode])
+  @@index([banned])
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+  @@index([subscriptionTier])
+  @@index([subscriptionStatus])
+  @@map("users")
+  @@schema("androiduse")
+}
+
+model Account {
+  id                String  @id @default(dbgenerated("gen_random_uuid()"))
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+  @@schema("androiduse")
+}
+
+model Session {
+  id           String   @id @default(dbgenerated("gen_random_uuid()"))
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+  @@schema("androiduse")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+  @@schema("androiduse")
+}
+
+enum TokenType {
+  EMAIL_VERIFICATION
+  PASSWORD_RESET
+
+  @@schema("androiduse")
+}
+
+model UserToken {
+  id        String    @id @default(dbgenerated("gen_random_uuid()"))
+  userId    String    @map("user_id")
+  type      TokenType
+  token     String    @unique
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@index([type])
+  @@index([expiresAt])
+  @@map("user_tokens")
+  @@schema("androiduse")
+}
+
+model App {
+  id          String  @id @default(dbgenerated("gen_random_uuid()"))
+  packagePath String  @map("package_path")
+  name        String
+  version     String
+  iconUrl     String? @map("icon_url")
+  category    String?
+  settings    String? @db.Text // JSON string for app settings
+  enabled     Boolean @default(true)
+
+  skills Skill[]
+
+  @@index([enabled])
+  @@map("apps")
+  @@schema("androiduse")
+}
+
+model Skill {
+  id          String    @id @default(dbgenerated("gen_random_uuid()"))
+  title       String
+  description String
+  appId       String    @map("app_id")
+  authorId    String?   @map("author_id")
+  score       Int       @default(0)
+  downloads   Int       @default(0)
+  featured    Boolean   @default(false)
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  // Vector embedding fields for RAG search
+  embedding        Unsupported("vector(1536)")? // pgvector embedding from OpenAI text-embedding-3-small
+  embeddingModel   String?   @map("embedding_model") // Track which model generated the embedding
+  embeddingVersion Int?      @default(1) @map("embedding_version") // Version for re-embedding if needed
+
+  app    App         @relation(fields: [appId], references: [id])
+  author User?       @relation("SkillAuthor", fields: [authorId], references: [id])
+  likes  SkillLike[]
+
+  @@map("skills")
+  @@schema("androiduse")
+}
+
+model SkillLike {
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
+  skillId   String   @map("skill_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  skill Skill @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([skillId, userId])
+  @@index([skillId])
+  @@index([userId])
+  @@map("skill_likes")
+  @@schema("androiduse")
+}
+
+model UserMemory {
+  id          String   @id @default(dbgenerated("gen_random_uuid()"))
+  userId      String   @map("user_id")
+  type         String   // e.g., "preferences", "personal_info", "work_context"
+  value       String   @db.Text // JSON string or plain text
+  description String?  @db.Text // Optional description of what this memory contains
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  embedding        Unsupported("vector(1536)")? // pgvector embedding from OpenAI text-embedding-3-small
+  embeddingModel   String?   @map("embedding_model") // Track which model generated the embedding
+  embeddingVersion Int?      @default(1) @map("embedding_version") // Version for re-embedding if needed
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("user_memories")
+  @@schema("androiduse")
+}
+
+enum OSType {
+  ANDROID
+  IOS
+
+  @@schema("androiduse")
+}
+
+model DeviceType {
+  id String @id @default(dbgenerated("gen_random_uuid()"))
+  name String
+  osType OSType?         @default(ANDROID) @map("os_type")
+  manufacturer     String?  @map("manufacturer")
+  model            String?  @map("model")
+  apiLevel         Int?     @map("api_level")
+  widthPixels Int? @map("width_pixels")
+  heightPixels Int? @map("height_pixels")
+  screenRefreshRate Int? @map("screen_refresh_rate")
+  densityDpi Int? @map("density_dpi")
+  density Float? @map("density")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  devices Device[]
+
+  @@map("device_types")
+  @@schema("androiduse")
+}
+
+model Device {
+  id           String    @id @default(dbgenerated("gen_random_uuid()"))
+  userId       String?   @map("user_id")
+  name         String
+  deviceId     String    @unique @map("device_id")
+  deviceTypeId String    @map("device_type_id")
+
+  osVersion String?      @map("os_version")
+  status       String    @default("offline")
+  lastActive   DateTime? @map("last_active")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  // FCM (Firebase Cloud Messaging) token for push notifications
+  fcmToken     String?   @map("fcm_token")
+
+  // Location fields (longitude and latitude from mobile authentication)
+  longitude    Float?    @map("longitude")
+  latitude     Float?    @map("latitude")
+  locationUpdatedAt DateTime? @map("location_updated_at")
+
+  tasks        Task[]
+  deviceType   DeviceType @relation(fields: [deviceTypeId], references: [id])
+
+  @@map("devices")
+  @@schema("androiduse")
+}
+
+model BlogPost {
+  id          String    @id @default(dbgenerated("gen_random_uuid()"))
+  title       String
+  slug        String    @unique
+  excerpt     String?   @db.Text
+  content     String    @db.Text // Markdown content stored in database
+  authorId    String    @map("author_id")
+  status      String    @default("draft") // draft, published, archived
+  featured    Boolean   @default(false)
+  featuredImage String? @map("featured_image") // S3 URL for featured image
+  seoTitle    String?   @map("seo_title")
+  seoDescription String? @map("seo_description") @db.Text
+  seoKeywords String?   @map("seo_keywords")
+  publishedAt DateTime? @map("published_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+  @@map("blog_posts")
+  @@schema("androiduse")
+}
+
+enum TaskStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+  TIMED_OUT
+
+  @@schema("androiduse")
+}
+
+enum StepStatus {
+  SUCCESS
+  FAILED
+
+  @@schema("androiduse")
+}
+
+model Task {
+  id            String    @id @default(dbgenerated("gen_random_uuid()"))
+
+  // -- Core Identity --
+  goal          String    @db.Text
+  userId        String?   @map("user_id")
+  runType       String?   @default("developer") @map("run_type") // e.g. "developer", "production"
+
+  // -- Configuration --
+  isReasoning   Boolean   @default(false) @map("is_reasoning")
+  // -- Execution State --
+  status        TaskStatus @default(RUNNING)
+  totalSteps    Int        @default(0) @map("total_steps")
+
+  // -- Relations --
+  deviceId      String    @map("device_id")
+  device        Device    @relation(fields: [deviceId], references: [id])
+
+  user          User?     @relation(fields: [userId], references: [id])
+
+  taskSteps     TaskStep[]
+
+  // -- Memory & Replay --
+  embedding        Unsupported("vector(1536)")?
+  embeddingModel   String?   @map("embedding_model")
+  isReplay         Boolean   @default(false) @map("is_replay")
+  replaySourceId   String?   @map("replay_source_id")
+  replaySource     Task?     @relation("TaskReplay", fields: [replaySourceId], references: [id])
+  replays          Task[]    @relation("TaskReplay")
+
+  // -- Timestamps & Errors --
+  error         String?    @db.Text
+  response      String?    @db.Text // Agent's completion or failure response message
+  profilingSummary Json?   @map("profiling_summary") // Agent profiler data (LLM time, sleep time, etc.)
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+  completedAt   DateTime?  @map("completed_at")
+  archivedAt    DateTime?  @map("archived_at")
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([archivedAt])
+  @@map("tasks")
+  @@schema("androiduse")
+}
+
+model TaskStep {
+  id              String     @id @default(dbgenerated("gen_random_uuid()"))
+
+  // -- Relationship --
+  taskId          String     @map("task_id")
+  task            Task       @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  stepNumber      Int        @map("step_number")
+
+  // -- Agent Intent (The "Request") --
+  agentType       String     @map("agent_type") // "executor", "codeact", "manager"
+  actions         Json?      // Array of tool callings: [{ type: "click", x: 100, y: 200 }, { type: "swipe", startX: 50, startY: 100, endX: 50, endY: 400 }]
+
+  // -- Reasoning --
+  thought         String?    @db.Text // Agent's internal monologue
+  description     String?    // Human readable description ("Clicking login button")
+  subgoal         String?    // The immediate goal for this step
+  confidence      Float?
+
+  // -- Execution Result (The "Response") --
+  status          StepStatus
+  error           String?    @db.Text
+  summary         String?    @db.Text // Summary of result
+  fullResponse    String?    @map("full_response") @db.Text // Raw LLM response
+
+  // -- Device State Snapshots --
+  a11yTree        Json?      @map("a11y_tree") // Accessibility tree as JSON
+  phoneState      Json?      @map("phone_state") // Other state data
+  formattedText   String?    @map("formatted_text") // Reduced text representation for LLM
+
+  // -- Timestamps --
+  createdAt       DateTime   @default(now()) @map("created_at")
+  startedAt       DateTime?  @map("started_at")
+  completedAt     DateTime?  @map("completed_at")
+
+  // Compound unique constraint to ensure step order integrity per task
+  @@index([taskId])
+  @@index([stepNumber])
+  @@index([agentType])
+  @@index([status])
+  @@map("task_steps")
+  @@schema("androiduse")
+}
+
+model AppSettings {
+  id          String   @id @default(dbgenerated("gen_random_uuid()"))
+  key         String   @unique
+  value       String   @db.Text
+  description String?  @db.Text
+  category    String?  // "social", "download", "external", "other"
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([key])
+  @@index([category])
+  @@map("app_settings")
+  @@schema("androiduse")
+}
+
+model AgentServer {
+  id                String    @id @default(dbgenerated("gen_random_uuid()"))
+  name              String    @unique // Unique server name used as identifier in heartbeat
+  ipAddress         String    @map("ip_address") // Public IP address or hostname (for display)
+  privateIpAddress  String    @map("private_ip_address") // Private IP address used for connections
+  port              Int       @default(8000) // Port number
+  status            String    @default("offline") // "online", "offline", "error"
+  description       String?   @db.Text
+  enabled           Boolean   @default(true) // Whether this server is active
+  lastPing          DateTime? @map("last_ping") // Last successful health check
+  region            String?   // e.g. "us-east", "eu-west", "ap-south"
+  capacity          Int       @default(10) // Max concurrent tasks
+  activeConnections Int       @default(0) @map("active_connections") // Current number of connected devices
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  createdAt         DateTime  @default(now()) @map("created_at")
+
+  @@index([enabled])
+  @@index([status])
+  @@index([region])
+  @@map("agent_servers")
+  @@schema("androiduse")
+}
+
+// Referral system
+
+enum ReferralStatus {
+  PENDING
+  COMPLETED
+  EXPIRED
+
+  @@schema("androiduse")
+}
+
+model Referral {
+  id           String         @id @default(dbgenerated("gen_random_uuid()"))
+  referrerId   String         @map("referrer_id")
+  refereeId    String         @unique @map("referee_id")
+  referralCode String         @map("referral_code")
+  bonusCredits Int            @map("bonus_credits")
+  status       ReferralStatus @default(PENDING)
+  source       String?        // "web" or "mobile"
+  createdAt    DateTime       @default(now()) @map("created_at")
+  completedAt  DateTime?      @map("completed_at")
+
+  referrer     User           @relation("ReferrerReferrals", fields: [referrerId], references: [id])
+  referee      User           @relation("RefereeReferral", fields: [refereeId], references: [id])
+
+  @@index([referrerId])
+  @@index([referralCode])
+  @@index([status])
+  @@map("referrals")
+  @@schema("androiduse")
+}
+

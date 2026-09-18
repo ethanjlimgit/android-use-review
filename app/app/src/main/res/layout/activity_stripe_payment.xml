@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/androiduse_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stripe_cancel"
+                android:textColor="@color/androiduse_text_secondary"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvPlanName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stripe_upgrade_plan"
+                android:textSize="40sp"
+                android:textColor="@color/androiduse_text_primary"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+            <!-- Task Count -->
+            <TextView
+                android:id="@+id/tvTaskCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stripe_task_count"
+                android:textSize="20sp"
+                android:textColor="@color/androiduse_text_secondary"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="12dp"
+                tools:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPlanName" />
+
+            <!-- Benefits Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBenefits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:cardBackgroundColor="@color/androiduse_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTaskCount">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvBenefit1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paywall_benefit_1"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:gravity="start|center_vertical"
+                        app:drawableStartCompat="@drawable/ic_check_circle"
+                        android:drawablePadding="16dp"
+                        app:drawableTint="@color/androiduse_success"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paywall_benefit_2"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:gravity="start|center_vertical"
+                        app:drawableStartCompat="@drawable/ic_check_circle"
+                        android:drawablePadding="16dp"
+                        app:drawableTint="@color/androiduse_success"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvBenefit1" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paywall_benefit_4"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:gravity="start|center_vertical"
+                        app:drawableStartCompat="@drawable/ic_check_circle"
+                        android:drawablePadding="16dp"
+                        app:drawableTint="@color/androiduse_success"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvBenefit2" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paywall_benefit_5"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:gravity="start|center_vertical"
+                        app:drawableStartCompat="@drawable/ic_check_circle"
+                        android:drawablePadding="16dp"
+                        app:drawableTint="@color/androiduse_success"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvBenefit4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Billing Period Section Header -->
+            <TextView
+                android:id="@+id/tvBillingHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stripe_select_billing"
+                android:textSize="18sp"
+                android:textColor="@color/androiduse_text_primary"
+                android:textStyle="bold"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardBenefits" />
+
+            <!-- Yearly Option Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardYearly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/androiduse_background"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/androiduse_border"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBillingHeader">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <RadioButton
+                        android:id="@+id/rbYearly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription=""
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvYearlyLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_yearly"
+                        android:textSize="18sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintStart_toEndOf="@id/rbYearly"
+                        app:layout_constraintTop_toTopOf="@id/rbYearly"
+                        app:layout_constraintBottom_toBottomOf="@id/rbYearly" />
+
+                    <TextView
+                        android:id="@+id/tvBestValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_best_value"
+                        android:textSize="11sp"
+                        android:textColor="@color/androiduse_background"
+                        android:background="@color/androiduse_accent"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toEndOf="@id/tvYearlyLabel"
+                        app:layout_constraintTop_toTopOf="@id/tvYearlyLabel"
+                        app:layout_constraintBottom_toBottomOf="@id/tvYearlyLabel" />
+
+                    <TextView
+                        android:id="@+id/tvYearlyPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_yearly_price"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tvYearlyLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvYearlyLabel" />
+
+                    <TextView
+                        android:id="@+id/tvYearlySavings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_yearly_savings"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_accent"
+                        android:layout_marginTop="2dp"
+                        app:layout_constraintStart_toStartOf="@id/tvYearlyLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvYearlyPrice" />
+
+                    <TextView
+                        android:id="@+id/tvYearlyTrial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_yearly_trial"
+                        android:textSize="13sp"
+                        android:textColor="@color/androiduse_success"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tvYearlyLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvYearlySavings" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Monthly Option Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMonthly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/androiduse_background"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/androiduse_border"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardYearly">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <RadioButton
+                        android:id="@+id/rbMonthly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription=""
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvMonthlyLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_monthly"
+                        android:textSize="18sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintStart_toEndOf="@id/rbMonthly"
+                        app:layout_constraintTop_toTopOf="@id/rbMonthly"
+                        app:layout_constraintBottom_toBottomOf="@id/rbMonthly" />
+
+                    <TextView
+                        android:id="@+id/tvMonthlyPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stripe_monthly_price"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tvMonthlyLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvMonthlyLabel" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Subscribe Button -->
+            <Button
+                android:id="@+id/btnSubscribe"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:text="@string/stripe_continue_payment"
+                android:textColor="@color/androiduse_background"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:maxWidth="600dp"
+                android:layout_marginTop="24dp"
+                app:cornerRadius="32dp"
+                app:backgroundTint="@color/androiduse_accent"
+                style="@style/Widget.Material3.Button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardMonthly" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Loading Indicator -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:elevation="8dp"
+        android:contentDescription="@string/loading" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

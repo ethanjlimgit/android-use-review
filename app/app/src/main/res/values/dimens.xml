@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+
+    <!-- Component sizes -->
+    <dimen name="logo_size">32dp</dimen>
+    <dimen name="profile_button_size">40dp</dimen>
+    <dimen name="button_mic_size">44dp</dimen>
+    <dimen name="button_send_size">44dp</dimen>
+    <dimen name="icon_size_medium">20dp</dimen>
+    <dimen name="icon_size_action_card">28dp</dimen>
+    <dimen name="app_icon_size">48dp</dimen>
+
+    <!-- Layout -->
+    <dimen name="screen_padding_horizontal">20dp</dimen>
+    <dimen name="card_min_height">140dp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="input_bar_height">56dp</dimen>
+    <dimen name="input_bar_corner_radius">28dp</dimen>
+    <dimen name="input_bar_margin_bottom">24dp</dimen>
+    <dimen name="overlay_input_margin_bottom">32dp</dimen>
+    <dimen name="main_title_margin_top">120dp</dimen>
+    <dimen name="suggested_actions_margin_top">48dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_hint">14sp</dimen>
+</resources>

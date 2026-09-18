@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:attr/colorBackground"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Profile"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- User Info Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/androiduse_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Information"
+                    android:textSize="18sp"
+                    android:textColor="@color/androiduse_text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- User Avatar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        app:cardCornerRadius="32dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@color/androiduse_accent">
+
+                        <ImageView
+                            android:id="@+id/ivUserAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:background="@color/androiduse_primary"
+                            android:contentDescription="User avatar" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/tvUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loading..."
+                            android:textSize="20sp"
+                            android:textColor="@color/androiduse_text_primary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvUserEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="email@example.com"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:id="@+id/tvAuthProvider"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Signed in with Google"
+                            android:textSize="12sp"
+                            android:textColor="@color/androiduse_text_hint"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/androiduse_divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- User ID -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="User ID"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvUserId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:fontFamily="monospace"
+                        android:maxLines="1"
+                        android:ellipsize="middle"
+                        android:maxWidth="200dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Subscription Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/androiduse_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subscription"
+                        android:textSize="18sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSubscriptionTier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FREE"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:textStyle="bold"
+                        android:background="@color/androiduse_divider"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+
+                <!-- Subscription Status -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Status"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvSubscriptionStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inactive"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_primary" />
+                </LinearLayout>
+
+                <!-- Credit Allowance (Only visible for paid tiers) -->
+                <LinearLayout
+                    android:id="@+id/layoutCreditInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/androiduse_divider"
+                        android:layout_marginVertical="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credits Available"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_secondary"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/tvCreditUsage"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0 / 0"
+                            android:textSize="16sp"
+                            android:textColor="@color/androiduse_text_primary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCreditPercentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/pbCreditUsage"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:progressTint="@color/androiduse_accent"
+                        android:progressBackgroundTint="@color/androiduse_divider"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:progress="0"
+                        android:max="100" />
+
+                    <!-- Bonus Credits Section -->
+                    <LinearLayout
+                        android:id="@+id/layoutBonusCredits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_bonus_credits"
+                        android:padding="10dp"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🎁 Bonus Credits (used first)"
+                            android:textSize="13sp"
+                            android:textColor="#16A34A" />
+
+                        <TextView
+                            android:id="@+id/tvBonusCredits"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="14sp"
+                            android:textColor="#16A34A"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Low Credit Warning -->
+                    <LinearLayout
+                        android:id="@+id/layoutLowCreditWarning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_warning"
+                        android:padding="12dp"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️"
+                            android:textSize="14sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvLowCreditWarning"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="You are running low on credits. Upgrade to get more credits."
+                            android:textSize="13sp"
+                            android:textColor="@color/androiduse_warning" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCreditResetDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plan credits reset on ..."
+                        android:textSize="12sp"
+                        android:textColor="@color/androiduse_text_hint"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+                <!-- Task Limit (Only visible for free tier) -->
+                <LinearLayout
+                    android:id="@+id/layoutTaskLimit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/androiduse_divider"
+                        android:layout_marginVertical="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Free Credits (Deprecated)"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvTaskLimit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 / 8"
+                            android:textSize="16sp"
+                            android:textColor="@color/androiduse_text_primary"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Subscription Dates (for active subscriptions) -->
+                <LinearLayout
+                    android:id="@+id/layoutSubscriptionDates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/androiduse_divider"
+                        android:layout_marginVertical="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Next Billing"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvNextBilling"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="..."
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_primary" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCancelNotice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="⚠ Subscription will cancel on ..."
+                        android:textSize="12sp"
+                        android:textColor="@color/androiduse_warning"
+                        android:visibility="gone"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Manage Subscription Button -->
+                <Button
+                    android:id="@+id/btnManageSubscription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Subscription"
+                    android:textColor="@color/androiduse_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/androiduse_accent"
+                    style="@style/Widget.Material3.Button"
+                        android:layout_marginTop="16dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Referral Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReferral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/androiduse_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Referrals"
+                            android:textSize="18sp"
+                            android:textColor="@color/androiduse_text_primary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvReferralCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 / 50"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share your code and you both earn 300 credits when a friend signs up!"
+                        android:textSize="14sp"
+                        android:textColor="@color/androiduse_text_secondary"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Referral Code -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@color/androiduse_divider"
+                        android:padding="12dp"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/tvReferralCode"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="XXXXXXXX"
+                            android:textSize="18sp"
+                            android:textColor="@color/androiduse_text_primary"
+                            android:textStyle="bold"
+                            android:fontFamily="monospace"
+                            android:letterSpacing="0.1" />
+
+                        <ImageButton
+                            android:id="@+id/btnCopyReferralCode"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_copy"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Copy referral code"
+                            app:tint="@color/androiduse_text_secondary" />
+                    </LinearLayout>
+
+                    <!-- Credits Earned -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Credits Earned"
+                            android:textSize="14sp"
+                            android:textColor="@color/androiduse_text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvReferralCreditsEarned"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="16sp"
+                            android:textColor="@color/androiduse_accent"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Share Button -->
+                    <Button
+                        android:id="@+id/btnShareReferral"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Share Referral Link"
+                        android:textColor="@color/androiduse_background"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/androiduse_accent"
+                        style="@style/Widget.Material3.Button" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Actions Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/androiduse_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Actions"
+                        android:textSize="18sp"
+                        android:textColor="@color/androiduse_text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Sign Out Button -->
+                    <Button
+                        android:id="@+id/btnSignOut"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Out"
+                        android:textSize="16sp"
+                        android:textColor="@color/androiduse_error"
+                        style="@style/Widget.Material3.Button.TextButton" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Loading Indicator -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="32dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

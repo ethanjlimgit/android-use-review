@@ -1,0 +1,4 @@
+/build
+
+# Firebase configuration file (use google-services.json.example as template)
+google-services.json

@@ -1,0 +1,35 @@
+{
+  "name": "droiduse-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "copy:env": "node copy-env.js",
+    "dev": "pnpm copy:env && turbo run dev",
+    "build": "pnpm copy:env && turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "db:generate": "pnpm copy:env && turbo run db:generate",
+    "db:push": "pnpm copy:env && turbo run db:push",
+    "db:migrate": "turbo run db:migrate",
+    "db:studio": "turbo run db:studio",
+    "setup:env": "node setup-env.js",
+    "setup:db": "node setup-database.js",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "turbo run test:coverage",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "husky": "^9.1.7",
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
+}

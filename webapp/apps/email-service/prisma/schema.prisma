@@ -1,0 +1,414 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["email_marketing"]
+}
+
+// ─── Multi-tenant Root ───────────────────────────────────────────────
+
+model Project {
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
+  name      String
+  slug      String   @unique
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  apiKeys          ApiKey[]
+  senderIdentities SenderIdentity[]
+  contacts         Contact[]
+  contactLists     ContactList[]
+  contactImportJobs ContactImportJob[]
+  emailSegments    EmailSegment[]
+  emailCampaigns   EmailCampaign[]
+  webhookConfigs   WebhookConfig[]
+
+  @@index([slug])
+  @@index([enabled])
+  @@map("projects")
+  @@schema("email_marketing")
+}
+
+// ─── API Key Management ──────────────────────────────────────────────
+
+model ApiKey {
+  id        String    @id @default(dbgenerated("gen_random_uuid()"))
+  projectId String    @map("project_id")
+  keyHash   String    @unique @map("key_hash")
+  keyPrefix String    @map("key_prefix") // First 8 chars for identification
+  name      String?
+  scopes    String[]  @default(["*"])
+  enabled   Boolean   @default(true)
+  expiresAt DateTime? @map("expires_at")
+  lastUsedAt DateTime? @map("last_used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([keyHash])
+  @@index([enabled])
+  @@map("api_keys")
+  @@schema("email_marketing")
+}
+
+// ─── Sender Identities ──────────────────────────────────────────────
+
+model SenderIdentity {
+  id               String  @id @default(dbgenerated("gen_random_uuid()"))
+  projectId        String  @map("project_id")
+  name             String
+  email            String
+  replyTo          String? @map("reply_to")
+  isDefault        Boolean @default(false) @map("is_default")
+  verified         Boolean @default(false)
+  sendgridSenderId Int?    @map("sendgrid_sender_id")
+  address          String?
+  city             String?
+  country          String? @default("US")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  project   Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  campaigns EmailCampaign[]
+
+  @@index([projectId])
+  @@index([projectId, isDefault])
+  @@map("sender_identities")
+  @@schema("email_marketing")
+}
+
+// ─── Admin Auth ─────────────────────────────────────────────────────
+
+model AdminUser {
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
+  email     String   @unique
+  name      String?
+  password  String   // bcrypt hash
+  role      String   @default("admin")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  sessions  AdminSession[]
+  accounts  AdminAccount[]
+  campaigns EmailCampaign[]
+
+  @@map("admin_users")
+  @@schema("email_marketing")
+}
+
+model AdminSession {
+  id           String   @id @default(dbgenerated("gen_random_uuid()"))
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+
+  user AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("admin_sessions")
+  @@schema("email_marketing")
+}
+
+model AdminAccount {
+  id                String  @id @default(dbgenerated("gen_random_uuid()"))
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("admin_accounts")
+  @@schema("email_marketing")
+}
+
+// ─── Contacts ───────────────────────────────────────────────────────
+
+model Contact {
+  id                 String   @id @default(dbgenerated("gen_random_uuid()"))
+  projectId          String   @map("project_id")
+  email              String
+  firstName          String?  @map("first_name")
+  lastName           String?  @map("last_name")
+  externalId         String?  @map("external_id") // ID from the parent project's user system
+  phone              String?
+  timezone           String?
+  company            String?
+  jobTitle           String?  @map("job_title")
+  country            String?
+  city               String?
+  metadata           Json?    @default("{}")
+  emailUnsubscribed  Boolean  @default(false) @map("email_unsubscribed")
+  emailUnsubscribedAt DateTime? @map("email_unsubscribed_at")
+  unsubscribeToken   String?  @unique @map("unsubscribe_token")
+  source             String?  // "api", "csv", "manual", "database_sync"
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  project            Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  listMemberships    ContactListMembership[]
+  campaignRecipients CampaignRecipient[]
+
+  @@unique([projectId, email])
+  @@unique([projectId, externalId])
+  @@index([projectId])
+  @@index([email])
+  @@index([emailUnsubscribed])
+  @@index([unsubscribeToken])
+  @@index([externalId])
+  @@map("contacts")
+  @@schema("email_marketing")
+}
+
+// ─── Contact Lists ──────────────────────────────────────────────────
+
+model ContactList {
+  id          String  @id @default(dbgenerated("gen_random_uuid()"))
+  projectId   String  @map("project_id")
+  name        String
+  description String? @db.Text
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  memberships ContactListMembership[]
+
+  @@index([projectId])
+  @@map("contact_lists")
+  @@schema("email_marketing")
+}
+
+model ContactListMembership {
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
+  contactId String   @map("contact_id")
+  listId    String   @map("list_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  contact Contact     @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  list    ContactList @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@unique([contactId, listId])
+  @@index([contactId])
+  @@index([listId])
+  @@map("contact_list_memberships")
+  @@schema("email_marketing")
+}
+
+// ─── Contact Import ─────────────────────────────────────────────────
+
+enum ImportSource {
+  CSV
+  API
+  DATABASE_SYNC
+
+  @@schema("email_marketing")
+}
+
+enum ImportStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+
+  @@schema("email_marketing")
+}
+
+model ContactImportJob {
+  id            String       @id @default(dbgenerated("gen_random_uuid()"))
+  projectId     String       @map("project_id")
+  source        ImportSource
+  status        ImportStatus @default(PENDING)
+  totalRows     Int          @default(0) @map("total_rows")
+  processedRows Int          @default(0) @map("processed_rows")
+  errors        Json?        @default("[]")
+  columnMapping Json?        @map("column_mapping") // Maps CSV columns to Contact fields
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([status])
+  @@map("contact_import_jobs")
+  @@schema("email_marketing")
+}
+
+// ─── Segments ───────────────────────────────────────────────────────
+
+model EmailSegment {
+  id          String   @id @default(dbgenerated("gen_random_uuid()"))
+  projectId   String   @map("project_id")
+  name        String
+  description String?  @db.Text
+  filters     Json     // Array of filter conditions: [{field, operator, value}]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  project          Project           @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  campaignVariants CampaignVariant[]
+
+  @@index([projectId])
+  @@map("email_segments")
+  @@schema("email_marketing")
+}
+
+// ─── Campaigns ──────────────────────────────────────────────────────
+
+enum CampaignStatus {
+  DRAFT
+  SCHEDULED
+  SENDING
+  SENT
+  PAUSED
+  CANCELLED
+
+  @@schema("email_marketing")
+}
+
+model EmailCampaign {
+  id             String         @id @default(dbgenerated("gen_random_uuid()"))
+  projectId      String         @map("project_id")
+  senderId       String?        @map("sender_id")
+  name           String
+  status         CampaignStatus @default(DRAFT)
+  scheduledAt    DateTime?      @map("scheduled_at")
+  sendByTimezone Boolean        @default(false) @map("send_by_timezone")
+  targetHour     Int?           @map("target_hour") // 0-23, hour in recipient's timezone
+  createdById    String?        @map("created_by_id")
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+
+  project    Project           @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  sender     SenderIdentity?   @relation(fields: [senderId], references: [id])
+  createdBy  AdminUser?        @relation(fields: [createdById], references: [id])
+  variants   CampaignVariant[]
+  recipients CampaignRecipient[]
+
+  @@index([projectId])
+  @@index([status])
+  @@index([createdById])
+  @@map("email_campaigns")
+  @@schema("email_marketing")
+}
+
+model CampaignVariant {
+  id         String  @id @default(dbgenerated("gen_random_uuid()"))
+  campaignId String  @map("campaign_id")
+  segmentId  String? @map("segment_id")
+  subject    String
+  preheader  String?
+  htmlBody   String  @map("html_body") @db.Text
+  textBody   String? @map("text_body") @db.Text
+  sortOrder  Int     @default(0) @map("sort_order")
+
+  campaign   EmailCampaign      @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  segment    EmailSegment?      @relation(fields: [segmentId], references: [id])
+  recipients CampaignRecipient[]
+
+  @@index([campaignId])
+  @@map("campaign_variants")
+  @@schema("email_marketing")
+}
+
+// ─── Recipients & Events ────────────────────────────────────────────
+
+enum RecipientStatus {
+  QUEUED
+  SENT
+  DELIVERED
+  FAILED
+
+  @@schema("email_marketing")
+}
+
+model CampaignRecipient {
+  id                String          @id @default(dbgenerated("gen_random_uuid()"))
+  campaignId        String          @map("campaign_id")
+  variantId         String          @map("variant_id")
+  contactId         String          @map("contact_id")
+  email             String
+  timezone          String?
+  scheduledFor      DateTime?       @map("scheduled_for")
+  sentAt            DateTime?       @map("sent_at")
+  sendgridMessageId String?         @map("sendgrid_message_id")
+  status            RecipientStatus @default(QUEUED)
+  error             String?         @db.Text
+
+  campaign EmailCampaign   @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  variant  CampaignVariant @relation(fields: [variantId], references: [id], onDelete: Cascade)
+  contact  Contact         @relation(fields: [contactId], references: [id])
+  events   EmailEvent[]
+
+  @@unique([campaignId, contactId])
+  @@index([status])
+  @@index([scheduledFor])
+  @@index([sendgridMessageId])
+  @@map("campaign_recipients")
+  @@schema("email_marketing")
+}
+
+enum EmailEventType {
+  QUEUED
+  SENT
+  DELIVERED
+  OPENED
+  CLICKED
+  BOUNCED
+  DROPPED
+  SPAM_REPORT
+  UNSUBSCRIBE
+
+  @@schema("email_marketing")
+}
+
+model EmailEvent {
+  id               String         @id @default(dbgenerated("gen_random_uuid()"))
+  recipientId      String         @map("recipient_id")
+  eventType        EmailEventType @map("event_type")
+  url              String?        @db.Text
+  userAgent        String?        @map("user_agent") @db.Text
+  ip               String?
+  sendgridEventId  String?        @unique @map("sendgrid_event_id")
+  timestamp        DateTime       @default(now())
+  rawPayload       Json?          @map("raw_payload")
+
+  recipient CampaignRecipient @relation(fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([recipientId])
+  @@index([eventType])
+  @@index([timestamp])
+  @@map("email_events")
+  @@schema("email_marketing")
+}
+
+// ─── Webhook Config ─────────────────────────────────────────────────
+
+model WebhookConfig {
+  id        String   @id @default(dbgenerated("gen_random_uuid()"))
+  projectId String   @map("project_id")
+  url       String
+  secret    String   // HMAC secret for webhook signature
+  events    String[] @default(["*"]) // Event types to forward
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([enabled])
+  @@map("webhook_configs")
+  @@schema("email_marketing")
+}

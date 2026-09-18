@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# Git post-commit hook: Auto-tag on version change
+#
+# This hook automatically creates a git tag when versionCode or versionName
+# changes in gradle.properties.
+#
+
+# Exit on error
+set -e
+
+# Only run on main branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [[ "$BRANCH" != "main" && "$BRANCH" != "master" ]]; then
+    exit 0
+fi
+
+# Check if gradle.properties was modified in this commit
+if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -q "^gradle.properties$"; then
+    exit 0
+fi
+
+# Get current version from gradle.properties
+CURRENT_VERSION_NAME=$(grep "^versionName=" gradle.properties | cut -d'=' -f2)
+CURRENT_VERSION_CODE=$(grep "^versionCode=" gradle.properties | cut -d'=' -f2)
+
+# Get previous version from the commit before
+PREV_VERSION_NAME=$(git show HEAD~1:gradle.properties 2>/dev/null | grep "^versionName=" | cut -d'=' -f2 || echo "")
+PREV_VERSION_CODE=$(git show HEAD~1:gradle.properties 2>/dev/null | grep "^versionCode=" | cut -d'=' -f2 || echo "")
+
+# Check if version changed
+if [[ "$CURRENT_VERSION_NAME" == "$PREV_VERSION_NAME" && "$CURRENT_VERSION_CODE" == "$PREV_VERSION_CODE" ]]; then
+    exit 0
+fi
+
+TAG="v$CURRENT_VERSION_NAME"
+
+# Check if tag already exists
+if git rev-parse "$TAG" >/dev/null 2>&1; then
+    echo "⚠️  Tag $TAG already exists, skipping auto-tag"
+    exit 0
+fi
+
+# Create annotated tag
+echo "🏷️  Version changed: $PREV_VERSION_NAME → $CURRENT_VERSION_NAME (code: $PREV_VERSION_CODE → $CURRENT_VERSION_CODE)"
+git tag -a "$TAG" -m "Release $CURRENT_VERSION_NAME (build $CURRENT_VERSION_CODE)"
+echo "✅ Created tag: $TAG"
+echo "📌 Run 'git push origin $TAG' to push the tag"

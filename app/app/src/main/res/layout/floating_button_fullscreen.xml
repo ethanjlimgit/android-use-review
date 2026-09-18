@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overlayBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33000000"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone">
+
+    <!-- Settings Button (top right) -->
+    <FrameLayout
+        android:id="@+id/settingsButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_floating_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="0dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/settings"
+            app:tint="@color/text_primary"
+            android:contentDescription="Open settings" />
+    </FrameLayout>
+
+    <!-- Bottom Container (Bot Icon + Input Area) - aligned to bottom -->
+    <LinearLayout
+        android:id="@+id/bottomInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Task Suggestions Container -->
+        <LinearLayout
+            android:id="@+id/suggestionsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <!-- Loading Indicator (centered, shown while loading suggestions) -->
+            <FrameLayout
+                android:id="@+id/suggestionsLoadingContainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/suggestionsLoadingIndicator"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_loading"
+                    app:tint="@color/androiduse_primary"
+                    android:contentDescription="Loading" />
+            </FrameLayout>
+
+            <!-- Suggestions Cards Container (horizontal scroll) -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:fadeEnabled="true"
+                android:requiresFadingEdge="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/suggestionsCardsContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Partial Speech Result (shown during speech recognition) -->
+        <TextView
+            android:id="@+id/partialSpeechText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/text_card_background"
+            android:padding="12dp"
+            android:text=""
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:alpha="0.9" />
+
+        <!-- AI Input Card - Matching main page style -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/background_input"
+            app:strokeWidth="0dp"
+            app:cardCornerRadius="@dimen/input_bar_corner_radius"
+            app:cardElevation="0dp">
+
+            <!-- AI Input Fragment Container -->
+            <FrameLayout
+                android:id="@+id/aiInputFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <!-- Hidden Status Text (for showing feedback) -->
+    <FrameLayout
+        android:id="@+id/statusContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="32dp"
+        android:visibility="gone"
+        android:background="@drawable/text_card_background"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:text=""
+            android:textColor="@color/text_white"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:maxLines="3"
+            android:ellipsize="end" />
+    </FrameLayout>
+</FrameLayout>

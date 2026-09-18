@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT определяет и визуализирует элементы интерфейса на экране. Эта служба помогает обнаруживать видимые пользователю элементы путём анализа слоёв интерфейса, что полезно для анализа UI и автоматизации.</string>
+    <string name="keyboard_name">Клавиатура PhoneGPT</string>
+    <string name="keyboard_on">Клавиатура PhoneGPT (ВКЛ)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">Настройки</string>
+    <string name="accessibility_service_not_enabled">Служба специальных возможностей не включена</string>
+    <string name="enable_now">Включить сейчас</string>
+    <string name="accessibility_service">Служба специальных возможностей</string>
+    <string name="test_fetching">Тест получения</string>
+    <string name="notification_access_not_granted">Доступ к уведомлениям не предоставлен</string>
+    <string name="enable">Включить</string>
+    <string name="notification_listener">Прослушиватель уведомлений</string>
+    <string name="controls_header">Управление</string>
+    <string name="overlay_label">Наложение</string>
+    <string name="overlay_offset_label">Смещение наложения</string>
+    <string name="reset_button">Сброс</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">Совет: Режим зрения работает даже при выключенном наложении</string>
+    <string name="socket_server_port_label">Порт Socket-сервера</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">Детали подключения</string>
+    <string name="socket_status_label">Статус Socket:</string>
+    <string name="service_not_available">Служба недоступна</string>
+    <string name="network_access_header">Сетевой доступ</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">Недоступно</string>
+    <string name="token_label">"Токен: "</string>
+    <string name="copy_token_content_description">Копировать токен</string>
+    <string name="adb_forward_command_header">Команда ADB Forward</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">Конечные точки</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">Журналы</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">Настройки WebSocket</string>
+    <string name="server_configuration_header">КОНФИГУРАЦИЯ СЕРВЕРА</string>
+    <string name="enable_ws_server_label">Включить WS-сервер</string>
+    <string name="allow_external_connections_label">Разрешить внешние подключения WS</string>
+    <string name="port_label">Порт</string>
+    <string name="reverse_connection_header">ОБРАТНОЕ ПОДКЛЮЧЕНИЕ (РЕЖИМ КЛИЕНТА)</string>
+    <string name="connect_to_host_label">Подключиться к хосту</string>
+    <string name="initiate_outbound_connection_label">Инициировать исходящее подключение</string>
+    <string name="host_url_hint">URL хоста (ws://...)</string>
+    <string name="token_optional_hint">Токен (необязательно)</string>
+    <string name="event_filters_header">ФИЛЬТРЫ СОБЫТИЙ</string>
+    <string name="notifications_label">Уведомления</string>
+    <string name="push_system_notifications_label">Отправлять системные уведомления</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Добро пожаловать в\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">ИИ, который действует за вас</string>
+    <string name="onboarding_get_started">Начать</string>
+
+    <string name="onboarding_accessibility_title">Разрешение специальных возможностей</string>
+    <string name="onboarding_accessibility_body">Нам нужен доступ к интерфейсу этого устройства</string>
+    <string name="onboarding_accessibility_card_title">Данные и устройство остаются</string>
+    <string name="onboarding_accessibility_safe">Безопасными и приватными</string>
+    <string name="onboarding_accessibility_no_recording">Без записи экрана</string>
+    <string name="onboarding_accessibility_on_device">На устройстве</string>
+
+    <string name="onboarding_accessibility_guide_title">Предоставить разрешение специальных возможностей</string>
+    <string name="onboarding_accessibility_guide_step1">Нажмите \"PhoneGPT\" в списке</string>
+    <string name="onboarding_accessibility_guide_step2">Включите переключатель и подтвердите</string>
+
+    <string name="onboarding_overlay_title">Разрешение наложения</string>
+    <string name="onboarding_overlay_body">Нам нужно показывать элементы управления во время работы</string>
+    <string name="onboarding_overlay_card_title">Наложение позволяет вам</string>
+    <string name="onboarding_overlay_benefit1">Управлять агентом</string>
+    <string name="onboarding_overlay_benefit2">Давать команды</string>
+    <string name="onboarding_overlay_benefit3">Видеть, что происходит</string>
+    <string name="onboarding_overlay_learn_more_message">Наложение позволяет PhoneGPT показывать плавающую панель управления поверх других приложений. Это позволяет вам взаимодействовать с агентом, давать команды и отслеживать прогресс без переключения приложений.</string>
+
+    <string name="onboarding_overlay_guide_title">Предоставить разрешение наложения</string>
+    <string name="onboarding_overlay_guide_step1">Найдите \"PhoneGPT\" в списке</string>
+    <string name="onboarding_overlay_guide_step2">Включите \"Разрешить отображение поверх других приложений\"</string>
+
+    <string name="onboarding_recognition_title">Разрешение микрофона</string>
+    <string name="onboarding_recognition_body">Нам нужен доступ к микрофону для голосовых команд</string>
+    <string name="onboarding_recognition_card_title">Голосовое управление позволяет вам</string>
+    <string name="onboarding_recognition_benefit1">Давать команды голосом</string>
+    <string name="onboarding_recognition_benefit2">Управление без рук</string>
+    <string name="onboarding_recognition_benefit3">Работать быстрее с речью</string>
+    <string name="onboarding_recognition_learn_more_message">Разрешение микрофона позволяет PhoneGPT слушать ваши голосовые команды. Это включает управление без рук и облегчает естественное взаимодействие с агентом через речь.</string>
+
+    <string name="onboarding_recognition_guide_title">Предоставить разрешение микрофона</string>
+    <string name="onboarding_recognition_guide_step1">Нажмите \"Разрешить\" при запросе</string>
+    <string name="onboarding_recognition_guide_step2">Предоставьте доступ к микрофону для голосового управления</string>
+    <string name="onboarding_recognition_permission_denied">Разрешение микрофона отклонено. Вы можете включить его позже в настройках.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT нужен доступ к микрофону, чтобы понимать ваши голосовые команды.</string>
+    <string name="onboarding_recognition_waiting">Нажмите кнопку ниже, чтобы предоставить разрешение</string>
+
+    <string name="onboarding_assistant_title">Помощник по умолчанию</string>
+    <string name="onboarding_assistant_body">Установите PhoneGPT как помощника по умолчанию</string>
+    <string name="onboarding_assistant_benefits">Преимущества</string>
+    <string name="onboarding_assistant_benefit1">Доступ к PhoneGPT откуда угодно</string>
+    <string name="onboarding_assistant_benefit2">Долгое нажатие кнопки «Домой»</string>
+    <string name="onboarding_assistant_benefit3">Быстрые голосовые команды</string>
+    <string name="onboarding_assistant_optional">Этот шаг необязателен</string>
+
+    <string name="onboarding_success_title">Всё готово!</string>
+    <string name="onboarding_success_message">PhoneGPT готов помочь вам с чем угодно</string>
+
+    <string name="onboarding_button_continue">Продолжить</string>
+    <string name="onboarding_button_learn_more">Узнать больше</string>
+    <string name="onboarding_button_open_settings">Открыть настройки</string>
+    <string name="onboarding_button_grant_permission">Предоставить разрешение</string>
+    <string name="onboarding_button_skip">Пропустить</string>
+    <string name="onboarding_button_back">Назад</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">Ожидание разрешения…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">Вы частное лицо или компания?</string>
+    <string name="survey_user_type_individual">Частное лицо</string>
+    <string name="survey_user_type_individual_desc">Я использую PhoneGPT для личных задач</string>
+    <string name="survey_user_type_company">Компания</string>
+    <string name="survey_user_type_company_desc">Я использую PhoneGPT для своей организации</string>
+
+    <string name="survey_company_size_question">Какой размер вашей компании?</string>
+    <string name="survey_company_size_just_me">Только я</string>
+    <string name="survey_company_size_2_10">2–10 сотрудников</string>
+    <string name="survey_company_size_11_50">11–50 сотрудников</string>
+    <string name="survey_company_size_51_200">51–200 сотрудников</string>
+    <string name="survey_company_size_201_1000">201–1 000 сотрудников</string>
+    <string name="survey_company_size_1000_plus">1 000+ сотрудников</string>
+
+    <string name="survey_industry_question">В какой отрасли вы работаете?</string>
+    <string name="survey_industry_technology">Технологии</string>
+    <string name="survey_industry_healthcare">Здравоохранение</string>
+    <string name="survey_industry_finance">Финансы</string>
+    <string name="survey_industry_education">Образование</string>
+    <string name="survey_industry_retail">Розничная торговля</string>
+    <string name="survey_industry_manufacturing">Производство</string>
+    <string name="survey_industry_real_estate">Недвижимость</string>
+    <string name="survey_industry_transportation">Транспорт</string>
+    <string name="survey_industry_marketing">Маркетинг</string>
+    <string name="survey_industry_legal">Юридический</string>
+    <string name="survey_industry_non_profit">Некоммерческий</string>
+    <string name="survey_industry_government">Государственный</string>
+    <string name="survey_industry_entertainment">Развлечения</string>
+    <string name="survey_industry_hospitality">Гостеприимство</string>
+    <string name="survey_industry_construction">Строительство</string>
+    <string name="survey_industry_agriculture">Сельское хозяйство</string>
+    <string name="survey_industry_other">Другое</string>
+
+    <string name="survey_role_question_company">Какая у вас роль?</string>
+    <string name="survey_role_question_individual">Какая у вас должность?</string>
+    <string name="survey_role_software_engineer">Инженер-программист</string>
+    <string name="survey_role_product_manager">Продакт-менеджер</string>
+    <string name="survey_role_designer">Дизайнер</string>
+    <string name="survey_role_ceo">Генеральный директор</string>
+    <string name="survey_role_founder">Основатель</string>
+    <string name="survey_role_cto">Технический директор</string>
+    <string name="survey_role_engineer">Инженер</string>
+    <string name="survey_role_data_scientist">Data Scientist</string>
+    <string name="survey_role_marketing">Маркетинг</string>
+    <string name="survey_role_sales">Продажи</string>
+    <string name="survey_role_customer_support">Поддержка клиентов</string>
+    <string name="survey_role_operations">Операции</string>
+    <string name="survey_role_hr">HR</string>
+    <string name="survey_role_finance">Финансы</string>
+    <string name="survey_role_analyst">Аналитик</string>
+    <string name="survey_role_manager">Менеджер</string>
+    <string name="survey_role_director">Директор</string>
+    <string name="survey_role_vp">Вице-президент</string>
+    <string name="survey_role_consultant">Консультант</string>
+    <string name="survey_role_freelancer">Фрилансер</string>
+    <string name="survey_role_student">Студент</string>
+    <string name="survey_role_researcher">Исследователь</string>
+    <string name="survey_role_teacher">Преподаватель</string>
+    <string name="survey_role_developer">Разработчик</string>
+    <string name="survey_role_qa">QA/Тестирование</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">Безопасность</string>
+    <string name="survey_role_admin">Администратор</string>
+    <string name="survey_role_legal">Юрист</string>
+    <string name="survey_role_other">Другое</string>
+    <string name="survey_role_custom_hint">Введите вашу роль</string>
+
+    <string name="survey_use_case_question">Для чего вы хотите использовать PhoneGPT?</string>
+    <string name="survey_use_case_hint">Расскажите о вашем случае использования…</string>
+    <string name="survey_use_case_error">Пожалуйста, введите минимум 10 символов</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">Анализ вашего профиля…</string>
+    <string name="survey_personalizing_customizing">Настройка PhoneGPT для %s…</string>
+    <string name="survey_personalizing_saving">Синхронизация ваших предпочтений…</string>
+
+    <string name="survey_button_next">Далее</string>
+    <string name="survey_button_finish">Завершить</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">Перейти на Premium</string>
+    <string name="paywall_yearly_price">$79.99</string>
+    <string name="paywall_yearly_period">/год</string>
+    <string name="paywall_yearly_equivalent">$155.88</string>
+    <string name="paywall_yearly_trial">5 дней бесплатно</string>
+    <string name="paywall_yearly_badge">ЛУЧШАЯ ЦЕНА</string>
+    <string name="paywall_monthly_price">$12.99</string>
+    <string name="paywall_monthly_period">/месяц</string>
+    <string name="paywall_cta_trial">Начать бесплатный период</string>
+    <string name="paywall_cta_subscribe">Подписаться сейчас</string>
+    <string name="paywall_cancel_anytime">Отмена в любое время</string>
+    <string name="paywall_benefit_1">Самый умный ИИ</string>
+    <string name="paywall_benefit_2">Максимальные лимиты (3M+ токенов)</string>
+    <string name="paywall_benefit_3">Автоматизация ежедневных задач</string>
+    <string name="paywall_benefit_4">Подключение ко всем приложениям</string>
+    <string name="paywall_benefit_5">VIP приоритетная скорость</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">Отмена</string>
+    <string name="stripe_upgrade_plan">Улучшить план</string>
+    <string name="stripe_task_count">Вы использовали бесплатные кредиты</string>
+    <string name="stripe_select_billing">Выбрать период оплаты</string>
+    <string name="stripe_yearly">Годовой</string>
+    <string name="stripe_monthly">Месячный</string>
+    <string name="stripe_yearly_price">$79.99/год</string>
+    <string name="stripe_yearly_savings">Экономия $75.89/год</string>
+    <string name="stripe_yearly_trial">5 дней бесплатно</string>
+    <string name="stripe_monthly_price">$12.99/месяц</string>
+    <string name="stripe_best_value">ЛУЧШАЯ ЦЕНА</string>
+    <string name="stripe_continue_payment">Перейти к оплате</string>
+    <string name="stripe_check_icon_desc">Иконка галочки</string>
+    <string name="loading">Загрузка…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">Персональный помощник, который действительно выполняет работу за вас. Больше никаких нажатий, прокрутки или копирования.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">Чем могу\nпомочь?</string>
+    <string name="suggested_actions_title">Рекомендуемые действия</string>
+    <string name="recent_tasks_title">Недавние задачи</string>
+    <string name="action_doordash_title">Добавь бургер в корзину Doordash и оформи заказ</string>
+    <string name="action_silent_mode_title">Включи беззвучный режим на два часа</string>
+    <string name="action_uber_title">Закажи мне Uber до 160 Broadway, San Francisco</string>
+    <string name="action_wallpaper_title">Установи последнюю фотографию из галереи как обои</string>
+    <string name="input_hint">Нажмите, чтобы общаться с ИИ</string>
+    <string name="content_description_logo">Логотип PhoneGPT</string>
+    <string name="content_description_profile">Профиль</string>
+    <string name="content_description_mic">Микрофон</string>
+    <string name="content_description_send">Отправить</string>
+    <string name="content_description_settings_icon">Настройки</string>
+    <string name="content_description_document_icon">Документ</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">Требуется разрешение специальных возможностей</string>
+    <string name="accessibility_required_message">PhoneGPT нужно разрешение специальных возможностей для выполнения задач на вашем устройстве. Пожалуйста, включите службу специальных возможностей PhoneGPT в Настройках.</string>
+    <string name="go_to_settings">Перейти в Настройки</string>
+    <string name="cancel">Отмена</string>
+</resources>

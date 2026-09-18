@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneGPT</string>
+    <string name="accessibility_service_description">PhoneGPT identifica e visualiza elementos da interface na tela. Este serviço ajuda a detectar quais elementos são visíveis para o usuário examinando as camadas da interface, o que é útil para análise de UI e automação.</string>
+    <string name="keyboard_name">Teclado PhoneGPT</string>
+    <string name="keyboard_on">Teclado PhoneGPT (LIGADO)</string>
+
+    <!-- Activity Main -->
+    <string name="settings_content_description">Configurações</string>
+    <string name="accessibility_service_not_enabled">Serviço de Acessibilidade Não Ativado</string>
+    <string name="enable_now">Ativar Agora</string>
+    <string name="accessibility_service">Serviço de Acessibilidade</string>
+    <string name="test_fetching">Testar Busca</string>
+    <string name="notification_access_not_granted">Acesso a Notificações Não Concedido</string>
+    <string name="enable">Ativar</string>
+    <string name="notification_listener">Ouvinte de Notificações</string>
+    <string name="controls_header">Controles</string>
+    <string name="overlay_label">Sobreposição</string>
+    <string name="overlay_offset_label">Deslocamento da Sobreposição</string>
+    <string name="reset_button">Redefinir</string>
+    <string name="default_offset_value">0</string>
+    <string name="tip_vision_mode">Dica: O modo visão funciona mesmo com a sobreposição desativada</string>
+    <string name="socket_server_port_label">Porta do Servidor Socket</string>
+    <string name="default_port">8080</string>
+    <string name="connection_details_header">Detalhes da Conexão</string>
+    <string name="socket_status_label">Status do Socket:</string>
+    <string name="service_not_available">Serviço não disponível</string>
+    <string name="network_access_header">Acesso à Rede</string>
+    <string name="ip_label">"IP: "</string>
+    <string name="unavailable">Indisponível</string>
+    <string name="token_label">"Token: "</string>
+    <string name="copy_token_content_description">Copiar token</string>
+    <string name="adb_forward_command_header">Comando ADB Forward</string>
+    <string name="adb_forward_command_placeholder">adb forward tcp:8080 tcp:8080</string>
+    <string name="endpoints_header">Endpoints</string>
+    <string name="http_method_get">GET</string>
+    <string name="endpoint_a11y_tree">/a11y_tree</string>
+    <string name="endpoint_phone_state">/phone_state</string>
+    <string name="endpoint_state">/state</string>
+    <string name="endpoint_ping">/ping</string>
+    <string name="endpoint_a11y_tree_full">/a11y_tree_full</string>
+    <string name="endpoint_packages">/packages</string>
+    <string name="endpoint_screenshot">/screenshot</string>
+    <string name="http_method_post">POST</string>
+    <string name="endpoint_keyboard_input">/keyboard/input</string>
+    <string name="endpoint_keyboard_clear">/keyboard/clear</string>
+    <string name="endpoint_keyboard_key">/keyboard/key</string>
+    <string name="endpoint_overlay_offset">/overlay_offset</string>
+    <string name="logs_link_text">Logs</string>
+
+    <!-- Sheet Settings -->
+    <string name="websocket_settings_header">Configurações WebSocket</string>
+    <string name="server_configuration_header">CONFIGURAÇÃO DO SERVIDOR</string>
+    <string name="enable_ws_server_label">Ativar Servidor WS</string>
+    <string name="allow_external_connections_label">Permitir conexões externas WS</string>
+    <string name="port_label">Porta</string>
+    <string name="reverse_connection_header">CONEXÃO REVERSA (MODO CLIENTE)</string>
+    <string name="connect_to_host_label">Conectar ao Host</string>
+    <string name="initiate_outbound_connection_label">Iniciar conexão de saída</string>
+    <string name="host_url_hint">URL do Host (ws://...)</string>
+    <string name="token_optional_hint">Token (Opcional)</string>
+    <string name="event_filters_header">FILTROS DE EVENTOS</string>
+    <string name="notifications_label">Notificações</string>
+    <string name="push_system_notifications_label">Enviar notificações do sistema</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Bem-vindo ao\nPhoneGPT</string>
+    <string name="onboarding_welcome_subtitle">Uma IA que age para que você não precise</string>
+    <string name="onboarding_get_started">Começar</string>
+
+    <string name="onboarding_accessibility_title">Permissão de Acessibilidade</string>
+    <string name="onboarding_accessibility_body">Precisamos de acesso à interface deste dispositivo</string>
+    <string name="onboarding_accessibility_card_title">Dados e dispositivo permanecem</string>
+    <string name="onboarding_accessibility_safe">Seguros e privados</string>
+    <string name="onboarding_accessibility_no_recording">Sem gravação de tela</string>
+    <string name="onboarding_accessibility_on_device">No dispositivo</string>
+
+    <string name="onboarding_accessibility_guide_title">Conceder Permissão de Acessibilidade</string>
+    <string name="onboarding_accessibility_guide_step1">Toque em \"PhoneGPT\" na lista</string>
+    <string name="onboarding_accessibility_guide_step2">Ative o interruptor e confirme</string>
+
+    <string name="onboarding_overlay_title">Permissão de Sobreposição</string>
+    <string name="onboarding_overlay_body">Precisamos mostrar controles enquanto trabalhamos</string>
+    <string name="onboarding_overlay_card_title">A sobreposição permite que você</string>
+    <string name="onboarding_overlay_benefit1">Controle o agente</string>
+    <string name="onboarding_overlay_benefit2">Dê comandos</string>
+    <string name="onboarding_overlay_benefit3">Veja o que está acontecendo</string>
+    <string name="onboarding_overlay_learn_more_message">A sobreposição permite que PhoneGPT mostre um painel de controle flutuante sobre outros aplicativos. Isso permite que você interaja com o agente, dê comandos e monitore seu progresso sem trocar de aplicativo.</string>
+
+    <string name="onboarding_overlay_guide_title">Conceder Sobreposição</string>
+    <string name="onboarding_overlay_guide_step1">Encontre \"PhoneGPT\" na lista</string>
+    <string name="onboarding_overlay_guide_step2">Ative \"Permitir exibição sobre outros apps\"</string>
+
+    <string name="onboarding_recognition_title">Permissão do Microfone</string>
+    <string name="onboarding_recognition_body">Precisamos do microfone para comandos de voz</string>
+    <string name="onboarding_recognition_card_title">O controle por voz permite que você</string>
+    <string name="onboarding_recognition_benefit1">Dê comandos por voz</string>
+    <string name="onboarding_recognition_benefit2">Controle sem as mãos</string>
+    <string name="onboarding_recognition_benefit3">Trabalhe mais rápido com a fala</string>
+    <string name="onboarding_recognition_learn_more_message">A permissão do microfone permite que PhoneGPT ouça seus comandos de voz. Isso habilita o controle sem as mãos e facilita a interação natural com o agente através da fala.</string>
+
+    <string name="onboarding_recognition_guide_title">Conceder Permissão do Microfone</string>
+    <string name="onboarding_recognition_guide_step1">Toque em \"Permitir\" quando solicitado</string>
+    <string name="onboarding_recognition_guide_step2">Conceda acesso ao microfone para ativar o controle por voz</string>
+    <string name="onboarding_recognition_permission_denied">Permissão do microfone negada. Você pode ativá-la mais tarde nas configurações.</string>
+    <string name="onboarding_recognition_rationale">PhoneGPT precisa de acesso ao microfone para entender seus comandos de voz.</string>
+    <string name="onboarding_recognition_waiting">Toque no botão abaixo para conceder a permissão</string>
+
+    <string name="onboarding_assistant_title">Assistente Padrão</string>
+    <string name="onboarding_assistant_body">Defina PhoneGPT como seu assistente padrão</string>
+    <string name="onboarding_assistant_benefits">Benefícios</string>
+    <string name="onboarding_assistant_benefit1">Acesse PhoneGPT de qualquer lugar</string>
+    <string name="onboarding_assistant_benefit2">Pressione e segure o botão início</string>
+    <string name="onboarding_assistant_benefit3">Comandos de voz rápidos</string>
+    <string name="onboarding_assistant_optional">Esta etapa é opcional</string>
+
+    <string name="onboarding_success_title">Tudo Pronto!</string>
+    <string name="onboarding_success_message">PhoneGPT está pronto para ajudá-lo com qualquer coisa</string>
+
+    <string name="onboarding_button_continue">Continuar</string>
+    <string name="onboarding_button_learn_more">Saiba Mais</string>
+    <string name="onboarding_button_open_settings">Abrir Configurações</string>
+    <string name="onboarding_button_grant_permission">Conceder Permissão</string>
+    <string name="onboarding_button_skip">Pular</string>
+    <string name="onboarding_button_back">Voltar</string>
+    <string name="onboarding_stepper_format">%1$d — %2$d</string>
+    <string name="onboarding_waiting_for_permission">Aguardando permissão…</string>
+
+    <!-- Survey -->
+    <string name="survey_user_type_question">Você é um indivíduo ou uma empresa?</string>
+    <string name="survey_user_type_individual">Individual</string>
+    <string name="survey_user_type_individual_desc">Uso PhoneGPT para tarefas pessoais</string>
+    <string name="survey_user_type_company">Empresa</string>
+    <string name="survey_user_type_company_desc">Uso PhoneGPT para minha organização</string>
+
+    <string name="survey_company_size_question">Qual é o tamanho da sua empresa?</string>
+    <string name="survey_company_size_just_me">Só eu</string>
+    <string name="survey_company_size_2_10">2–10 funcionários</string>
+    <string name="survey_company_size_11_50">11–50 funcionários</string>
+    <string name="survey_company_size_51_200">51–200 funcionários</string>
+    <string name="survey_company_size_201_1000">201–1.000 funcionários</string>
+    <string name="survey_company_size_1000_plus">1.000+ funcionários</string>
+
+    <string name="survey_industry_question">Em qual setor você está?</string>
+    <string name="survey_industry_technology">Tecnologia</string>
+    <string name="survey_industry_healthcare">Saúde</string>
+    <string name="survey_industry_finance">Finanças</string>
+    <string name="survey_industry_education">Educação</string>
+    <string name="survey_industry_retail">Varejo</string>
+    <string name="survey_industry_manufacturing">Manufatura</string>
+    <string name="survey_industry_real_estate">Imobiliário</string>
+    <string name="survey_industry_transportation">Transporte</string>
+    <string name="survey_industry_marketing">Marketing</string>
+    <string name="survey_industry_legal">Jurídico</string>
+    <string name="survey_industry_non_profit">Sem Fins Lucrativos</string>
+    <string name="survey_industry_government">Governo</string>
+    <string name="survey_industry_entertainment">Entretenimento</string>
+    <string name="survey_industry_hospitality">Hotelaria</string>
+    <string name="survey_industry_construction">Construção</string>
+    <string name="survey_industry_agriculture">Agricultura</string>
+    <string name="survey_industry_other">Outro</string>
+
+    <string name="survey_role_question_company">Qual é o seu cargo?</string>
+    <string name="survey_role_question_individual">Qual é o seu título profissional?</string>
+    <string name="survey_role_software_engineer">Engenheiro de Software</string>
+    <string name="survey_role_product_manager">Gerente de Produto</string>
+    <string name="survey_role_designer">Designer</string>
+    <string name="survey_role_ceo">CEO</string>
+    <string name="survey_role_founder">Fundador</string>
+    <string name="survey_role_cto">CTO</string>
+    <string name="survey_role_engineer">Engenheiro</string>
+    <string name="survey_role_data_scientist">Cientista de Dados</string>
+    <string name="survey_role_marketing">Marketing</string>
+    <string name="survey_role_sales">Vendas</string>
+    <string name="survey_role_customer_support">Suporte ao Cliente</string>
+    <string name="survey_role_operations">Operações</string>
+    <string name="survey_role_hr">Recursos Humanos</string>
+    <string name="survey_role_finance">Finanças</string>
+    <string name="survey_role_analyst">Analista</string>
+    <string name="survey_role_manager">Gerente</string>
+    <string name="survey_role_director">Diretor</string>
+    <string name="survey_role_vp">VP</string>
+    <string name="survey_role_consultant">Consultor</string>
+    <string name="survey_role_freelancer">Freelancer</string>
+    <string name="survey_role_student">Estudante</string>
+    <string name="survey_role_researcher">Pesquisador</string>
+    <string name="survey_role_teacher">Professor</string>
+    <string name="survey_role_developer">Desenvolvedor</string>
+    <string name="survey_role_qa">QA/Testes</string>
+    <string name="survey_role_devops">DevOps</string>
+    <string name="survey_role_security">Segurança</string>
+    <string name="survey_role_admin">Admin</string>
+    <string name="survey_role_legal">Jurídico</string>
+    <string name="survey_role_other">Outro</string>
+    <string name="survey_role_custom_hint">Digite seu cargo</string>
+
+    <string name="survey_use_case_question">Para que você quer usar PhoneGPT?</string>
+    <string name="survey_use_case_hint">Conte-nos sobre seu caso de uso…</string>
+    <string name="survey_use_case_error">Por favor, digite pelo menos 10 caracteres</string>
+    <string name="survey_use_case_counter">%1$d / 500</string>
+
+    <string name="survey_personalizing_analyzing">Analisando seu perfil…</string>
+    <string name="survey_personalizing_customizing">Personalizando PhoneGPT para %s…</string>
+    <string name="survey_personalizing_saving">Sincronizando suas preferências…</string>
+
+    <string name="survey_button_next">Próximo</string>
+    <string name="survey_button_finish">Finalizar</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">Atualizar para Premium</string>
+    <string name="paywall_yearly_price">R$399,99</string>
+    <string name="paywall_yearly_period">/ano</string>
+    <string name="paywall_yearly_equivalent">R$779,88</string>
+    <string name="paywall_yearly_trial">5 dias de teste grátis</string>
+    <string name="paywall_yearly_badge">MELHOR VALOR</string>
+    <string name="paywall_monthly_price">R$64,99</string>
+    <string name="paywall_monthly_period">/mês</string>
+    <string name="paywall_cta_trial">Iniciar Teste Grátis</string>
+    <string name="paywall_cta_subscribe">Assinar Agora</string>
+    <string name="paywall_cancel_anytime">Cancele a qualquer momento</string>
+    <string name="paywall_benefit_1">Raciocínio de IA mais inteligente</string>
+    <string name="paywall_benefit_2">Limites máximos de uso (3M+ tokens)</string>
+    <string name="paywall_benefit_3">Automatize tarefas diárias</string>
+    <string name="paywall_benefit_4">Conecte todos os seus apps</string>
+    <string name="paywall_benefit_5">Velocidade prioritária VIP</string>
+
+    <!-- Stripe -->
+    <string name="stripe_cancel">Cancelar</string>
+    <string name="stripe_upgrade_plan">Melhorar Plano</string>
+    <string name="stripe_task_count">Você usou seus créditos grátis</string>
+    <string name="stripe_select_billing">Selecionar Período de Cobrança</string>
+    <string name="stripe_yearly">Anual</string>
+    <string name="stripe_monthly">Mensal</string>
+    <string name="stripe_yearly_price">R$399,99/ano</string>
+    <string name="stripe_yearly_savings">Economize R$379,89/ano</string>
+    <string name="stripe_yearly_trial">5 dias de teste grátis</string>
+    <string name="stripe_monthly_price">R$64,99/mês</string>
+    <string name="stripe_best_value">MELHOR VALOR</string>
+    <string name="stripe_continue_payment">Continuar para Pagamento</string>
+    <string name="stripe_check_icon_desc">Ícone de verificação</string>
+    <string name="loading">Carregando…</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_mantra_title">PhoneGPT, the Better Siri.</string>
+    <string name="auth_mantra_subtitle">O assistente pessoal que realmente faz o trabalho por você. Sem mais tocar, rolar ou copiar e colar.</string>
+
+    <!-- Home Screen -->
+    <string name="header_title">PhoneGPT</string>
+    <string name="main_prompt">Como posso\najudá-lo?</string>
+    <string name="suggested_actions_title">Ações Sugeridas</string>
+    <string name="recent_tasks_title">Tarefas Recentes</string>
+    <string name="action_doordash_title">Adicione um hambúrguer ao meu carrinho do iFood e finalize</string>
+    <string name="action_silent_mode_title">Coloque meu telefone no silencioso por duas horas</string>
+    <string name="action_uber_title">Peça um Uber para 160 Broadway, San Francisco</string>
+    <string name="action_wallpaper_title">Defina minha foto mais recente da galeria como papel de parede</string>
+    <string name="input_hint">Toque para conversar com IA</string>
+    <string name="content_description_logo">Logo PhoneGPT</string>
+    <string name="content_description_profile">Perfil</string>
+    <string name="content_description_mic">Microfone</string>
+    <string name="content_description_send">Enviar</string>
+    <string name="content_description_settings_icon">Configurações</string>
+    <string name="content_description_document_icon">Documento</string>
+
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_required_title">Permissão de Acessibilidade Necessária</string>
+    <string name="accessibility_required_message">PhoneGPT precisa de permissão de acessibilidade para executar tarefas no seu dispositivo. Por favor, ative o serviço de acessibilidade do PhoneGPT nas Configurações.</string>
+    <string name="go_to_settings">Ir para Configurações</string>
+    <string name="cancel">Cancelar</string>
+</resources>

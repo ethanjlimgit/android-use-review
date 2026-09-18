@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+    <!-- Burger icon -->
+    <path
+        android:strokeWidth="1.5"
+        android:pathData="M5,15.5 H23 C23,15.5 24,15.5 24,16.5 C24,17.5 24,18.5 24,19.5 C24,21.5 22.5,23 20.5,23 H7.5 C5.5,23 4,21.5 4,19.5 C4,18.5 4,17.5 4,16.5 C4,15.5 5,15.5 5,15.5Z"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:strokeColor="#ffffff"
+        android:strokeLineCap="round"/>
+    <path
+        android:strokeWidth="1.5"
+        android:pathData="M5,15.5 H23"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:strokeColor="#ffffff"
+        android:strokeLineCap="round"/>
+    <path
+        android:strokeWidth="1.5"
+        android:pathData="M7,12 H21 C21,9.5 19.5,7.5 17,7 C17,6 16.5,5 14,5 C11.5,5 11,6 11,7 C8.5,7.5 7,9.5 7,12Z"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:strokeColor="#ffffff"
+        android:strokeLineCap="round"/>
+</vector>

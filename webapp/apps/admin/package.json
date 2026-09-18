@@ -1,0 +1,46 @@
+{
+  "name": "@droiduse/admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "^2.9.0",
+    "@droiduse/shared-lib": "workspace:*",
+    "@droiduse/shared-prisma": "workspace:*",
+    "@droiduse/shared-ui": "workspace:*",
+    "@tanstack/react-query": "^5.90.12",
+    "@uiw/react-md-editor": "^4.0.11",
+    "bcryptjs": "^3.0.3",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.6",
+    "next-auth": "^5.0.0-beta.25",
+    "pg": "^8.16.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-simple-maps": "^3.0.0",
+    "recharts": "^3.6.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-simple-maps": "^3.0.6",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}

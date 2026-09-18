@@ -1,0 +1,266 @@
+name: Android Build and Release
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          # Build debug for PRs and regular pushes
+          - flavor: dev
+            buildType: Debug
+            buildCommand: assembleDevDebug
+            apkPath: app/build/outputs/apk/dev/debug/app-dev-debug.apk
+            artifactName: app-dev-debug
+
+          # Build signed releases only for tags
+          - flavor: staging
+            buildType: Release
+            buildCommand: assembleStagingRelease
+            apkPath: app/build/outputs/apk/staging/release/app-staging-release.apk
+            artifactName: app-staging-release
+            requiresTag: true
+
+          - flavor: production
+            buildType: Release
+            buildCommand: assembleProductionRelease
+            apkPath: app/build/outputs/apk/production/release/app-production-release.apk
+            artifactName: app-production-release
+            requiresTag: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Create google-services.json from secret
+      - name: Create google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            echo "$GOOGLE_SERVICES_JSON" > app/google-services.json
+          else
+            echo "Warning: GOOGLE_SERVICES_JSON secret not set, using example file"
+            cp app/google-services.json.example app/google-services.json
+          fi
+
+      # Skip release builds if not a tag
+      - name: Check if should build
+        id: should_build
+        run: |
+          if [[ "${{ matrix.requiresTag }}" == "true" && ! "${{ github.ref }}" =~ ^refs/tags/ ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Decode keystore from base64 for release builds
+      - name: Decode Keystore
+        if: steps.should_build.outputs.skip == 'false' && matrix.buildType == 'Release'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > androiduse-release.keystore
+            echo "KEYSTORE_FILE=$(pwd)/androiduse-release.keystore" >> $GITHUB_ENV
+          else
+            echo "Warning: KEYSTORE_BASE64 secret not set"
+          fi
+
+      # Set version name and code
+      - name: Set version
+        if: steps.should_build.outputs.skip == 'false'
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" && "${GITHUB_REF}" == refs/tags/v* ]]; then
+            VERSION_NAME="${GITHUB_REF#refs/tags/v}"
+          elif [[ "${GITHUB_REF_TYPE}" == "tag" && "${GITHUB_REF}" == refs/tags/* ]]; then
+            VERSION_NAME="${GITHUB_REF#refs/tags/}"
+          else
+            VERSION_NAME="${GITHUB_REF_NAME}-${GITHUB_SHA::7}"
+          fi
+          VERSION_CODE="${GITHUB_RUN_NUMBER}"
+          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+          echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_ENV
+          echo "Building version $VERSION_NAME ($VERSION_CODE)"
+
+      # Build APK
+      - name: Build ${{ matrix.flavor }} ${{ matrix.buildType }}
+        if: steps.should_build.outputs.skip == 'false'
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          ./gradlew ${{ matrix.buildCommand }} --no-daemon \
+            -PversionName=$VERSION_NAME \
+            -PversionCode=$VERSION_CODE
+
+      # Upload artifact
+      - name: Upload APK
+        if: steps.should_build.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifactName }}
+          path: ${{ matrix.apkPath }}
+          retention-days: 30
+
+  # Build AAB for Play Store (only for tags)
+  build-aab:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Create google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            echo "$GOOGLE_SERVICES_JSON" > app/google-services.json
+          else
+            echo "Warning: GOOGLE_SERVICES_JSON secret not set, using example file"
+            cp app/google-services.json.example app/google-services.json
+          fi
+
+      - name: Decode Keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > androiduse-release.keystore
+          echo "KEYSTORE_FILE=$(pwd)/androiduse-release.keystore" >> $GITHUB_ENV
+
+      - name: Set version from tag
+        run: |
+          VERSION_NAME="${GITHUB_REF#refs/tags/v}"
+          # Get versionCode from gradle.properties for consistency
+          VERSION_CODE=$(grep "^versionCode=" gradle.properties | cut -d'=' -f2)
+          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+          echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_ENV
+          echo "Building AAB version $VERSION_NAME ($VERSION_CODE)"
+
+      - name: Build Production AAB
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          ./gradlew bundleProductionRelease --no-daemon \
+            -PversionName=$VERSION_NAME \
+            -PversionCode=$VERSION_CODE
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-production-release-aab
+          path: app/build/outputs/bundle/productionRelease/app-production-release.aab
+          retention-days: 30
+
+  # Create GitHub release for tags
+  release:
+    needs: [build, build-aab]
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download staging APK
+        uses: actions/download-artifact@v4
+        with:
+          name: app-staging-release
+          path: artifacts
+
+      - name: Download production APK
+        uses: actions/download-artifact@v4
+        with:
+          name: app-production-release
+          path: artifacts
+
+      - name: Download production AAB
+        uses: actions/download-artifact@v4
+        with:
+          name: app-production-release-aab
+          path: artifacts
+
+      - name: Rename artifacts with version
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          cd artifacts
+          mv app-staging-release.apk "androiduse-staging-${TAG_NAME}.apk"
+          mv app-production-release.apk "androiduse-${TAG_NAME}.apk"
+          mv app-production-release.aab "androiduse-${TAG_NAME}.aab"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*
+          draft: false
+          prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
+          generate_release_notes: true
+
+  # Publish to Google Play Store
+  publish-play-store:
+    needs: build-aab
+    if: startsWith(github.ref, 'refs/tags/') && !contains(github.ref, 'alpha') && !contains(github.ref, 'beta')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download production AAB
+        uses: actions/download-artifact@v4
+        with:
+          name: app-production-release-aab
+          path: artifacts
+
+      - name: Publish to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.androiduse.autopilot
+          releaseFiles: artifacts/app-production-release.aab
+          track: internal  # Options: internal, alpha, beta, production
+          status: completed
+          # Optional: include mapping file for crash symbolication
+          # mappingFile: artifacts/mapping.txt
+          # Optional: whatsnew directory with release notes per locale
+          # whatsNewDirectory: whatsnew/
+
+  # Optional: Promote from internal to production track
+  promote-to-production:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Promote to Production
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.androiduse.autopilot
+          track: internal
+          status: completed
+          # Promote from internal track to production
+          # This is triggered manually via workflow_dispatch
